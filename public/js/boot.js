@@ -25,6 +25,10 @@ var create = function(){
 // Scales canvas based on screen size
 	game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
+	game.add.plugin(PhaserInput.Plugin);
+
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
 	background = game.add.tileSprite(0, 0, 800, 600, 'background');
 
 	button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
@@ -53,6 +57,3 @@ function actionOnClick () {
 
 }
 
-game.add.plugin(PhaserInput.Plugin);
-
-game.physics.startSystem(Phaser.Physics.ARCADE);
