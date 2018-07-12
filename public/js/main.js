@@ -6,8 +6,10 @@ var game = new Phaser.Game(2048, 1536, Phaser.AUTO, '', { create: create });
 
 // Main boot screen / splash screen
 game.state.add('boot', bootState);
-// Loads all assets (with a progress bar or something)
+// Loads all assets 
 game.state.add('load', loadState);
+// Loads state with the main game loop
+game.state.add('game', mainGameState);
 
 function create() { 
 	game.state.start('boot'); 
