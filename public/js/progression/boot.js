@@ -7,9 +7,9 @@
  */
 
 var bootState = {
-    preload: function(){ BootState.load(); },
+
+    preload: function() { BootState.load(); },
     create: function() { BootState.create(); },
-    update: function() { if(testing) BootState.updateLevel(); },
 }
 
 /**
@@ -21,39 +21,48 @@ var startLevelID = 0;
 var background;
 var startButton;
 
-var create = function(){
-// Scales canvas based on screen size
-	game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+var BootState = (function() {
 
-	game.add.plugin(PhaserInput.Plugin);
+    var load = function(){ 
+        game.load.image('background', 'images/background/background.png');
+    }
 
-    game.physics.startSystem(Phaser.Physics.ARCADE);
 
-	background = game.add.tileSprite(0, 0, 800, 600, 'background');
+    var create = function(){
+    // Scales canvas based on screen size
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
-	button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
+        game.add.plugin(PhaserInput.Plugin);
 
-	button.onInputOver.add(over, this);
-    button.onInputOut.add(out, this);
-    button.onInputUp.add(up, this);
+        game.physics.startSystem(Phaser.Physics.ARCADE);
 
-}
+        button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
 
-function up() {
-    console.log('button up', arguments);
-}
+        background = game.add.tileSprite(0, 0, 800, 600, 'background');
+        button.onInputOver.add(over, this);
+        button.onInputOut.add(out, this);
+        button.onInputUp.add(up, this);
 
-function over() {
-    console.log('button over');
-}
+    }
 
-function out() {
-    console.log('button out');
-}
+    var up = function(){
+        console.log('button up', arguments);
+    }
 
-function actionOnClick () {
+    var over = function(){
+        console.log('button over');
+    }   
 
-    background.visible =! background.visible;
+    var out = function() {
+        console.log('button out');
+    }
 
-}
+    var actionOnClick = function () {
+        background.visible =! background.visible;
+    }
 
+    return {
+        load: load,
+        create: create
+    };
+}());
