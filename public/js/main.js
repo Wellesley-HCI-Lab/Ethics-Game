@@ -9,7 +9,7 @@ game.state.add('boot', bootState);
 // Loads all assets 
 game.state.add('load', loadState);
 // Loads state with the main game loop
-game.state.add('game', mainGameState);
+// game.state.add('game', mainGameState);
 
 
 function create() { 
