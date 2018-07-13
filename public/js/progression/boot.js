@@ -35,10 +35,8 @@ var BootState = (function() {
         game.add.plugin(PhaserInput.Plugin);
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
-
+        addSprite(0, 0, false, 'background', game.width, game.height);
         button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
-
-        background = game.add.tileSprite(0, 0, 800, 600, 'background');
         button.onInputOver.add(over, this);
         button.onInputOut.add(out, this);
         button.onInputUp.add(up, this);
