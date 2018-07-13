@@ -25,7 +25,9 @@ var BootState = (function() {
 
     var load = function(){ 
         game.load.image('background', 'images/background/background.png');
+        game.load.image('button', 'images/background/button.jpg');
     }
+
 
 
     var create = function(){
@@ -35,35 +37,38 @@ var BootState = (function() {
         game.add.plugin(PhaserInput.Plugin);
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
+<<<<<<< HEAD
 
-        button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
 
         background = game.add.tileSprite(0, 0, 800, 600, 'background');
+        button = game.add.button(game.world.centerX - 95, 400, 'button', callLoad, this, 2, 1, 0);
+        
+=======
+        addSprite(0, 0, false, 'background', game.width, game.height);
+        button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
         button.onInputOver.add(over, this);
         button.onInputOut.add(out, this);
         button.onInputUp.add(up, this);
+>>>>>>> cdc88ca4ed0654a77ac317d91aace581c6fa68a8
+
+    }
+    
+    var callLoad = function(){
+        game.state.start('load');
+        console.log('move state please');
 
     }
 
-    var up = function(){
-        console.log('button up', arguments);
-    }
+   
 
-    var over = function(){
-        console.log('button over');
-    }   
 
-    var out = function() {
-        console.log('button out');
-    }
 
-    var actionOnClick = function () {
-        background.visible =! background.visible;
-    }
+   
+
+    
 
     return {
         load: load,
         create: create
     };
 }());
->>>>>>> 9d673d90657b3bd95a34ef1079a7b9be514f7901
