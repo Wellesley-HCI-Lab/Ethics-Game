@@ -6,8 +6,7 @@
  */
 var loadState = {
 	preload: function(){ LoadState.load(); },
-	//create: function() { game.state.start('introVideo'); }
-   create: function() { game.state.start('game'); }
+    create: function() { game.state.start('findAnglerfish'); }
 }
 
 /**
@@ -20,7 +19,7 @@ var LoadState = (function() {
      * @memberOf module:LoadState
      */
     var load = function() {
-        submarine.load();
+        SubUnderwater.load();
     }
     
     return {

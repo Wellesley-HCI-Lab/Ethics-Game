@@ -36,11 +36,19 @@ var BootState = (function() {
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         addSprite(0, 0, false, 'background', game.width, game.height);
-        button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
-        button.onInputOver.add(over, this);
-        button.onInputOut.add(out, this);
-        button.onInputUp.add(up, this);
+        // button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
+        // button.onInputOver.add(over, this);
+        // button.onInputOut.add(out, this);
+        // button.onInputUp.add(up, this);
 
+        var startButton = addScaledSprite(0.5, 0.5, true, "startButton", 2, undefined, true);
+        startButton.inputEnabled = true;
+        startButton.events.onInputDown.add(_startButtonDown, this);
+
+    }
+
+    var _startButtonDown = function() {
+        game.state.start('load');
     }
 
     var up = function(){
