@@ -27,9 +27,7 @@ var BootState = (function() {
         game.load.image('background', 'images/background/background.png');
         game.load.image('button', 'images/background/button.jpg');
     }
-
-
-
+    
     var create = function(){
     // Scales canvas based on screen size
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -40,23 +38,12 @@ var BootState = (function() {
 
         background = game.add.tileSprite(0, 0, 800, 600, 'background');
         button = game.add.button(game.world.centerX-95,400, 'button', callLoad, this, 2, 1, 0);
-  
-  
     }
     
     var callLoad = function(){
         game.state.start('load');
         console.log('move state please');
-
     }
-
-   
-
-
-
-   
-
-    
 
     return {
         load: load,
