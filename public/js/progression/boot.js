@@ -25,7 +25,7 @@ var BootState = (function() {
 
     var load = function(){ 
         game.load.image('background', 'images/background/background.png');
-        game.load.image('button', 'images/background/button.jpg');
+        game.load.image('button', 'images/background/button.png');
     }
     
     var create = function(){
