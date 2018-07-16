@@ -27,6 +27,7 @@ var BootState = (function() {
         game.load.image('background', 'images/background/background.png');
         game.load.image('button', 'images/background/button.png');
         game.load.image('porthole', 'images/background/portholeSub.png')
+        game.load.image('underwaterbac', 'images/background/underwater.png')
     }
     
     var create = function(){
@@ -38,6 +39,7 @@ var BootState = (function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         //background = game.add.tileSprite(0, 0, 800, 600, 'background');
+        underwaterbac = game.add.tileSprite(0, 0, 600, 600, 'underwaterbac');
         porthole = game.add.tileSprite(0, 0, 800, 600, 'porthole');
         button = game.add.button(game.world.centerX-95,400, 'button', callLoad, this, 2, 1, 0);
     }
