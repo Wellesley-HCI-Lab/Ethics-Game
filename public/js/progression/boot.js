@@ -38,7 +38,7 @@ var BootState = (function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         background = game.add.tileSprite(0, 0, 800, 600, 'background');
-        porthole = game.add.sprite(0, 0, 400, 300, 'porthole');
+        porthole = game.add.sprite(800, 600, 'porthole');
         button = game.add.button(game.world.centerX-95,400, 'button', callLoad, this, 2, 1, 0);
     }
     
