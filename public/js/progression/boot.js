@@ -26,6 +26,7 @@ var BootState = (function() {
     var load = function(){ 
         game.load.image('background', 'images/background/background.png');
         game.load.image('button', 'images/background/button.png');
+        game.load.image('porthole', 'images/background/portholeSub.jpg')
     }
 
 
@@ -39,6 +40,7 @@ var BootState = (function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         background = game.add.tileSprite(0, 0, 800, 600, 'background');
+        porthole = game.add.tileSprite(0, 0, 800, 600, 'porthole');
         button = game.add.button(game.world.centerX-95,400, 'button', callLoad, this, 2, 1, 0);
   
   
