@@ -26,7 +26,7 @@ var BootState = (function() {
     var load = function(){ 
         game.load.image('background', 'images/background/background.png');
         game.load.image('button', 'images/background/button.png');
-        game.load.image('porthole', 'images/background/portholeSub.jpg')
+        game.load.image('porthole', 'images/background/portholeSub.png')
     }
     
     var create = function(){
