@@ -39,7 +39,7 @@ var BootState = (function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         //background = game.add.tileSprite(0, 0, 800, 600, 'background');
-        underwaterbac = game.add.tileSprite(0, 0, 600, 800, 'underwaterbac');
+        underwaterbac = game.add.tileSprite(0, 0, 800, 400, 'underwaterbac');
         porthole = game.add.tileSprite(0, 0, 800, 600, 'porthole');
         button = game.add.button(game.world.centerX-95,400, 'button', callLoad, this, 2, 1, 0);
     }
