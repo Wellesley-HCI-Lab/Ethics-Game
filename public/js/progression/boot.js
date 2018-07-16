@@ -44,7 +44,7 @@ var BootState = (function() {
     
     var callLoad = function(){
         game.state.start('load');
-        console.log('move state please');
+        console.log('move state to game');
     }
 
     return {
