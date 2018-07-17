@@ -20,6 +20,7 @@ var LoadState = (function() {
      */
     var load = function() {
         SubUnderwater.load();
+        GlowingAnglerfish.load();
     }
     
     return {
