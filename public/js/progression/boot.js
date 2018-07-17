@@ -31,6 +31,7 @@ var BootState = (function() {
         game.load.image('ang', 'images/background/ang.png');
         game.load.image('ball', 'images/background/bubble256.png');
         game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
+        game.load.image('title', 'images/background/title.png');
     }
     
     var create = function(){
@@ -80,6 +81,8 @@ var BootState = (function() {
         porthole = game.add.tileSprite(0, 0, 800, 600, 'porthole');
         //button pic
         button = game.add.button(game.world.centerX-120,400, 'button', callLoad, this, 2, 1, 0);
+        //title-logo pic
+        title = game.add.image(160, 90, 'title');
 
 
     }
