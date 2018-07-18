@@ -2,7 +2,7 @@
  * Loads submarine images
  * @exports submarine
  */
-var submarine = (function() {
+var Submarine = (function() {
 	/**
      * Loads background images
      * @memberOf module:submarine

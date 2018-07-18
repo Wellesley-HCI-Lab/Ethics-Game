@@ -1,32 +1,39 @@
 /**
- * The main game state functions
+ * The findAnglerfishState, appears after Intro state
  * @exports findAnglerfishState
  */
 
 var findAnglerfishState = {
 	// preload: function(){ FindAnglerfish.load(); },
-	create: function(){ FindAnglerfish.create(); },
-	// shutdown: function(){ FindAnglerfish.destroy(); }
+    create: function(){ FindAnglerfishState.create(); },
+    update: function(){ FindAnglerfishState.update();},
+	// shutdown: function(){ FindAnglerfish.shutdown(); }
 }
 
-var FindAnglerfish = (function() {
+var FindAnglerfishState = (function() {
 
     var create = function(){
-    
         SubUnderwater.create();
+        GlowingAnglerfish.create()
+        rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+    }
+
+    var update = function(){
+        GlowingAnglerfish.update();
+        if (angieAppears.alpha === 1){
+            game.input.onTap.add(onTap, this);
+        }
+    }
+
+    var onTap = function(){
+        game.state.start('learn');
 
     }
 
-    // var update = function(){
-
-    // }
-
-    // var destroy = function(){
-
-    // }
-
     return {       
         create: create,
+        update: update,
+        onTap: onTap
     };
 
 }());
