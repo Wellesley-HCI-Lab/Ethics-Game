@@ -20,6 +20,14 @@ var LoadState = (function() {
      */
     var load = function() {
         SubUnderwater.load();
+        
+    }
+
+
+    var activeRadio = function(){
+
+
+
     }
     
     return {

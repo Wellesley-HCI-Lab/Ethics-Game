@@ -32,6 +32,7 @@ var BootState = (function() {
         game.load.image('ball', 'images/background/bubble256.png');
         game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
         game.load.image('title', 'images/background/title.png');
+        game.load.atlasJSONHash('radio', 'images/radio/walkietalkie.png', 'images/radio/walkietalkie.json');
     }
     
     var create = function(){
@@ -84,6 +85,13 @@ var BootState = (function() {
         //title-logo pic
         title = game.add.image(160, 90, 'title');
 
+        walkie = game.add.sprite(200,200,'radio');
+        walkie.scale.setTo(1,1);
+        walkie.animations.add('walk');
+        walkie.animations.play('walk', 50, true);
+
+      
+
 
     }
 
@@ -113,6 +121,7 @@ var BootState = (function() {
     var callLoad = function(){
         game.state.start('load');
         console.log('move state to game');
+        game.sound.stopAll();
     }
 
     
