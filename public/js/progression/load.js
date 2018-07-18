@@ -22,6 +22,7 @@ var LoadState = (function() {
         SubUnderwater.load();
         GlowingAnglerfish.load();
         Scientist.load();
+        Anglerfish.load();
         Crispee.load();
     }
     

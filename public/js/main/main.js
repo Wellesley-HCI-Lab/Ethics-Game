@@ -12,6 +12,8 @@ game.state.add('load', loadState);
 game.state.add('intro', introState);
 // Loads state with the findAnglerfish minigame
 game.state.add('findAnglerfish', findAnglerfishState);
+// Loads state where user gets to learn more about Anglerfish
+game.state.add('learn', learnState);
 // Loads state with the CRISPEE interaction
 game.state.add('crispeePlay', crispeePlayState)
 

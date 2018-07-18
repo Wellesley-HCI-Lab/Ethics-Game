@@ -5,12 +5,12 @@
 
 var findAnglerfishState = {
 	// preload: function(){ FindAnglerfish.load(); },
-    create: function(){ FindAnglerfish.create(); },
-    update: function(){ FindAnglerfish.update();},
+    create: function(){ FindAnglerfishState.create(); },
+    update: function(){ FindAnglerfishState.update();},
 	// shutdown: function(){ FindAnglerfish.shutdown(); }
 }
 
-var FindAnglerfish = (function() {
+var FindAnglerfishState = (function() {
 
     var create = function(){
         SubUnderwater.create();
@@ -26,7 +26,7 @@ var FindAnglerfish = (function() {
     }
 
     var onTap = function(){
-        game.state.start('crispeePlay');
+        game.state.start('learn');
 
     }
 
