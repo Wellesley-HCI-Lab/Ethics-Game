@@ -1,0 +1,52 @@
+{"frames": {
+
+"rad001.png":
+{
+	"frame": {"x":1,"y":321,"w":414,"h":298},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":80,"w":414,"h":298},
+	"sourceSize": {"w":609,"h":536}
+},
+"rad002.png":
+{
+	"frame": {"x":1,"y":621,"w":414,"h":298},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":80,"w":414,"h":298},
+	"sourceSize": {"w":609,"h":536}
+},
+"rad003.png":
+{
+	"frame": {"x":1,"y":1,"w":414,"h":318},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":60,"w":414,"h":318},
+	"sourceSize": {"w":609,"h":536}
+},
+"rad004.png":
+{
+	"frame": {"x":1,"y":621,"w":414,"h":298},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":80,"w":414,"h":298},
+	"sourceSize": {"w":609,"h":536}
+},
+"rad005.png":
+{
+	"frame": {"x":1,"y":321,"w":414,"h":298},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":80,"w":414,"h":298},
+	"sourceSize": {"w":609,"h":536}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "walkietalkie.png",
+	"format": "RGBA8888",
+	"size": {"w":416,"h":920},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:224c707afd6cefc9ae44da094cbb4147:fdb6b50f46fb7e1fed6395f4056bd3c9:09e2cbbe39519d7c38c7bacd6194e4d1$"
+}
+}
