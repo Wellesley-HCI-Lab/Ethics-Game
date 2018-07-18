@@ -8,8 +8,12 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { create: create });
 game.state.add('boot', bootState);
 // Loads all assets 
 game.state.add('load', loadState);
+// Loads state introducing Pam the scientist
+game.state.add('intro', introState);
 // Loads state with the findAnglerfish minigame
 game.state.add('findAnglerfish', findAnglerfishState);
+// Loads state with the CRISPEE interaction
+game.state.add('crispeePlay', crispeePlayState)
 
 
 function create() { 

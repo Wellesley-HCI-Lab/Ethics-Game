@@ -20,7 +20,7 @@ var GlowingAnglerfish = ( function () {
     var create = function() {
         // addSprite(0, 0, false, 'smallGlow', game.width, game.height);
         smallGlow = addSprite(600, 200, false, 'smallGlow', 100, 100);
-        angieAppears = addScaledSprite(0, 0, false, 'angieAppears', 0.1);
+        angieAppears = addScaledSprite(200, 100, false, 'angieAppears', 0.1);
         angieAppears.alpha = 0.0;
         smallGlow.inputEnabled = true;
         // smallGlow.events.onInputDown.add(showAngie, this);
@@ -28,12 +28,10 @@ var GlowingAnglerfish = ( function () {
 
     var update = function() {
 
+    // Adds a small glowing ball to the screen and tweens it to move from back and forth
+    // Shows the image of Angie when clicked
         if (smallGlow.x === 100)
         {
-            //	Here you'll notice we are using a relative value for the tween.
-            //	You can specify a number as a string with either + or - at the start of it.
-            //	When the tween starts it will take the sprites current X value and add +300 to it.
-
             // TODO: Add an elliptical curve based on the following tutorials
             // https://phaser.io/phaser3/devlog/99 
             // https://www.emanueleferonato.com/2015/08/21/playing-with-phaser-tweens-and-bezier-curves/
@@ -51,7 +49,6 @@ var GlowingAnglerfish = ( function () {
 
     var showAngie = function(){
         smallGlow.destroy();
-        // game.add.tween(angieAppears).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
         game.add.tween(angieAppears).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true, 0);
 
     }

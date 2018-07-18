@@ -6,7 +6,7 @@
  */
 var loadState = {
 	preload: function(){ LoadState.load(); },
-    create: function() { game.state.start('findAnglerfish'); }
+    create: function() { game.state.start('intro'); }
 }
 
 /**
@@ -21,6 +21,8 @@ var LoadState = (function() {
     var load = function() {
         SubUnderwater.load();
         GlowingAnglerfish.load();
+        Scientist.load();
+        Crispee.load();
     }
     
     return {
