@@ -13,39 +13,27 @@ var findAnglerfishState = {
 var FindAnglerfish = (function() {
 
     var create = function(){
-    
         SubUnderwater.create();
         GlowingAnglerfish.create()
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
-
-
     }
 
     var update = function(){
-
         GlowingAnglerfish.update();
-        if (rightKey.isDown){
-            game.state.start('crispeePlay');
+        if (angieAppears.alpha === 1){
+            game.input.onTap.add(onTap, this);
         }
-
     }
 
-    // var onTap = function(){
-    // }
+    var onTap = function(){
+        game.state.start('crispeePlay');
 
-    // var shutdown = function(){
-    //     game.input.onTap.add(onTap, this);
-
-    // }
-
-
-
-
+    }
 
     return {       
         create: create,
         update: update,
-        // shutdown: shutdown
+        onTap: onTap
     };
 
 }());

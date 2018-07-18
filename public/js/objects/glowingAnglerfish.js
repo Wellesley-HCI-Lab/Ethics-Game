@@ -36,11 +36,11 @@ var GlowingAnglerfish = ( function () {
             // https://phaser.io/phaser3/devlog/99 
             // https://www.emanueleferonato.com/2015/08/21/playing-with-phaser-tweens-and-bezier-curves/
 
-            game.add.tween(smallGlow).to( { x: '+500' }, 2000, Phaser.Easing.Linear.None, true);
+            game.add.tween(smallGlow).to( { x: '+500' }, 2500, Phaser.Easing.Linear.None, true);
         }
         else if (smallGlow.x === 600)
         {
-            game.add.tween(smallGlow).to( { x: '-500' }, 2000, Phaser.Easing.Linear.None, true);
+            game.add.tween(smallGlow).to( { x: '-500' }, 2500, Phaser.Easing.Linear.None, true);
         }
 
         smallGlow.events.onInputDown.add(showAngie, this);
@@ -49,7 +49,7 @@ var GlowingAnglerfish = ( function () {
 
     var showAngie = function(){
         smallGlow.destroy();
-        game.add.tween(angieAppears).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true, 0);
+        game.add.tween(angieAppears).to( { alpha: 1 }, 1500, Phaser.Easing.Linear.None, true, 0);
 
     }
 
