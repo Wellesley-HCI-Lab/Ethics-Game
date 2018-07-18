@@ -19,5 +19,6 @@ game.state.add('crispeePlay', crispeePlayState)
 
 
 function create() { 
+	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.state.start('boot'); 
 }

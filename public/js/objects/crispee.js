@@ -8,7 +8,8 @@ var Crispee = (function() {
      * @memberOf module:Crispee
      */
 	function load() {
-		game.load.image('crispee', 'images/crispee/crispeeEmpty.png');
+        game.load.image('crispee', 'images/crispee/crispeeEmpty.png');
+        game.load.image('blueBlockOut', 'images/blocks/blueBlockOut.png')
 	}
 
 	/**

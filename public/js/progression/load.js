@@ -20,11 +20,10 @@ var LoadState = (function() {
      */
     var load = function() {
         SubUnderwater.load();
-    }
-
         GlowingAnglerfish.load();
         Scientist.load();
         Anglerfish.load();
+        Crispee.load();
     }
     
     return {
