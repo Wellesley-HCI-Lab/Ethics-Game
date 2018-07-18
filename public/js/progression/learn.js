@@ -1,5 +1,7 @@
 /**
- * The Learn state, where the user gets explore facts about Anglerfish
+ * PROGRESSION OF STATES (updated 7/18)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+ * The Learn state, where the user gets to explore facts about Anglerfish
  * @exports learnState
  */
 

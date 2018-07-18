@@ -1,5 +1,8 @@
 /**
- * The findAnglerfishState, appears after Intro state
+ * PROGRESSION OF STATES (updated 7/18)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+ * The findAnglerfishState, where the submarine sees the glow in the water
+ * and discovers an anglerfish
  * @exports findAnglerfishState
  */
 

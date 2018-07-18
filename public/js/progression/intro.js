@@ -1,4 +1,7 @@
 /**
+/** 
+ * PROGRESSION OF STATES (updated 7/18)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
  * The Intro state, where Pam and the submarine crew are 
  * introduced, and their mission is explained
  * @exports introState

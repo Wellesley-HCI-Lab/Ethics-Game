@@ -1,5 +1,8 @@
 /**
- * The crispeePlay state
+ * PROGRESSION OF STATES (updated 7/18)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+ * The crispeePlay state, where the user gets to input blocks into CRISPEE
+ * in order to change the color of Angie's lure.
  * @exports findAnglerfishState
  */
 
