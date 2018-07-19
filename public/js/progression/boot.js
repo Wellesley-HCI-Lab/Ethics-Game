@@ -20,10 +20,12 @@ var startLevelID = 0;
 
 var background;
 var startButton;
+var speechButton;
 
 var BootState = (function() {
 
     var load = function(){ 
+        //game.load.image('background', 'images/background/background.png');
         game.load.image('button', 'images/background/button.png');
         game.load.image('porthole', 'images/background/portholeSub.png');
         game.load.image('underwaterbac', 'images/background/underwater.png');
@@ -32,6 +34,7 @@ var BootState = (function() {
         game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
         game.load.image('title', 'images/background/title.png');
         game.load.atlasJSONHash('radio', 'images/radio/walkietalkie.png', 'images/radio/walkietalkie.json');
+        game.load.image('next', 'images/background/nextButton.png');
     }
     
     var create = function(){
@@ -84,15 +87,72 @@ var BootState = (function() {
         //title-logo pic
         title = game.add.image(160, 90, 'title');
 
-        walkie = game.add.sprite(200,200,'radio');
-        walkie.scale.setTo(1,1);
-        walkie.animations.add('walk');
-        walkie.animations.play('walk', 50, true);
-
-      
+        //walkie = game.add.sprite(200,200,'radio');
+        //walkie.scale.setTo(1,1);
+        //walkie.animations.add('walk');
+        //walkie.animations.play('walk', 5, true);
 
 
+        ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE/////
+        speechButton = game.add.button(20, 50, 'next', actionOnClick, this, 1, 0, 2);
+        speechButton.scale.setTo(0.1, 0.1);
+
+
+        // input text into chunks as you wish
+        var content = ["Hi, and welcome! ", "It’s so good to meet the final member of our deep sea crew! ", 
+        " I’m Pam and this is my crew of bioengineers.",'We want to study the deep sea and its mysterious creatures!'];
+        // first word shown is set to the first index
+        var index = 0;
+
+        console.log(' initial dialogue ' + content[index]);
+
+        text = game.add.text(20,20, content[index]);
+        tween = game.add.tween(text);
+
+
+        function actionOnClick(){
+            text.destroy(); // Destroy the old text before the new one shows
+        
+            console.log('index before ' + index);
+            console.log('original dialogue ' + content[index]);
+            //text = game.add.text(20,20, content[index]);
+            //tween = game.add.tween(text);
+            
+            //New text appears 
+            game.add.tween(tween).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
+            //take note of index of the new word
+            var newIndex = index++ ;
+            console.log('after ' + index);
+            console.log(' new dialogue ' + content[index]);
+            //index = (index + 1) % content.length
+
+            // Show that new text on world
+            text = game.add.text(20,20, content[index]);
+            tween = game.add.tween(text);
+            console.log('dialogue length ' + content.length);
+
+            //after dialogue is complete -
+            if (index == content.length){
+                 text.destroy(); //text is destroyed
+                 speechButton.pendingDestroy = true; // button for text is destroyed
+                 return;
+            }
+        }
+
+        ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE end/////
+
+
+       
+
+
+
+       
+            
+        
     }
+
+
+
 
     //function for bubbles
     var bubbleBurst = function(){

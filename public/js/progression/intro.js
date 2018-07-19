@@ -1,6 +1,10 @@
 /**
  * The Intro state, where Pam and the submarine crew are 
  * introduced, and their mission is explained
+ * The top of submarine is open
+ * Introduce tools such as the radio and the map
+ * Scientist disappears
+ * Lid closes
  * @exports introState
  */
 
@@ -10,6 +14,7 @@ var introState = {
     update: function(){ Intro.update();}
 	// shutdown: function(){ FindAnglerfish.destroy(); }
 }
+
 
 var Intro = (function() {
 
