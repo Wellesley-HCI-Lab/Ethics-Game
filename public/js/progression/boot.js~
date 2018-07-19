@@ -1,6 +1,4 @@
 /**
- * PROGRESSION OF STATES (updated 7/18)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
  * State that boots up the game
  * @type {State}
  * @property {Function} preload Before the state loads
@@ -89,7 +87,6 @@ var BootState = (function() {
         //title-logo pic
         title = game.add.image(160, 90, 'title');
 
-
         //walkie = game.add.sprite(200,200,'radio');
         //walkie.scale.setTo(1,1);
         //walkie.animations.add('walk');
@@ -118,8 +115,6 @@ var BootState = (function() {
         
             console.log('index before ' + index);
             console.log('original dialogue ' + content[index]);
-            //text = game.add.text(20,20, content[index]);
-            //tween = game.add.tween(text);
             
             //New text appears 
             game.add.tween(tween).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
@@ -150,7 +145,8 @@ var BootState = (function() {
 
 
        
-     
+            
+        
     }
 
 
