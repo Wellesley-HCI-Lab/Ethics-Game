@@ -23,6 +23,7 @@ var startLevelID = 0;
 var background;
 var startButton;
 var speechButton;
+var textBubble;
 
 var BootState = (function() {
 
@@ -37,6 +38,8 @@ var BootState = (function() {
         game.load.image('title', 'images/background/title.png');
         game.load.atlasJSONHash('radio', 'images/radio/walkietalkie.png', 'images/radio/walkietalkie.json');
         game.load.image('next', 'images/background/nextButton.png');
+        game.load.image('textBubble', 'images/scientist/speech1.png');
+        game.load.image('pointer', 'images/generalPointer.psd');
     }
     
     var create = function(){
@@ -94,6 +97,7 @@ var BootState = (function() {
         //walkie.scale.setTo(1,1);
         //walkie.animations.add('walk');
         //walkie.animations.play('walk', 5, true);
+
 
 
         ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE/////
