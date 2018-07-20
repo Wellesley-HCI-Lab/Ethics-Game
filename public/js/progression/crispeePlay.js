@@ -7,11 +7,16 @@
  */
 
 var crispeePlayState = {
+    load: function(){ CrispeePlay.load();},
     create: function(){ CrispeePlay.create(); },
     // update: function(){ CrispeePlay.update()}
 }
 
 var CrispeePlay = (function() {
+
+    var load = function(){
+        Crispee.load();
+    }
 
     var create = function(){
     
