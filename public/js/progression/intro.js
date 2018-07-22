@@ -115,6 +115,8 @@ var Intro = (function() {
 
             // MAKE NEXT BUTTON/TRIGGER ONTAP
 
+            //CHANGE IMAGE OF TEXTBUBBLE
+
 
             //after dialogue is complete -
             if (index == content.length){
@@ -138,9 +140,9 @@ var Intro = (function() {
 
     }
 
-    var update = function(){
-        game.input.onTap.add(onTap, this);
-    }
+    //var update = function(){
+        //game.input.onTap.add(onTap, this);
+    //}
 
     var onTap = function(){
         game.state.start('findAnglerfish');
@@ -150,7 +152,7 @@ var Intro = (function() {
 
     return {       
         create: create,
-        update: update,
+        //update: update,
         onTap: onTap
     };
 
