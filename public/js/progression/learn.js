@@ -18,6 +18,8 @@ var LearnState = (function() {
 
     var update = function(){
         game.input.onTap.add(onTap, this);
+        { if(testing) BootState.updateLevel('crispeePlay'); }
+
     }
 
     var onTap = function(){

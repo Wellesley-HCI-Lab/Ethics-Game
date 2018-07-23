@@ -14,6 +14,7 @@
 var introState = {
 	// preload: function(){ FindAnglerfish.load(); },
     create: function(){ Intro.create();},
+    update: function() { if(testing) BootState.updateLevel('findAnglerfish'); },
     //update: function(){ Intro.update();}
 	// shutdown: function(){ FindAnglerfish.destroy(); }
 }

@@ -54,6 +54,8 @@ var FindAnglerfishState = (function() {
 
             }
         }
+        { if(testing) BootState.updateLevel('learn'); }
+
     }
 
     

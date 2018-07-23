@@ -8,7 +8,9 @@
  */
 var loadState = {
 	preload: function(){ LoadState.load(); },
-    create: function() { game.state.start('intro'); }
+    create: function() { game.state.start('intro'); },
+    update: function() { if(testing) BootState.updateLevel('intro'); },
+
 }
 
 /**
@@ -28,8 +30,15 @@ var LoadState = (function() {
         BlocksToCrispee.load();
         Crispee.load();
     }
+
+    // var update = function() {
+    //     if(testing) {
+    //         BootState.updateLevel('intro')
+    //     }
+    // }
     
     return {
-        load: load
+        load: load,
+        // update: update
     };
 }());

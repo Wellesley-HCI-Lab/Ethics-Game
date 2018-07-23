@@ -12,6 +12,8 @@ var bootState = {
 
     preload: function() { BootState.load(); },
     create: function() { BootState.create(); },
+    update: function() { if(testing) BootState.updateLevel('load'); },
+
 }
 
 /**
@@ -19,6 +21,35 @@ var bootState = {
  * @type {number}
  */
 var startLevelID = 0;
+
+/**
+ * Up arrow key on the keyboard
+ * @memberOf module:BootState
+ * @type {Key}
+ */
+var upKey;
+
+/**
+ * Down arrow key on the keyboard
+ * @memberOf module:BootState
+ * @type {Key}
+ */
+var downKey;
+
+/**
+ * Is there a key currently pressed? 
+ *      (Used to only trigger changes at the start of a key being pressed)
+ * @memberOf module:BootState
+ * @type {boolean}
+ */
+var keyDown = false;
+
+/**
+ * Are we testing the game (and therefore getting additional info in the javascript console)?
+ * @type {boolean}
+ */
+var testing = true;
+
 
 var background;
 var startButton;
@@ -44,14 +75,22 @@ var BootState = (function() {
     
     var create = function(){
 
+        // to switch between levels while testing
+        // For changing the level
+        if(testing) {
+            upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
+            downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
 
-        //underwater sounds - 100% for fun
+            game.input.keyboard.addKeyCapture([ Phaser.Keyboard.UP, Phaser.Keyboard.DOWN ]);
+        }
+
+
+        // underwater sounds - 100% for fun
         music = game.add.audio('bubAudio');
         music.loop = true;
         music.play();
         
-
-    // Scales canvas based on screen size
+        // Scales canvas based on screen size
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
         game.add.plugin(PhaserInput.Plugin);
@@ -98,9 +137,7 @@ var BootState = (function() {
         //walkie.animations.add('walk');
         //walkie.animations.play('walk', 5, true);
 
-
-
-        ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE/////
+        /*---------- CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE ----------*/
         speechButton = game.add.button(20, 50, 'next', actionOnClick, this, 1, 0, 2);
         speechButton.scale.setTo(0.1, 0.1);
 
@@ -145,20 +182,8 @@ var BootState = (function() {
                  return;
             }
         }
-
-        ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE end/////
-
-
-       
-
-
-
-       
-     
+        /*---------- END OF CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE ----------*/
     }
-
-
-
 
     //function for bubbles
     var bubbleBurst = function(){
@@ -189,12 +214,40 @@ var BootState = (function() {
         game.sound.stopAll();
     }
 
-    
-
-
+    /**
+     * Continuously called
+     * @memberOf module:BootState
+     */
+    var updateLevel = function(stateName) {
+        if (downKey.isDown){
+            game.state.start(stateName)
+        }
+        // // If a button was previously pressed...
+        // if(keyDown) {
+        //     // but it's no longer pressed, then update keyDown
+        //     if (!upKey.isDown && !downKey.isDown) keyDown = false;
+        // // If a button was not previously pressed...
+        // } else {
+        //     // ...but now the up key is pressed 
+        //     if(upKey.isDown) {
+        //         keyDown = true;
+        //         startLevelID++;
+        //         // HACK: 8 is hardcoded and should be changed if we add/remove levels!
+        //         if(startLevelID > 8) startLevelID = 8;
+        //         console.log("Level: " + startLevelID);
+        //     // ...but now the down key is pressed 
+        //     } else if(downKey.isDown) {
+        //         keyDown = true;
+        //         startLevelID--;
+        //         if(startLevelID < 0) startLevelID = 0;
+        //         console.log("Level: " + startLevelID);
+        //     }
+        // }
+    }
 
     return {
         load: load,
-        create: create
+        create: create,
+        updateLevel: updateLevel
     };
 }());
