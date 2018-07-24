@@ -23,6 +23,7 @@ var LoadState = (function() {
      * @memberOf module:LoadState
      */
     var load = function() {
+        Submarine.load();
         SubUnderwater.load();
         GlowingAnglerfish.load();
         Scientist.load();

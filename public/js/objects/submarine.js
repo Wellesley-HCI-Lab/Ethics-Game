@@ -1,6 +1,6 @@
 /**
  * Loads submarine images
- * @exports submarine
+ * @exports Submarine
  */
 var Submarine = (function() {
 	/**
@@ -8,7 +8,7 @@ var Submarine = (function() {
      * @memberOf module:submarine
      */
 	function load() {
-		game.load.image('subAboveWater', 'images/submarine/subAboveWater.png');
+		game.load.image('subAboveWater', 'images/submarine/longAboveWaterSub.png');
 	}
 
 	/**
@@ -17,11 +17,19 @@ var Submarine = (function() {
      */
 	function create() {
 		// submarine above water
-		addSprite(0, 0, false, 'subAboveWater', game.width, game.height, layers[LAYER.instructions]);
+		subAboveWater = addScaledSprite(-100, 0, false, 'subAboveWater', 0.24);
+	}
+
+	function move() {
+		// game.add.tween(subAboveWater).to( { x: -400}, 2000, Phaser.Easing.Linear.None, true);
+		// game.add.tween(subAboveWater).to( { x: -100}, 100, Phaser.Easing.Linear.None, true);
+
+
 	}
 
 	return {
         load: load,
-        create: create
+		create: create,
+		move: move
     };
 }());

@@ -68,8 +68,7 @@ var BootState = (function() {
         game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
         game.load.image('title', 'images/background/title.png');
         game.load.atlasJSONHash('radio', 'images/radio/walkietalkie.png', 'images/radio/walkietalkie.json');
-        game.load.image('next', 'images/background/nextButton.png');
-        game.load.image('textBubble', 'images/scientist/speech1.png');
+
         game.load.image('pointer', 'images/generalPointer.psd');
     }
     
@@ -130,59 +129,60 @@ var BootState = (function() {
         button = game.add.button(game.world.centerX-120,400, 'button', callLoad, this, 2, 1, 0);
         //title-logo pic
         title = game.add.image(160, 90, 'title');
-
+        // speech = game.add.image(100, 100, 'textBubble');
+        // speech.scale.setTo(0.1, 0.1);
 
         //walkie = game.add.sprite(200,200,'radio');
         //walkie.scale.setTo(1,1);
         //walkie.animations.add('walk');
         //walkie.animations.play('walk', 5, true);
 
-        /*---------- CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE ----------*/
-        speechButton = game.add.button(20, 50, 'next', actionOnClick, this, 1, 0, 2);
-        speechButton.scale.setTo(0.1, 0.1);
+    //     /*---------- CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE ----------*/
+    //     // speechButton = game.add.button(20, 50, 'next', actionOnClick, this, 1, 0, 2);
+    //     // speechButton.scale.setTo(0.1, 0.1);
 
 
-        // input text into chunks as you wish
-        var content = ["Hi, and welcome! ", "It’s so good to meet the final member of our deep sea crew! ", 
-        " I’m Pam and this is my crew of bioengineers.",'We want to study the deep sea and its mysterious creatures!'];
-        // first word shown is set to the first index
-        var index = 0;
+    //     // input text into chunks as you wish
+    //     var content = ["Hi, and welcome! ", "It’s so good to meet the final member of our deep sea crew! ", 
+    //     " I’m Pam and this is my crew of bioengineers.",'We want to study the deep sea and its mysterious creatures!'];
+    //     // first word shown is set to the first index
+    //     var index = 0;
 
-        console.log(' initial dialogue ' + content[index]);
+    //     console.log(' initial dialogue ' + content[index]);
 
-        text = game.add.text(20,20, content[index]);
-        tween = game.add.tween(text);
+    //     text = game.add.text(20,20, content[index]);
+    //     tween = game.add.tween(text);
 
 
-        function actionOnClick(){
-            text.destroy(); // Destroy the old text before the new one shows
+    //     function actionOnClick(){
+    //         text.destroy(); // Destroy the old text before the new one shows
         
-            console.log('index before ' + index);
-            console.log('original dialogue ' + content[index]);
-            //text = game.add.text(20,20, content[index]);
-            //tween = game.add.tween(text);
+    //         console.log('index before ' + index);
+    //         console.log('original dialogue ' + content[index]);
+    //         //text = game.add.text(20,20, content[index]);
+    //         //tween = game.add.tween(text);
             
-            //New text appears 
-            game.add.tween(tween).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
-            //take note of index of the new word
-            var newIndex = index++ ;
-            console.log('after ' + index);
-            console.log(' new dialogue ' + content[index]);
-            //index = (index + 1) % content.length
+    //         //New text appears 
+    //         game.add.tween(tween).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
+    //         //take note of index of the new word
+    //         var newIndex = index++ ;
+    //         console.log('after ' + index);
+    //         console.log(' new dialogue ' + content[index]);
+    //         //index = (index + 1) % content.length
 
-            // Show that new text on world
-            text = game.add.text(20,20, content[index]);
-            tween = game.add.tween(text);
-            console.log('dialogue length ' + content.length);
+    //         // Show that new text on world
+    //         text = game.add.text(20,20, content[index]);
+    //         tween = game.add.tween(text);
+    //         console.log('dialogue length ' + content.length);
 
-            //after dialogue is complete -
-            if (index == content.length){
-                 text.destroy(); //text is destroyed
-                 speechButton.pendingDestroy = true; // button for text is destroyed
-                 return;
-            }
-        }
-        /*---------- END OF CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE ----------*/
+    //         //after dialogue is complete -
+    //         if (index == content.length){
+    //              text.destroy(); //text is destroyed
+    //              speechButton.pendingDestroy = true; // button for text is destroyed
+    //              return;
+    //         }
+    //     }
+    //     /*---------- END OF CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE ----------*/
     }
 
     //function for bubbles
