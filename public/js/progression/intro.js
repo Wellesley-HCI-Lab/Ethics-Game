@@ -21,8 +21,10 @@ var introState = {
 var Intro = (function() {
 
     var load = function(){
-        game.load.image('textBubble', 'images/text/bubbleLong.png');
-        game.load.image('next', 'images/background/nextButton.png');
+        // game.load.image('textBubble', 'images/text/bubbleLong.png');
+        // game.load.image('next', 'images/background/nextButton.png');
+        Text.load('textBubble', 'images/text/bubbleLong.png')
+        Text.load('next', 'images/background/nextButton.png');
 
     }
 
@@ -30,17 +32,20 @@ var Intro = (function() {
         // Creates Submarine and Scientist
         Submarine.create();
         Scientist.create();
+        Text.create(360, 240, 'textBubble', 0.13, 0.16);
+        Text.createNextButton(660, 520, 'next', 0.1, 0.1, actionOnClick);
 
         // Adds text bubble and next button for speech
-        textBubble = game.add.sprite(360, 240, 'textBubble');
-        textBubble.scale.setTo(0.13, 0.16);
-        textBubble.alpha = 0;
-        game.add.tween(textBubble).to( {alpha: 1 }, 1000, Phaser.Easing.Back.Out, true);
+        // textBubble = game.add.sprite(360, 240, 'textBubble');
+        // textBubble.scale.setTo(0.13, 0.16);
+        // textBubble.alpha = 0;
+        // game.add.tween(textBubble).to( {alpha: 1 }, 1000, Phaser.Easing.Back.Out, true);
 
-        nextButton = game.add.button(660, 520, 'next', actionOnClick, this, 1, 0, 2);
-        nextButton.scale.setTo(0.1, 0.1);
-        nextButton.alpha = 0;
-        game.add.tween(nextButton).to( {alpha: 1 }, 1000, Phaser.Easing.Back.Out, true);
+        // nextButton = game.add.button(660, 520, 'next', actionOnClick, this, 1, 0, 2);
+        // nextButton.scale.setTo(0.1, 0.1);
+        // nextButton.alpha = 0;
+        // game.add.tween(nextButton).to( {alpha: 1 }, 1000, Phaser.Easing.Back.Out, true);
+        
 
         // Intro dialogue broken into individual sentences
         var content = ["Hi, and welcome! ", 
