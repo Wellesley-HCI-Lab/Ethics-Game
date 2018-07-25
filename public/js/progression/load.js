@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/18)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 7/24)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
  * State that loads game assets
  * @type {State}
  * @property {Function} preload Before the state loads

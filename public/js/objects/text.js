@@ -64,6 +64,7 @@ var Text = (function() {
         text.alpha = 0;
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
         index++; 
+        return index;
         }
 
     function actionOnClick() {
@@ -74,10 +75,12 @@ var Text = (function() {
                 return text;
         } else {
             text.setText(content[index]);
-            // console.log(index)
+            console.log(index)
             index++;
+            return index;
             // console.log(index)
         }
+    }
 
         // // Handles radio animation
         // if (index != 10){
@@ -91,8 +94,7 @@ var Text = (function() {
         //     radio.animations.play('walk', 5, true); 
         // }
 
-       
-    }
+
 
     function onTap() {
         game.state.start(nextState);
@@ -102,6 +104,7 @@ var Text = (function() {
         load: load,
         create: create,
         createNextButton: createNextButton, 
-        addContent: addContent
+        addContent: addContent,
+        actionOnClick: actionOnClick
     };
 }());

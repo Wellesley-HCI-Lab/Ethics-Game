@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/18)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 7/24)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
  * State that boots up the game
  * @type {State}
  * @property {Function} preload Before the state loads
@@ -84,10 +84,10 @@ var BootState = (function() {
         }
 
 
-        // underwater sounds - 100% for fun
-        music = game.add.audio('bubAudio');
-        music.loop = true;
-        music.play();
+        // // underwater sounds - 100% for fun
+        // music = game.add.audio('bubAudio');
+        // music.loop = true;
+        // music.play();
         
         // Scales canvas based on screen size
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;

@@ -1,6 +1,6 @@
-/** 
- * PROGRESSION OF STATES (updated 7/18)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+/**
+ * PROGRESSION OF STATES (updated 7/24)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
  * The Intro state, where Pam and the submarine crew are 
  * introduced, and their mission is explained
  * The top of submarine is open
@@ -62,7 +62,9 @@ var Intro = (function() {
         "Well now that you’re here to help us, \nit’s time for us to board the \nsubmarine!"];
 
         Text.addContent(content, 390, 450, 'findAnglerfish')
-        
+        index = Text.actionOnClick();
+        console.log('index: ' + index);
+
         // // Index set to first sentence
         // var index = 0;
         // console.log(' initial dialogue ' + content[index]);
