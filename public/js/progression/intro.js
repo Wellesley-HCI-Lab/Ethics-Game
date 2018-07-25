@@ -156,6 +156,9 @@ var Intro = (function() {
 
     var update = function(){
         Submarine.move();
+        if(testing) {
+            BootState.updateLevel('findAnglerfish'); 
+        }
     }
 
 
