@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/18)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 7/24)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
  * State that loads game assets
  * @type {State}
  * @property {Function} preload Before the state loads
@@ -8,7 +8,9 @@
  */
 var loadState = {
 	preload: function(){ LoadState.load(); },
-    create: function() { game.state.start('intro'); }
+    create: function() { game.state.start('intro'); },
+    update: function() { if(testing) BootState.updateLevel('intro'); },
+
 }
 
 /**
@@ -21,6 +23,7 @@ var LoadState = (function() {
      * @memberOf module:LoadState
      */
     var load = function() {
+        Submarine.load();
         SubUnderwater.load();
         GlowingAnglerfish.load();
         Scientist.load();
@@ -28,8 +31,15 @@ var LoadState = (function() {
         BlocksToCrispee.load();
         Crispee.load();
     }
+
+    // var update = function() {
+    //     if(testing) {
+    //         BootState.updateLevel('intro')
+    //     }
+    // }
     
     return {
-        load: load
+        load: load,
+        // update: update
     };
 }());

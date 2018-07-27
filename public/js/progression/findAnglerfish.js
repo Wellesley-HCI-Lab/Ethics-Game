@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/18)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 7/24)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
  * The findAnglerfishState, where the submarine sees the glow in the water
  * and discovers an anglerfish
  * @exports findAnglerfishState
@@ -54,6 +54,8 @@ var FindAnglerfishState = (function() {
 
             }
         }
+        { if(testing) BootState.updateLevel('learn'); }
+
     }
 
     

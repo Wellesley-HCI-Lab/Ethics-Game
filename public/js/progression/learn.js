@@ -1,13 +1,13 @@
 /**
- * PROGRESSION OF STATES (updated 7/18)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js -> crispeePlay.js
- * The Learn state, where the user gets to explore facts about Anglerfish
- * @exports learnState
- */
+* PROGRESSION OF STATES (updated 7/24)
+* boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
+* The Learn state, where the user gets to explore facts about Anglerfish
+* @exports learnState
+*/
 
 var learnState = {
     create: function(){ LearnState.create();},
-    update: function(){ LearnState.update();}
+    update: function(){ if(testing) BootState.updateLevel('dilemmaOne');}
 }
 
 var LearnState = (function() {
@@ -16,18 +16,15 @@ var LearnState = (function() {
         Anglerfish.create();
     }
 
-    var update = function(){
-        game.input.onTap.add(onTap, this);
-    }
+    // var update = function(){
+    //     game.input.onTap.add(onTap, this);
+        
+    // }
 
-    var onTap = function(){
-        game.state.start('crispeePlay');
-    }
+
 
     return {       
-        create: create,
-        update: update,
-        onTap: onTap
+        create: create
     };
 
 }());

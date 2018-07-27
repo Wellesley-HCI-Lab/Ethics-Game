@@ -8,20 +8,26 @@ var Scientist = (function() {
      * @memberOf module:Scientist
      */
 	function load() {
-		game.load.image('pam', 'images/scientist/pamDrawing.png');
+		game.load.image('pam', 'images/scientist/pamWoBack.png');
 	}
 
 	/**
      * Sets up background sprites
+	 * Sets alpha to 0
      * @memberOf module:Scientist
      */
 	function create() {
 		// Adds the the image of Pam above ground, outside the submarine 
-		addSprite(0, 0, false, 'pam', game.width, game.height);
+		pam = addSprite(-140, 400, false, 'pam', game.width, game.height);
+		// pam.alpha = 0;
+		tween = game.add.tween(pam).to( { y: 0 }, 2000, Phaser.Easing.Circular.InOut, true);
+		// game.add.tween(pam).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
 	}
+
+
 
 	return {
         load: load,
-        create: create
+		create: create
     };
 }());

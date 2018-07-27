@@ -18,8 +18,7 @@ var Crispee = (function() {
      * @memberOf module:Crispee
      */
 	function create() {
-		// Adds the the image of Pam above ground, outside the submarine 
-		addSprite(0, 0, false, 'crispee', game.width, game.height);
+        BlocksToCrispee.create();
     }
 
 
