@@ -12,6 +12,7 @@ var Text = (function() {
     var nextState;
     var nextButton;
 
+
 	/**
      * Loads the text bubble images
      * @memberOf module:Text
@@ -52,6 +53,7 @@ var Text = (function() {
      * @memberOf module:Text
      */ 
     function addContent(wordArray, X, Y, state){
+
         index = 0;
         content = wordArray;
         nextState = state;
@@ -94,11 +96,12 @@ var Text = (function() {
         //     radio.animations.play('walk', 5, true); 
         // }
 
+        function onTap() {
+            game.state.start(nextState);
+        }
 
 
-    function onTap() {
-        game.state.start(nextState);
-    }
+   
     
 	return {
         load: load,

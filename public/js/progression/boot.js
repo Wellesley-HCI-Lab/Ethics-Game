@@ -160,25 +160,25 @@ var BootState = (function() {
     //         //tween = game.add.tween(text);
             
 
-            //New text appears 
-            game.add.tween(tween).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
-            //take note of index of the new word
-            var newIndex = index++ ;
-            console.log('after ' + index);
-            console.log(' new dialogue ' + content[index]);
-            //index = (index + 1) % content.length
+            // //New text appears 
+            // game.add.tween(tween).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
+            // //take note of index of the new word
+            // var newIndex = index++ ;
+            // console.log('after ' + index);
+            // console.log(' new dialogue ' + content[index]);
+            // //index = (index + 1) % content.length
 
-            // Show that new text on world
-            text = game.add.text(20,20, content[index]);
-            tween = game.add.tween(text);
-            console.log('dialogue length ' + content.length);
+            // // Show that new text on world
+            // text = game.add.text(20,20, content[index]);
+            // tween = game.add.tween(text);
+            // console.log('dialogue length ' + content.length);
 
-            //after dialogue is complete -
-            if (index == content.length){
-                 text.destroy(); //text is destroyed
-                 speechButton.pendingDestroy = true; // button for text is destroyed
-                 return;
-            }
+            // //after dialogue is complete -
+            // if (index == content.length){
+            //      text.destroy(); //text is destroyed
+            //      speechButton.pendingDestroy = true; // button for text is destroyed
+            //      return;
+            // }
         }
         ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE end///// 
 
@@ -204,7 +204,7 @@ var BootState = (function() {
     //     }
     //     /*---------- END OF CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE ----------*/
 
-    }
+
 
     //function for bubbles
     var bubbleBurst = function(){
