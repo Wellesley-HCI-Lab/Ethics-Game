@@ -18,6 +18,25 @@ var BlocksToCrispee = (function() {
 
     };
     
+    // function createBlocks(blockImg, X, Y, scale, isNotTransparent, transBlock, blockIn){
+    //     sprite = addScaledSprite(X, Y, false, blockImg, scale);
+    //     sprite.anchor.setTo(0.5, 1);
+    //     game.physics.arcade.enable(sprite);
+    //     if (isNotTransparent){
+    //         sprite.alpha = 1;
+    //         sprite.inputEnabled = true;
+    //         sprite.input.enableDrag();
+    //         sprite.originalPosition = sprite.position.clone();
+    //         sprite.events.onDragStop.add(function(currentSprite){
+    //             stopDrag(currentSprite, transBlock, blockIn);
+    //           }, this);
+    //     } else {
+    //         sprite.alpha = 0; 
+    //     }
+    //     return sprite;
+
+    // }
+
     function createBlocks(blockImg, X, Y, scale, isNotTransparent, transBlock, blockIn){
         sprite = addScaledSprite(X, Y, false, blockImg, scale);
         sprite.anchor.setTo(0.5, 1);
@@ -25,16 +44,18 @@ var BlocksToCrispee = (function() {
         if (isNotTransparent){
             sprite.alpha = 1;
             sprite.inputEnabled = true;
-            sprite.input.enableDrag();
+            // sprite.input.enableDrag();
             sprite.originalPosition = sprite.position.clone();
-            sprite.events.onDragStop.add(function(currentSprite){
-                stopDrag(currentSprite, transBlock, blockIn);
-              }, this);
+            // sprite.events.onDragStop.add(function(currentSprite){
+            //     stopDrag(currentSprite, transBlock, blockIn);
+            //   }, this);
+            sprite.events.onInputDown.add(function(currentSprite){
+                putInCrispee(currentSprite, transBlock, blockIn);
+            }, this);
         } else {
             sprite.alpha = 0; 
         }
         return sprite;
-
     }
 
     var create = function() {
@@ -55,16 +76,25 @@ var BlocksToCrispee = (function() {
     /** stopDrag code from
      * https://codepen.io/jdnichollsc/pen/WbZgwM?editors=0010
      */
-    var stopDrag = function(currentSprite, endSprite, replaceWith){
-        if (!game.physics.arcade.overlap(currentSprite, endSprite, 
-            function() {
-                currentSprite.input.draggable = false;
-                currentSprite.destroy();
-                blockIn = addScaledSprite(380, 460, false, replaceWith, 0.225); 
-                blockIn.position.copyFrom(endSprite.position); 
-                blockIn.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
-      })) { currentSprite.position.copyFrom(currentSprite.originalPosition);
-      }
+    // var stopDrag = function(currentSprite, endSprite, replaceWith){
+    //     if (!game.physics.arcade.overlap(currentSprite, endSprite, 
+    //         function() {
+    //             currentSprite.input.draggable = false;
+    //             currentSprite.destroy();
+    //             blockIn = addScaledSprite(380, 460, false, replaceWith, 0.225); 
+    //             blockIn.position.copyFrom(endSprite.position); 
+    //             blockIn.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
+    //   })) { currentSprite.position.copyFrom(currentSprite.originalPosition);
+    //   }
+    // };
+
+    var putInCrispee = function(currentSprite, endSprite, replaceWith){
+        console.log('Click registered')
+        currentSprite.inputEnabled= false;
+        currentSprite.destroy();
+        blockIn = addScaledSprite(380, 460, false, replaceWith, 0.225); 
+        blockIn.position.copyFrom(endSprite.position); 
+        blockIn.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
     };
 
     //  /** stopDrag code from
@@ -82,8 +112,8 @@ var BlocksToCrispee = (function() {
 
     return {
         load: load,
-        create: create,
-        stopDrag: stopDrag
+        create: create
+        // stopDrag: stopDrag
     };
 
 }());
