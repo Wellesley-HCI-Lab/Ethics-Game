@@ -93,10 +93,7 @@ var BootState = (function() {
         title = game.add.image(160, 90, 'title');
 
 
-        //walkie = game.add.sprite(200,200,'radio');
-        //walkie.scale.setTo(1,1);
-        //walkie.animations.add('walk');
-        //walkie.animations.play('walk', 5, true);
+        
 
 
 
@@ -145,20 +142,8 @@ var BootState = (function() {
                  return;
             }
         }
-
-        ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE end/////
-
-
-       
-
-
-
-       
-     
+        ////////CONTROLS CHANGING TEXT THAT WILL BE OVERLAYED ON TEXT BUBBLE end///// 
     }
-
-
-
 
     //function for bubbles
     var bubbleBurst = function(){
