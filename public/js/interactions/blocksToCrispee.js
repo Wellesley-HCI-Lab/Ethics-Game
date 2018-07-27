@@ -50,12 +50,6 @@ var BlocksToCrispee = (function() {
         redBlockOut = createBlocks('redBlockOut', 620, 550, 0.225, true, transRed, 'redBlockIn');
         greenBlockOut = createBlocks('greenBlockOut', 520, 550, 0.225, true, transGreen, 'greenBlockIn');
 
-        // blueBlockOut.inputEnabled = true;
-        // blueBlockOut.input.enableDrag();
-        // blueBlockOut.originalPosition = blueBlockOut.position.clone();
-        // blueBlockOut.events.onDragStop.add(function(currentSprite){
-        //     stopDrag(currentSprite, transBlue, 'blueBlockIn');
-        //   }, this);
     };
 
     /** stopDrag code from

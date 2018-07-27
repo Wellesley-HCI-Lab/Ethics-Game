@@ -8,7 +8,9 @@ var Anglerfish = (function() {
      * @memberOf module:Anglerfish
      */
 	function load() {
-		game.load.image('angieInfo', 'images/anglerfish/angieInfo.png');
+        game.load.image('angieInfo', 'images/anglerfish/angieInfo.png');
+        game.load.image('tank', 'images/anglerfish/tank.png');
+        game.load.image('angieBlack', 'images/anglerfish/angieBlack.png')
 	}
 
 	/**
@@ -20,9 +22,14 @@ var Anglerfish = (function() {
 		addSprite(0, 0, false, 'angieInfo', game.width, game.height);
     }
 
+    function createTankEnvironment(){
+        tank = addSprite(0, 0, false, 'tank', game.width, game.height);
+    }
+
 
 	return {
         load: load,
-        create: create
+        create: create,
+        createTankEnvironment: createTankEnvironment
     };
 }());

@@ -71,7 +71,7 @@ var Text = (function() {
         // console.log(content)
         if (typeof content !== 'undefined' && index === content.length ){
                 nextButton = game.add.button(buttonX, buttonY, 'next', onTap, this, 1, 0, 2);
-                nextButton.scale.setTo(0.1, 0.1);
+                nextButton.scale.setTo(0.2, 0.2);
                 return text;
         } else {
             text.setText(content[index]);

@@ -23,8 +23,8 @@ var Intro = (function() {
     var load = function(){
         // game.load.image('textBubble', 'images/text/bubbleLong.png');
         // game.load.image('next', 'images/background/nextButton.png');
-        Text.load('textBubble', 'images/text/bubbleLong.png')
-        Text.load('next', 'images/background/nextButton.png');
+        Text.load('textBubble', 'images/text/bubbleNew.png')
+        Text.load('next', 'images/text/nextButton.png');
 
     }
 
@@ -32,8 +32,8 @@ var Intro = (function() {
         // Creates Submarine and Scientist
         Submarine.create();
         Scientist.create();
-        Text.create(360, 240, 'textBubble', 0.13, 0.16);
-        index = Text.createNextButton(660, 520, 'next', 0.1, 0.1);
+        Text.create(315, 280, 'textBubble', 0.15, 0.15);
+        index = Text.createNextButton(640, 522, 'next', 0.2, 0.2);
         console.log(index);
         // Adds text bubble and next button for speech
         // textBubble = game.add.sprite(360, 240, 'textBubble');
@@ -61,7 +61,7 @@ var Intro = (function() {
         "If we ever want to talk to her, \nshe can tell us lots of helpful facts \nabout deep sea animals.", 
         "Well now that you’re here to help us, \nit’s time for us to board the \nsubmarine!"];
 
-        Text.addContent(content, 390, 450, 'findAnglerfish')
+        Text.addContent(content, 390, 420, 'findAnglerfish')
         index = Text.actionOnClick();
         console.log('index: ' + index);
 

@@ -7,7 +7,7 @@
 
 var learnState = {
     create: function(){ LearnState.create();},
-    update: function(){ LearnState.update();}
+    update: function(){ if(testing) BootState.updateLevel('dilemmaOne');}
 }
 
 var LearnState = (function() {
@@ -16,20 +16,15 @@ var LearnState = (function() {
         Anglerfish.create();
     }
 
-    var update = function(){
-        game.input.onTap.add(onTap, this);
-        { if(testing) BootState.updateLevel('crispeePlay'); }
+    // var update = function(){
+    //     game.input.onTap.add(onTap, this);
+        
+    // }
 
-    }
 
-    var onTap = function(){
-        game.state.start('crispeePlay');
-    }
 
     return {       
-        create: create,
-        update: update,
-        onTap: onTap
+        create: create
     };
 
 }());
