@@ -68,18 +68,13 @@ var BootState = (function() {
         game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
         game.load.image('title', 'images/background/title.png');
         game.load.atlasJSONHash('radio', 'images/radio/walkietalkie.png', 'images/radio/walkietalkie.json');
-
-        game.load.image('pointer', 'images/generalPointer.psd');
     }
     
     var create = function(){
-
-        // to switch between levels while testing
         // For changing the level
         if(testing) {
             upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
             downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
-
             game.input.keyboard.addKeyCapture([ Phaser.Keyboard.UP, Phaser.Keyboard.DOWN ]);
         }
 
