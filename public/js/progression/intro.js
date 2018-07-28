@@ -54,6 +54,7 @@ var Intro = (function() {
             align: "left"});
         text.alpha = 0;
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+        index++;
 
         function actionOnClick(){
             if (index === content.length){
@@ -63,7 +64,7 @@ var Intro = (function() {
                 pointer = game.add.sprite(500, 200, 'pointer');
                 pointer.scale.setTo(0.1, 0.1);
                 index++;
-            } else if (index === 9){
+            } else if (index === 10){
                 radio = game.add.sprite(180, 100,'radio');
                 radio.scale.setTo(0.75,0.75);
                 radio.animations.add('walk');
