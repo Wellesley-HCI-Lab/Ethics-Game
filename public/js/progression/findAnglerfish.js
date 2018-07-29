@@ -19,6 +19,7 @@ var content;
 var index;
 var newIndex;
 var signalCrossed;
+var speechBubble;
 
 var FindAnglerfishState = (function() {
 
@@ -27,10 +28,20 @@ var FindAnglerfishState = (function() {
         GlowingAnglerfish.create()
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
 
-        textBubble = game.add.sprite(-200, 170, 'textBubble');
-        textBubble.scale.setTo(1.3, 1);
+        speechBubble = Text.create(-30, 250, 'speechBubble', 0.15);
+        text = game.add.text(45, 380, 'I wonder what that could be?\nIf you click on it maybe we can find\nout.', 
+            {font: "22px Arial",
+            fill: "#000000",
+            align: "left"});
+        text.alpha = 0;
+        game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
 
-        introText = game.add.text(70,400, 'I wonder what that could be?\n If you click on it maybe we can find out');
+        
+
+        // textBubble = game.add.sprite(-200, 170, 'textBubble');
+        // textBubble.scale.setTo(1.3, 1);
+
+        // introText = game.add.text(70,400, 'I wonder what that could be?\n If you click on it maybe we can find out');
         signalCrossedcounter = 0; 
 
         walkie = game.add.sprite(400,200,'radio');
@@ -45,7 +56,10 @@ var FindAnglerfishState = (function() {
 
     var update = function(){
         GlowingAnglerfish.update();
-
+        nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick);
+        function actionOnClick(){
+            
+        }
         if (angieAppears.alpha == 1){
             signalCrossedcounter++;
             if (signalCrossedcounter == 10){

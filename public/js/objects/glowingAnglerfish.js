@@ -11,7 +11,7 @@ var GlowingAnglerfish = ( function () {
      * @memberOf module:GlowingAnglerfish
      */
     var load = function() {
-        game.load.image('smallGlow', 'images/anglerfish/yellow-glow.png')
+        game.load.image('smallGlow', 'images/anglerfish/smallGlow.png')
         game.load.image('angieAppears', 'images/anglerfish/angieAppears-transparent.png')
 
 
@@ -19,7 +19,7 @@ var GlowingAnglerfish = ( function () {
 
     var create = function() {
         // addSprite(0, 0, false, 'smallGlow', game.width, game.height);
-        smallGlow = addSprite(600, 200, false, 'smallGlow', 100, 100);
+        smallGlow = addScaledSprite(600, 150, false, 'smallGlow', 0.08);
         angieAppears = addScaledSprite(200, 100, false, 'angieAppears', 0.1);
         angieAppears.alpha = 0.0;
         smallGlow.inputEnabled = true;
