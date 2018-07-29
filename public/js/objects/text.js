@@ -19,6 +19,8 @@ var Text = (function() {
      */
 	function load(bubble, path) {
         game.load.image(bubble, path);
+        game.load.spritesheet('nextButton', 'images/text/nextButtonSprite.png', 521, 193);
+
         // game.load.image(button, path);
 	}
 
@@ -39,8 +41,8 @@ var Text = (function() {
      * Sets up sa next button to go with speech bubble
      * @memberOf module:Text
      */
-    function createNextButton(X, Y, button, scale, actionOnClick){
-        nextButton = game.add.button(X, Y, button, actionOnClick, this, 1, 0, 2);
+    function createNextButton(X, Y, scale, actionOnClick){
+        nextButton = game.add.button(X, Y, 'nextButton', actionOnClick, this, 0, 1, 1);
         nextButton.scale.setTo(scale, scale);
         buttonX = X; buttonY = Y;
         nextButton.alpha = 0;
