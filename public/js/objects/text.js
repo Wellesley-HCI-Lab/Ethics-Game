@@ -41,12 +41,13 @@ var Text = (function() {
      * Sets up sa next button to go with speech bubble
      * @memberOf module:Text
      */
-    function createNextButton(X, Y, scale, actionOnClick){
+    function createNextButton(X, Y, scale, actionOnClick, alpha){
         nextButton = game.add.button(X, Y, 'nextButton', actionOnClick, this, 0, 1, 1);
         nextButton.scale.setTo(scale, scale);
         buttonX = X; buttonY = Y;
         nextButton.alpha = 0;
-        game.add.tween(nextButton).to( {alpha: 1 }, 1000, Phaser.Easing.Circular.InOut, true);
+        game.add.tween(nextButton).to( {alpha: alpha }, 1000, Phaser.Easing.Circular.InOut, true);
+        return nextButton;
     }
     
 	return {

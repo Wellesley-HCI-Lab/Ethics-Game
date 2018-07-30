@@ -10,6 +10,8 @@ var findAnglerfishState = {
 	// preload: function(){ FindAnglerfish.load(); },
     create: function(){ FindAnglerfishState.create(); },
     update: function(){ FindAnglerfishState.update();},
+    destroy: function(){ if(testing) BootState.updateLevel('learn'); }
+
 	// shutdown: function(){ FindAnglerfish.shutdown(); }
 }
 
@@ -21,6 +23,7 @@ var index;
 var newIndex;
 var signalCrossed;
 var speechBubble;
+var nextButton;
 
 var FindAnglerfishState = (function() {
 
@@ -54,18 +57,25 @@ var FindAnglerfishState = (function() {
         "That bulb hanging from their head is called\n a lure.",
          "The lure helps them to attract curious prey\n into their large mouths,\nand sometimes, to attract friends." ];
         index = 0;
-        nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick);
+        nextButton = Text.createNextButton(300, 490, 0.2, actionOnClick, 0);
         if (angieAppears.alpha === 1){
             console.log("Enters this condition");
             text.setText(content[index]);
             index++;
         }
-        { if(testing) BootState.updateLevel('learn'); }
     }
 
 
     var update = function(){
-        // GlowingAnglerfish.update();
+        GlowingAnglerfish.update();
+        if (angieAppears.alpha === 1){
+            nextButton.alpha = 1;
+            if (index ===0){
+                text.setText(content[0]);
+                index++;
+            }
+        };
+        // return;
         // content = ["My goodness!", "I'm not sure what it is?\n Do you?", 
         // "Maybe the radio can tell us more?",
         // "Radio, My crew of explorers have found\n an interesting animal!", "Can you help us a bit?", 
@@ -99,9 +109,11 @@ var FindAnglerfishState = (function() {
 
     function actionOnClick(){
         if (index === content.length){
+            console.log('1');
             game.state.start('learn');
             return;
-        } else if (index >= 3 && index<= content.learn){
+        } else if (index > 2 && index< content.length){
+            console.log('3');
             text.setText(content[index]);
             walkie = game.add.sprite(400,200,'radio');
             walkie.scale.setTo(1,1);
@@ -111,37 +123,37 @@ var FindAnglerfishState = (function() {
         } else {
             if (typeof walkie !== "undefined") {walkie.destroy();}
             text.setText(content[index]);
-            console.log(index)
+            console.log(content[index])
             index++;
         }
     }
 
     
     
-    var showText = function(){
-        introText.destroy();
+    // var showText = function(){
+    //     introText.destroy();
         
-        speechButton = game.add.button(500, 500, 'next', actionOnClick, this, 1, 0, 2);
-        speechButton.scale.setTo(0.1, 0.1);
+    //     speechButton = game.add.button(500, 500, 'next', actionOnClick, this, 1, 0, 2);
+    //     speechButton.scale.setTo(0.1, 0.1);
 
-        //////DIALOGUE/////
+    //     //////DIALOGUE/////
 
-        content = ["My goodness!", "I'm not sure what it is?\n Do you?", 
-        "Maybe the radio can tell us more?",
-        "Radio, My crew of explorers have found\n an interesting animal!", "Can you help us a bit?", 
-        "Of course! \n just describe what you see.",
-        "I'm sure it's a fish! It has a very big jaw,\n with a bulb floating right above it!", 
-        "Wow! This is exciting news!","You've encountered a live Anglerfish",
-        "From what scientists know about them,\n there are a few important things to know\n about Anglerfish",
-        "Anglerfish are deep sea creatures\n that live in solitude.\n This means they prefer to be alone.",
-        "That bulb hanging from their head is called\n a lure.",
-         "The lure helps them to attract curious prey\n into their large mouths,\nand sometimes, to attract friends." 
-         ];
-        index = 0;
-        text = game.add.text(70,400, content[index]);
-        tween = game.add.tween(text);
+    //     content = ["My goodness!", "I'm not sure what it is?\n Do you?", 
+    //     "Maybe the radio can tell us more?",
+    //     "Radio, My crew of explorers have found\n an interesting animal!", "Can you help us a bit?", 
+    //     "Of course! \n just describe what you see.",
+    //     "I'm sure it's a fish! It has a very big jaw,\n with a bulb floating right above it!", 
+    //     "Wow! This is exciting news!","You've encountered a live Anglerfish",
+    //     "From what scientists know about them,\n there are a few important things to know\n about Anglerfish",
+    //     "Anglerfish are deep sea creatures\n that live in solitude.\n This means they prefer to be alone.",
+    //     "That bulb hanging from their head is called\n a lure.",
+    //      "The lure helps them to attract curious prey\n into their large mouths,\nand sometimes, to attract friends." 
+    //      ];
+    //     index = 0;
+    //     text = game.add.text(70,400, content[index]);
+    //     tween = game.add.tween(text);
 
-    }
+    // }
 
 
     // function actionOnClick(){

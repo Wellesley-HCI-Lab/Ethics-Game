@@ -30,7 +30,7 @@ var Intro = (function() {
         Submarine.create();
         Scientist.create();
         speechBubble = Text.create(315, 280, 'speechBubble', 0.15);
-        nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick);
+        nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick,1);
         
         // Intro dialogue broken into individual sentences
         var content = ["Hi, and welcome! ", 
