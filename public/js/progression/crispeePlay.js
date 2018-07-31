@@ -16,24 +16,15 @@ var crispeePlayState = {
 var CrispeePlay = (function() {
 
     var load = function(){
-        Crispee.load();
+        BlocksToCrispee.load();
+        Text.load();
     }
 
     var create = function(){
-        Crispee.create();
+        blocks = BlocksToCrispee.create(1);
+        bubble = Text.create(10, -60, 'bubble', 0.1);
+
     }
-
-    // var update = function(){
-    //     if(testing) BootState.updateLevel('socialBiosensor');
-    // }
-
-    // var nextState = function(){
-    //    if(testing) BootState.updateLevel('socialBiosensor');
-    // }
-
-    // var destroy = function(){
-
-    // }
 
     return {      
         load: load, 
