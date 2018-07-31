@@ -43,6 +43,7 @@ var Text = (function() {
      * @memberOf module:Text
      */
     function createNextButton(X, Y, scale, actionOnClick, alpha){
+        console.log("Creating next button");
         nextButton = game.add.button(X, Y, 'nextButton', actionOnClick, this, 0, 1, 1);
         nextButton.scale.setTo(scale, scale);
         buttonX = X; buttonY = Y;
