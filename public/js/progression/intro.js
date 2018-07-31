@@ -60,10 +60,12 @@ var Intro = (function() {
                 game.state.start('findAnglerfish');
                 return;
             } else if (index === 4){
+                text.setText(content[index]);
                 pointer = game.add.sprite(500, 200, 'pointer');
                 pointer.scale.setTo(0.1, 0.1);
                 index++;
             } else if (index === 10){
+                text.setText(content[index]);
                 radio = game.add.sprite(180, 100,'radio');
                 radio.scale.setTo(0.75,0.75);
                 radio.animations.add('walk');

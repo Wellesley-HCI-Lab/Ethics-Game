@@ -68,8 +68,10 @@ var BootState = (function() {
         game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
         game.load.image('title', 'images/background/title.png');
         game.load.atlasJSONHash('radio', 'images/radio/walkietalkie.png', 'images/radio/walkietalkie.json');
+        game.load.atlasJSONHash('swim','images/anglerfish/swim.png','images/anglerfish/swim.json');
         game.load.image('splashPage', 'images/background/splashPage.png');
         game.load.spritesheet('playButton', 'images/background/playButtonSprite.png', 758, 934);
+        game.load.image('rename', 'images/text/renamePage01.png');
 
     }
     
