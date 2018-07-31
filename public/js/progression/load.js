@@ -29,7 +29,6 @@ var LoadState = (function() {
         Scientist.load();
         Anglerfish.load();
         BlocksToCrispee.load();
-        Crispee.load();
     }
 
     // var update = function() {
