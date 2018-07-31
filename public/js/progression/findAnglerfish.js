@@ -7,7 +7,7 @@
  */
 
 var findAnglerfishState = {
-	// preload: function(){ FindAnglerfish.load(); },
+	preload: function(){ FindAnglerfishState.load(); },
     create: function(){ FindAnglerfishState.create(); },
     update: function(){ FindAnglerfishState.update();},
     destroy: function(){ if(testing) BootState.updateLevel('learn'); }
@@ -26,6 +26,9 @@ var speechBubble;
 var nextButton;
 
 var FindAnglerfishState = (function() {
+    var load = function(){
+        game.load.image('zoom', 'images/anglerfish/angieZoomIn3.png');
+    }
 
     var create = function(){
         SubUnderwater.create();
@@ -39,17 +42,26 @@ var FindAnglerfishState = (function() {
             align: "left"});
         text.alpha = 0;
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+        zoom = game.add.sprite(300, 85, 'zoom');
+        zoom.scale.setTo(0.7, 0.7);
+        zoom.alpha = 0;
+
+        walkie = game.add.sprite(400,200,'radio');
+        walkie.scale.setTo(1,1);
+        walkie.animations.add('walk');
+        walkie.animations.play('walk', 5, true);
+        walkie.alpha = 0;
 
         content = ["My goodness!", "I'm not sure what it is?\n Do you?", 
         "Maybe the radio can tell us more?",
-        "Radio, My crew of explorers have found\n an interesting animal!", "Can you help us a bit?", 
+        "Radio, My crew of explorers have \nfound an interesting animal!", "Can you help us a bit?", 
         "Of course! \n just describe what you see.",
-        "I'm sure it's a fish! It has a very big jaw,\n with a bulb floating right above it!", 
+        "I'm sure it's a fish!\n It has a very big jaw,\n with a bulb floating right above it!", 
         "Wow! This is exciting news!","You've encountered a live Anglerfish",
         "From what scientists know about them,\n there are a few important things to know\n about Anglerfish",
         "Anglerfish are deep sea creatures\n that live in solitude.\n This means they prefer to be alone.",
         "That bulb hanging from their head is called\n a lure.",
-         "The lure helps them to attract curious prey\n into their large mouths,\nand sometimes, to attract friends." ];
+         "The lure helps them to attract \n curious prey into their large mouths,\nand sometimes, to attract friends." ];
         index = 0;
         nextButton = Text.createNextButton(300, 490, 0.2, actionOnClick, 0);
     }
@@ -72,16 +84,20 @@ var FindAnglerfishState = (function() {
             console.log('1');
             game.state.start('learn');
             return;
-        } else if (index > 2 && index< content.length){
+        } if (index === 11){
+            text.setText(content[index]);
+            zoom.alpha = 1;
+            index++;
+        } if (index ===5 || index>=7){
             console.log('3');
             text.setText(content[index]);
-            walkie = game.add.sprite(400,200,'radio');
-            walkie.scale.setTo(1,1);
-            walkie.animations.add('walk');
-            walkie.animations.play('walk', 5, true);
+            walkie.alpha = 1;
             index++;
         } else {
-            if (typeof walkie !== "undefined") {walkie.destroy();}
+            //if (typeof walkie !== "undefined") {walkie.destroy();}
+            zoom.alpha = 0;
+            walkie.alpha = 0;
+
             text.setText(content[index]);
             console.log(content[index])
             index++;
@@ -114,7 +130,8 @@ var FindAnglerfishState = (function() {
     }
 
 
-    return {       
+    return {
+        load: load,       
         create: create,
         update: update,
         onTap: onTap
