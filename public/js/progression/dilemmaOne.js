@@ -18,7 +18,12 @@ var DilemmaOneState = (function() {
     }
 
     var create = function(){
-     Anglerfish.createTankEnvironment();   
+     Anglerfish.createTankEnvironment();  
+
+     swim = game.add.sprite(280, 200,'swim');
+     swim.scale.setTo(0.3,0.3);
+     swim.animations.add('walk');
+     swim.animations.play('walk', 1.5, true);  
     }
 
     return { 
