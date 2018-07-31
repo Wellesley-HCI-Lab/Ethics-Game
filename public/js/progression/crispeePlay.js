@@ -20,7 +20,7 @@ var CrispeePlay = (function() {
 
     var load = function(){
         BlocksToCrispee.load();
-        Text.load();
+        Text.load('speechBubble', 'images/text/bubbleNew.png');
     }
 
     var create = function(){
@@ -29,7 +29,7 @@ var CrispeePlay = (function() {
         blocks.setAll("alpha", 1);
         green = blocks.children[2];
         green.inputEnabled = false;
-        bubble = Text.create(10, -60, 'bubble', 0.1);
+        bubble = Text.create(10, -60, 'speechBubble', 0.1);
         redBlockIn = BlocksToCrispee.putInCrispee(blocks.children[1], transBlocks.children[1], "redBlockIn");
         blueBlockIn = BlocksToCrispee.putInCrispee(blocks.children[0], transBlocks.children[0], "blueBlockIn");
         redBlockIn.alpha = 1;
