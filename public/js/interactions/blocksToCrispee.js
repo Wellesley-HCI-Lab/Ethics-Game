@@ -58,8 +58,10 @@ var BlocksToCrispee = (function() {
         return sprite;
     }
 
-    var create = function() {
+    var create = function(alpha) {
+        
         crispee = addSprite(0, 0, false, 'crispee', game.width, game.height);
+        blocks = game.add.group();
 
         // creates transparent block representing where the block is supposed to go
         transBlue = createBlocks('blueBlockIn', 385, 438, 0.1, false);
@@ -70,7 +72,10 @@ var BlocksToCrispee = (function() {
         blueBlockOut = createBlocks('blueBlockOut', 720, 550, 0.225, true, transBlue, 'blueBlockIn');
         redBlockOut = createBlocks('redBlockOut', 620, 550, 0.225, true, transRed, 'redBlockIn');
         greenBlockOut = createBlocks('greenBlockOut', 520, 550, 0.225, true, transGreen, 'greenBlockIn');
-
+        blocks.add(blueBlockOut); blocks.add(redBlockOut); blocks.add(greenBlockOut);
+        blocks.add(transBlue); blocks.add(transRed); blocks.add(transGreen);
+        blocks.setAll("alpha", alpha);
+        return blocks;
     };
 
     /** stopDrag code from
@@ -95,6 +100,7 @@ var BlocksToCrispee = (function() {
         blockIn = addScaledSprite(380, 460, false, replaceWith, 0.225); 
         blockIn.position.copyFrom(endSprite.position); 
         blockIn.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
+        return;
     };
 
     //  /** stopDrag code from

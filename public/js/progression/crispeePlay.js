@@ -8,8 +8,9 @@
 
 var crispeePlayState = {
     load: function(){ CrispeePlay.load();},
-    create: function(){ CrispeePlay.create(); },
-    // update: function(){ CrispeePlay.update()}
+    create: function(){CrispeePlay.create(); },
+    update: function(){if(testing) BootState.updateLevel('socialBiosensor');}
+    
 }
 
 var CrispeePlay = (function() {
@@ -19,19 +20,24 @@ var CrispeePlay = (function() {
     }
 
     var create = function(){
-    
         Crispee.create();
-
     }
 
+    // var update = function(){
+    //     if(testing) BootState.updateLevel('socialBiosensor');
+    // }
+
+    // var nextState = function(){
+    //    if(testing) BootState.updateLevel('socialBiosensor');
+    // }
 
     // var destroy = function(){
 
     // }
 
-    return {       
-        create: create,
-        // update: update
+    return {      
+        load: load, 
+        create: create
     };
 
 }());

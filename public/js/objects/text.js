@@ -19,13 +19,14 @@ var Text = (function() {
      */
 	function load(bubble, path) {
         game.load.image(bubble, path);
+        // game.load.spritesheet('bubble', 'images/text/bubble.png', 521, 193);
         game.load.spritesheet('nextButton', 'images/text/nextButtonSprite.png', 521, 193);
 
         // game.load.image(button, path);
 	}
 
 	/**
-     * Sets up speech bubble sprites
+     * Sets up speech bubble sprite with alpha set to 0;
      * @memberOf module:Text
      */
 	function create(X, Y, bubble, scale) {

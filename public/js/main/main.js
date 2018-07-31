@@ -18,7 +18,10 @@ game.state.add('learn', learnState);
 game.state.add('dilemmaOne', dilemmaOneState);
 // Loads state with the CRISPEE interaction
 game.state.add('crispeePlay', crispeePlayState)
-
+// Loads state with the CRISPEE used to make a social biosensor
+game.state.add('socialBiosensor', socialBiosensorState)
+// Loads state with the state where user finds other anglerfish using the social biosensor
+game.state.add('sbGame', sbGameState)
 
 function create() { 
 	game.physics.startSystem(Phaser.Physics.ARCADE);
