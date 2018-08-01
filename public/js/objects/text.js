@@ -11,6 +11,7 @@ var Text = (function() {
     var text;
     var nextState;
     var nextButton;
+    var nameButton;
 
 
 	/**
@@ -21,6 +22,7 @@ var Text = (function() {
         game.load.image(bubble, path);
         // game.load.spritesheet('bubble', 'images/text/bubble.png', 521, 193);
         game.load.spritesheet('nextButton', 'images/text/nextButtonSprite.png', 521, 193);
+        game.load.atlasJSONHash('nameButton', 'images/text/nameButtonSprite.png','images/text/nameButton.json');
 
         // game.load.image(button, path);
 	}
@@ -51,11 +53,22 @@ var Text = (function() {
         game.add.tween(nextButton).to( {alpha: alpha }, 1000, Phaser.Easing.Circular.InOut, true);
         return nextButton;
     }
+
+    //I was trying to figure out how to put the spritesheet for nameButton and nameClicked
+    function createNameButton(X, Y, scale, actionOnClick, alpha){
+        nameButton = game.add.button(X, Y, 'nameButton', actionOnClick, this, 0, 1, 1);
+        nameButton.scale.setTo(scale, scale);
+        buttonX = X; buttonY = Y;
+        nameButton.alpha = 0;
+        game.add.tween(nameButton).to( {alpha: alpha }, 1000, Phaser.Easing.Circular.InOut, true);
+        return nameButton;
+    }
     
 	return {
         load: load,
         create: create,
-        createNextButton: createNextButton
+        createNextButton: createNextButton,
+        createNameButton: createNameButton
         // addContent: addContent,
         // actionOnClick: actionOnClick
     };

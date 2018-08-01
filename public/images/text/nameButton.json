@@ -1,0 +1,55 @@
+{
+	"frames": {
+		"nameButton01.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 3600,
+				"h": 2604
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3600,
+				"h": 2604
+			},
+			"sourceSize": {
+				"w": 3600,
+				"h": 2604
+			}
+		},
+		"nameClicked01.png": {
+			"frame": {
+				"x": 3603,
+				"y": 1,
+				"w": 3600,
+				"h": 2604
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3600,
+				"h": 2604
+			},
+			"sourceSize": {
+				"w": 3600,
+				"h": 2604
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 7204,
+			"h": 2606
+		},
+		"scale": "1"
+	}
+}

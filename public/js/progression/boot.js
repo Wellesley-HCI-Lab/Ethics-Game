@@ -71,6 +71,7 @@ var BootState = (function() {
         game.load.atlasJSONHash('swim','images/anglerfish/swim.png','images/anglerfish/swim.json');
         game.load.image('splashPage', 'images/background/splashPage.png');
         game.load.spritesheet('playButton', 'images/background/playButtonSprite.png', 758, 934);
+        game.load.spritesheet('nameButton', 'images/text/nameButtonSprite.png');
         game.load.image('rename', 'images/text/renamePage01.png');
 
         // For crispeePlay state
