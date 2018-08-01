@@ -22,7 +22,6 @@ var Intro = (function() {
     var load = function(){
         Text.load('speechBubble', 'images/text/bubbleNew.png');
         game.load.image('pointer', 'images/text/pointer.png');
-
     }
 
     var create = function(){
@@ -84,10 +83,9 @@ var Intro = (function() {
     var update = function(){
         Submarine.move();
         if(testing) {
-            BootState.updateLevel('learn'); 
+            BootState.updateLevel('sbGame'); 
         }
     }
-
 
     return {   
         load: load,    
