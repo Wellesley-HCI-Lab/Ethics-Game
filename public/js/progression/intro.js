@@ -28,7 +28,7 @@ var Intro = (function() {
     var create = function(){
         // Creates Submarine and Scientist
         Submarine.create();
-        Scientist.create();
+        Scientist.create(-140, 400);
         speechBubble = Text.create(315, 280, 'speechBubble', 0.15);
         nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick,1);
         

@@ -20,6 +20,7 @@ var Text = (function() {
      */
 	function load(bubble, path) {
         game.load.image(bubble, path);
+        // game.load.spritesheet('bubble', 'images/text/bubble.png', 521, 193);
         game.load.spritesheet('nextButton', 'images/text/nextButtonSprite.png', 521, 193);
         game.load.atlasJSONHash('nameButton', 'images/text/nameButtonSprite.png','images/text/nameButton.json');
 
@@ -27,7 +28,7 @@ var Text = (function() {
 	}
 
 	/**
-     * Sets up speech bubble sprites
+     * Sets up speech bubble sprite with alpha set to 0;
      * @memberOf module:Text
      */
 	function create(X, Y, bubble, scale) {
@@ -44,6 +45,7 @@ var Text = (function() {
      * @memberOf module:Text
      */
     function createNextButton(X, Y, scale, actionOnClick, alpha){
+        console.log("Creating next button");
         nextButton = game.add.button(X, Y, 'nextButton', actionOnClick, this, 0, 1, 1);
         nextButton.scale.setTo(scale, scale);
         buttonX = X; buttonY = Y;
