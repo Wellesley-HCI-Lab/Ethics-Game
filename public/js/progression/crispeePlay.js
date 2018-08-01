@@ -37,6 +37,15 @@ var CrispeePlay = (function() {
         "Click on the green block to \nadd it to CRISPEE" ], 
         'angieYellow', 'yellow', 'redBlockIn', 'blueBlockOffIn']];
         intro(trials[trialIndex]);
+
+        // content = ["This is our CRISPEE \nmachine!", 
+        // "Each of these blocks represents a gene.",
+        // "We can arrange genes\n in different ways to \nbioengineer living things!",
+        // "Let's see what happens\n we bioengineer Angie.",
+        // "Click on the green \nblock to add it to \nCRISPEE.", 
+        // "You created a program that would light up Angie’s lure a beautiful white",
+        // "Angie has been successfully bioengineered to light up!",
+        // "Do you want to try to reprogram her genes and make a different light?"]
     }
 
     function intro(trials){
