@@ -26,7 +26,9 @@ var CrispeePlay = (function() {
 
     var create = function(){
         BlocksToCrispee.create();
-        trials = [['greenBlockOut', 'greenBlockIn', ["This is our CRISPEE machine",
+        trials = [['greenBlockOut', 'greenBlockIn', ["This is our CRISPEE machine!", 
+        "Each of these blocks represents \na gene.",
+        "We can arrange genes in \ndifferent ways to bioengineer \nliving things!",
         "We can use it to bioengineer \nAngie",
         "Click on the green block to \nadd it to CRISPEE" ], 
         'angieWhite', 'white', 'redBlockIn', 'blueBlockIn'],
