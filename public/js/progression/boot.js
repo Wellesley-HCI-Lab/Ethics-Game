@@ -73,6 +73,15 @@ var BootState = (function() {
         game.load.spritesheet('playButton', 'images/background/playButtonSprite.png', 758, 934);
         game.load.image('rename', 'images/text/renamePage01.png');
 
+        // For crispeePlay state
+        game.load.image('angieWhite', 'images/anglerfish/angieWhite.png');
+        game.load.image('angieYellow', 'images/anglerfish/angieYellow.png');
+        game.load.image('angieCyan', 'images/anglerfish/angieCyan.png');
+        game.load.image('noButton', 'images/text/noButton.png');
+        game.load.image('yesButton', 'images/text/yesButton.png');
+
+
+
     }
     
     var create = function(){
