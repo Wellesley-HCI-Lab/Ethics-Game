@@ -36,9 +36,14 @@ var CrispeePlay = (function() {
         blueBlockIn.alpha = 1;
         
         next = Text.createNextButton(190, 90, 0.2, actionOnClick, 1);
-        content = ["This is our CRISPEE \nmachine",
-        "We can use it to \nbioengineer Angie",
-        "Click on the green \nblock to add it to \nCRISPEE" ]
+        content = ["This is our CRISPEE \nmachine!", 
+        "Each of these blocks represents a gene.",
+        "We can arrange genes\n in different ways to \nbioengineer living things!",
+        "Let's see what happens\n we bioengineer Angie.",
+        "Click on the green \nblock to add it to \nCRISPEE.", 
+        "You created a program that would light up Angie’s lure a beautiful white",
+        "Angie has been successfully bioengineered to light up!",
+        "Do you want to try to reprogram her genes and make a different light?"]
 
         index = 0;
         text = game.add.text(60, 25, content[index], 
