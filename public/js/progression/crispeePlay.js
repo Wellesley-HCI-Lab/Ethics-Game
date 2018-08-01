@@ -37,37 +37,6 @@ var CrispeePlay = (function() {
         "Click on the green block to \nadd it to CRISPEE" ], 
         'angieYellow', 'yellow', 'redBlockIn', 'blueBlockOffIn']];
         intro(trials[trialIndex]);
-
-        // var createBlock = function(blockImg, X, Y, scale, blockInImg, blockInX, blockInY, blockInScale) {
-
-        // blueBlockOut = createBlocks('blueBlockOut', 720, 550, 0.225, true, transBlue, 'blueBlockIn');
-
-
-
-        // blocks = ret[0]; transBlocks = ret[1];
-        // blocks.setAll("alpha", 1);
-        // green = blocks.children[2];
-        // green.inputEnabled = false;
-        // bubble = Text.create(10, -60, 'speechBubble', 0.1);
-        // redBlockIn = BlocksToCrispee.putInCrispee(blocks.children[1], transBlocks.children[1], "redBlockIn");
-        // blueBlockIn = BlocksToCrispee.putInCrispee(blocks.children[0], transBlocks.children[0], "blueBlockIn");
-        // redBlockIn.alpha = 1;
-        // blueBlockIn.alpha = 1;
-        
-        // next = Text.createNextButton(190, 90, 0.2, actionOnClick, 1);
-        // content = ["This is our CRISPEE \nmachine",
-        // "We can use it to \nbioengineer Angie",
-        // "Click on the green \nblock to add it to \nCRISPEE" ]
-
-        // index = 0;
-        // text = game.add.text(60, 25, content[index], 
-        //     {font: "22px Arial",
-        //     fill: "#000000",
-        //     align: "left"});
-        // text.alpha = 0;
-        // game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
-        // index++;
-
     }
 
     function intro(trials){
