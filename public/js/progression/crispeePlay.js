@@ -8,6 +8,7 @@
 
 var content;
 var blocks;
+var trialIndex = 0;
 
 var crispeePlayState = {
     load: function(){ CrispeePlay.load();},
@@ -19,46 +20,121 @@ var crispeePlayState = {
 var CrispeePlay = (function() {
 
     var load = function(){
+        game.load.image('tank', 'images/anglerfish/tank.png');
         BlocksToCrispee.load();
-        Text.load('speechBubble', 'images/text/bubbleNew.png');
     }
 
     var create = function(){
-        ret = BlocksToCrispee.create(0);
-        blocks = ret[0]; transBlocks = ret[1];
-        blocks.setAll("alpha", 1);
-        green = blocks.children[2];
-        green.inputEnabled = false;
-        bubble = Text.create(10, -60, 'speechBubble', 0.1);
-        redBlockIn = BlocksToCrispee.putInCrispee(blocks.children[1], transBlocks.children[1], "redBlockIn");
-        blueBlockIn = BlocksToCrispee.putInCrispee(blocks.children[0], transBlocks.children[0], "blueBlockIn");
-        redBlockIn.alpha = 1;
-        blueBlockIn.alpha = 1;
-        
-        next = Text.createNextButton(190, 90, 0.2, actionOnClick, 1);
-        content = ["This is our CRISPEE \nmachine",
-        "We can use it to \nbioengineer Angie",
-        "Click on the green \nblock to add it to \nCRISPEE" ]
+        BlocksToCrispee.create();
+        trials = [['greenBlockOut', 'greenBlockIn', ["This is our CRISPEE machine",
+        "We can use it to bioengineer \nAngie",
+        "Click on the green block to \nadd it to CRISPEE" ], 
+        'angieWhite', 'white', 'redBlockIn', 'blueBlockIn'],
+        ['greenBlockOut', 'greenBlockIn', [
+        "Click on the green block to \nadd it to CRISPEE" ], 
+        'angieCyan', 'cyan', 'redBlockOffIn', 'blueBlockIn'],
+        ['greenBlockOut', 'greenBlockIn', [
+        "Click on the green block to \nadd it to CRISPEE" ], 
+        'angieYellow', 'yellow', 'redBlockIn', 'blueBlockOffIn']];
+        intro(trials[trialIndex]);
 
+        // var createBlock = function(blockImg, X, Y, scale, blockInImg, blockInX, blockInY, blockInScale) {
+
+        // blueBlockOut = createBlocks('blueBlockOut', 720, 550, 0.225, true, transBlue, 'blueBlockIn');
+
+
+
+        // blocks = ret[0]; transBlocks = ret[1];
+        // blocks.setAll("alpha", 1);
+        // green = blocks.children[2];
+        // green.inputEnabled = false;
+        // bubble = Text.create(10, -60, 'speechBubble', 0.1);
+        // redBlockIn = BlocksToCrispee.putInCrispee(blocks.children[1], transBlocks.children[1], "redBlockIn");
+        // blueBlockIn = BlocksToCrispee.putInCrispee(blocks.children[0], transBlocks.children[0], "blueBlockIn");
+        // redBlockIn.alpha = 1;
+        // blueBlockIn.alpha = 1;
+        
+        // next = Text.createNextButton(190, 90, 0.2, actionOnClick, 1);
+        // content = ["This is our CRISPEE \nmachine",
+        // "We can use it to \nbioengineer Angie",
+        // "Click on the green \nblock to add it to \nCRISPEE" ]
+
+        // index = 0;
+        // text = game.add.text(60, 25, content[index], 
+        //     {font: "22px Arial",
+        //     fill: "#000000",
+        //     align: "left"});
+        // text.alpha = 0;
+        // game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+        // index++;
+
+    }
+
+    function intro(trials){
+        console.log(trials[5]);
+        addScaledSprite(138, 317, false, trials[6], 0.226); // one
+        addScaledSprite(232, 313, false, trials[5], 0.226); // two
+        block = BlocksToCrispee.createBlock(trials[0], 620, 400, 0.225, trials[1], 319, 313, 0.225);
+        if (trialIndex === 0) {block.inputEnabled = false;}
+
+        bubble = Text.create(40, -60, 'speechLong', 0.1);
+        next = Text.createNextButton(280, 85, 0.2, function(){
+            actionOnClick(block, trials[3], trials[4]);
+        }, 1);
+    
+        content = trials[2];
         index = 0;
-        text = game.add.text(60, 25, content[index], 
+        text = game.add.text(65, 30, content[index], 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
         text.alpha = 0;
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
         index++;
-
     }
 
-    function actionOnClick(){
+    function results(colorImg, color){
+        if (testing) {console.log("Creating the results screen.")};
+        // resultScreen = game.add.group();
+        tank = addSprite(0, 0, false, 'tank', game.width, game.height);
+        angie = addScaledSprite(300, 150, false, colorImg, 0.1);
+        bubble = Text.create(80, 315, 'speechLong', 0.12);
+        no = game.add.button(270, 500, 'noButton', noHandler);
+        no.scale.setTo(0.2, 0.2);
+        yes = game.add.button(390, 500, 'yesButton', yesHandler);
+        yes.scale.setTo(0.2, 0.2);
+
+        text = game.add.text(105, 420, "You made the color " + color + 
+                            "! \nDo you want to make another color?", 
+            {font: "22px Arial",
+            fill: "#000000",
+            align: "left"});
+        text.alpha = 0;
+        game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+    }
+
+    function yesHandler(){
+        create();
+    }
+
+    function noHandler(){
+        game.state.start('socialBiosensor');
+    }
+
+
+    function actionOnClick(block, colorImg, color){
+        console.log(index);
         if (index === content.length){
-            game.state.start('socialBiosensor');
+                trialIndex++;
+                results(colorImg, color);
+                if (trialIndex===3){
+                    trialIndex = 0;
+                }
         } else {
             text.setText(content[index]);
-            if (index === 1){
-                green.inputEnabled=true;
-            }
+            if (index === (1)){
+                block.inputEnabled=true;
+            };
             index++;
         }
     }
