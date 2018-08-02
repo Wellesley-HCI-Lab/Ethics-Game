@@ -25,28 +25,8 @@ var CrispeePlay = (function() {
     }
 
     var create = function(){
-<<<<<<< HEAD
-        ret = BlocksToCrispee.create(0);
-        blocks = ret[0]; transBlocks = ret[1];
-        blocks.setAll("alpha", 1);
-        green = blocks.children[2];
-        green.inputEnabled = false;
-        bubble = Text.create(10, -60, 'speechBubble', 0.1);
-        redBlockIn = BlocksToCrispee.putInCrispee(blocks.children[1], transBlocks.children[1], "redBlockIn");
-        blueBlockIn = BlocksToCrispee.putInCrispee(blocks.children[0], transBlocks.children[0], "blueBlockIn");
-        redBlockIn.alpha = 1;
-        blueBlockIn.alpha = 1;
-        
-        next = Text.createNextButton(190, 90, 0.2, actionOnClick, 1);
-        content = ["This is our CRISPEE \nmachine!", 
-        "Each of these blocks\n represents a gene.",
-        "We can arrange genes\n differently to bioengineer\n living things!",
-        "Let's see what happens\n when we bioengineer\n Angie.",
-        "Click on the green \nblock to add it to \nCRISPEE.", 
-        "You created a program\n that lights up Angie’s\n lure a white color.",
-        "You've successfully\n bioengineered!",
-        "Do you want to try\n again?"]
-=======
+
+   
         BlocksToCrispee.create();
         trials = [['greenBlockOut', 'greenBlockIn', ["This is our CRISPEE machine!", 
         "Each of these blocks represents \na gene.",
@@ -61,7 +41,6 @@ var CrispeePlay = (function() {
         "Click on the green block to \nadd it to CRISPEE" ], 
         'angieYellow', 'yellow', 'redBlockIn', 'blueBlockOffIn']];
         intro(trials[trialIndex]);
->>>>>>> 39ee356f10c885891bd7895ea99fc95f8eb8532f
 
         // content = ["This is our CRISPEE \nmachine!", 
         // "Each of these blocks represents a gene.",
