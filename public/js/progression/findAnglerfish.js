@@ -82,7 +82,7 @@ var FindAnglerfishState = (function() {
     function actionOnClick(){
         if (index === content.length){
             console.log('1');
-            game.state.start('learn');
+            game.state.start('dilemmaOne');
             return;
         } if (index === 11){
             text.setText(content[index]);
