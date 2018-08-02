@@ -7,6 +7,7 @@ var BlocksToCrispee = (function() {
 
     var load = function() {
         game.load.image('crispee', 'images/crispee/crispeeEmpty.png');
+        game.load.image('crispeeW','images/crispee/crispeeWhite.png');
 
         game.load.image('blueBlockOut', 'images/blocks/blueBlockOut.png');
         game.load.image('redBlockOut', 'images/blocks/redBlockOut.png');
@@ -79,6 +80,12 @@ var BlocksToCrispee = (function() {
         return [blocks, transBlocks];
     };
 
+    var createCrispeeW = function(alpha) {
+ 
+        addSprite(0, 0, false, 'crispee', game.width, game.height);
+       
+    };
+
     /** stopDrag code from
      * https://codepen.io/jdnichollsc/pen/WbZgwM?editors=0010
      */
@@ -120,6 +127,7 @@ var BlocksToCrispee = (function() {
     return {
         load: load,
         create: create,
+        createCrispeeW: createCrispeeW,
         putInCrispee: putInCrispee
         // stopDrag: stopDrag
     };
