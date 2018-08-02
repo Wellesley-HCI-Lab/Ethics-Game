@@ -6,12 +6,8 @@
 var BlocksToCrispee = (function() {
 
     var load = function() {
-<<<<<<< HEAD
         game.load.image('crispee', 'images/crispee/crispeeEmpty.png');
         game.load.image('crispeeW','images/crispee/crispeeWhite.png');
-=======
-        game.load.image('crispee', 'images/crispee/crispee.png');
->>>>>>> 39ee356f10c885891bd7895ea99fc95f8eb8532f
 
         // Loads images of blocks outside CRISPEE (ON blocks only right now)
         game.load.image('blueBlockOut', 'images/blocks/blueBlockOut.png');
@@ -51,53 +47,14 @@ var BlocksToCrispee = (function() {
         crispee = addSprite(0, 0, false, 'crispee', game.width, game.height);
     };
 
-<<<<<<< HEAD
     var createCrispeeW = function(alpha) {
  
-        addSprite(0, 0, false, 'crispee', game.width, game.height);
+        crispw = addSprite(0, 0, false, 'crispee', game.width, game.height);
        
     };
 
-    /** stopDrag code from
-     * https://codepen.io/jdnichollsc/pen/WbZgwM?editors=0010
-     */
-    // var stopDrag = function(currentSprite, endSprite, replaceWith){
-    //     if (!game.physics.arcade.overlap(currentSprite, endSprite, 
-    //         function() {
-    //             currentSprite.input.draggable = false;
-    //             currentSprite.destroy();
-    //             blockIn = addScaledSprite(380, 460, false, replaceWith, 0.225); 
-    //             blockIn.position.copyFrom(endSprite.position); 
-    //             blockIn.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
-    //   })) { currentSprite.position.copyFrom(currentSprite.originalPosition);
-    //   }
-    // };
 
-    var putInCrispee = function(currentSprite, endSprite, replaceWith){
-        console.log('Click registered')
-        currentSprite.inputEnabled= false;
-        currentSprite.destroy();
-        blockIn = addScaledSprite(380, 460, false, replaceWith, 0.225); 
-        blockIn.position.copyFrom(endSprite.position); 
-        blockIn.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
-        return blockIn;
-    };
 
-    //  /** stopDrag code from
-    //  * https://codepen.io/jdnichollsc/pen/WbZgwM?editors=0010
-    //  */
-    // var stopDrag = function(currentSprite, endSprite){
-    //     if (!game.physics.arcade.overlap(currentSprite, endSprite, 
-    //         function() {
-    //             currentSprite.input.draggable = false;
-    //             currentSprite.position.copyFrom(endSprite.position); 
-    //             currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
-    //   })) { currentSprite.position.copyFrom(currentSprite.originalPosition);
-    //   }
-    // };
-
-=======
->>>>>>> 39ee356f10c885891bd7895ea99fc95f8eb8532f
     return {
         load: load,
         createBlock: createBlock,
