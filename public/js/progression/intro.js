@@ -83,7 +83,7 @@ var Intro = (function() {
     var update = function(){
         Submarine.move();
         if(testing) {
-            BootState.updateLevel('sbGame'); 
+            BootState.updateLevel('socialBiosensor'); 
         }
     }
 

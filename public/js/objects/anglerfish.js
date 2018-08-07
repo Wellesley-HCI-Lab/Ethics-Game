@@ -21,6 +21,7 @@ var Anglerfish = (function() {
 	function create() {
 		// Adds the the image of Pam above ground, outside the submarine 
 		sprite = addSprite(0, 0, false, 'angieInfo', game.width, game.height);
+        return sprite;
     }
 
     function createTankEnvironment(){

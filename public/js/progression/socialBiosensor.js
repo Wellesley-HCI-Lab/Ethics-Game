@@ -22,13 +22,16 @@ var nextButton;
 
 
 var SocialBiosensorState = (function() {
+	var load = function(){
+		game.load.image('angieMagenta', 'images/anglerfish/angieMagenta.png');
+	}
 	
 
     var create = function(){
-    	//background2 = BlocksToCrispee.create(0);
+    	background2 = BlocksToCrispee.createCrispeeW(1);
         background = Anglerfish.create();
         //BlocksToCrispee.create(0);
-        //Scientist.create(-140, 400);
+        Scientist.create(-140, 400);
         speechBubble = Text.create(315, 280, 'speechBubble', 0.15);
         nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick,1);
 
@@ -43,7 +46,7 @@ var SocialBiosensorState = (function() {
         "If Angie has a biosensor,\n her light could point us to\n other anglerfish",
         "Doing this could help us observe\n them!",
         "What color should Angie light up\n when she senses friends in her\n environment?",
-        "blahabakak"
+        "blahabakak", "jdnwiowjowowskks", "biwiwiwiow"
         ];
         //radioContent = [];
 
@@ -64,21 +67,23 @@ var SocialBiosensorState = (function() {
              }
             console.log("a");
             if (index === 10){
-            	//console.log("b" + BlocksToCrispee.create(0).world.x);
+            	background.alpha = 0;
+            	background2 = BlocksToCrispee.createCrispeeW();
+            	//Scientist.destroy();
+            	BlocksToCrispee.blockOutRedOn();
+            	BlocksToCrispee.blockOutBlueOn();
+            	BlocksToCrispee.blockOutGreenOff();
+            	//BlocksToCrispee.comboHandler();
+            	//console.log("confirm: " + BlocksToCrispee.blockOutRedOn().x)
 
+            	//if (BlocksToCrispee.blockOutRedOn().x == 350){console.log("werk");}
 
-             	
-             	//game.world.swap(background, background2);
-          //    	speechBubble = Text.create(10, -60, 'speechBubble', 0.1);
-        		// nextButton = Text.createNextButton(190, 90, 0.2, actionOnClick,1);
-        		// content = ["Place the blocks in CRISPEE to what happens!"];
-        		// index = 0;
-        		// text = game.add.text(60, 25, content[index], 
-		        //     {font: "22px Arial",
-		        //     fill: "#000000",
-		        //     align: "left"});
-		        // text.alpha = 0;
-		        // game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+            	//if (){
+            		//console.log("get registered");
+            		//Anglerfish.createTankEnvironment();
+            		//angie = addScaledSprite(300, 150, false, colorImg, 0.1);
+            	//}
+
 
              	text.setText(content[index]);
              	index++;
@@ -95,7 +100,8 @@ var SocialBiosensorState = (function() {
     }//end of create function
 
 
-    return {       
+    return {     
+    	load: load, 
         create: create
     };
 
