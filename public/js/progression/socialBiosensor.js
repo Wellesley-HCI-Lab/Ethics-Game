@@ -46,7 +46,7 @@ var SocialBiosensorState = (function() {
         "If Angie has a biosensor,\n her light could point us to\n other anglerfish",
         "Doing this could help us observe\n them!",
         "What color should Angie light up\n when she senses friends in her\n environment?",
-        "blahabakak", "jdnwiowjowowskks", "biwiwiwiow"
+        "Code a color that will act as\n a biosensor", "Click the button that appears\n after you've filled all three slots.\nThis button mixes your program!"
         ];
         //radioContent = [];
 
@@ -69,33 +69,39 @@ var SocialBiosensorState = (function() {
             if (index === 10){
             	background.alpha = 0;
             	background2 = BlocksToCrispee.createCrispeeW();
+
+            	bubble = Text.create(30, -60, 'speechLong', 0.11);
+            	nextButton = Text.createNextButton(280, 84, 0.2, actionOnClick,1);
+            	text = game.add.text(65, 30, content[index], 
+				            {font: "22px Arial",
+				            fill: "#000000",
+				            align: "left"});
+
             	//Scientist.destroy();
             	BlocksToCrispee.blockOutRedOn();
+            	BlocksToCrispee.blockOutRedOff();
+
+            	
             	BlocksToCrispee.blockOutBlueOn();
+            	BlocksToCrispee.blockOutBlueOff();
+
+
+                BlocksToCrispee.blockOutGreenOn();
             	BlocksToCrispee.blockOutGreenOff();
-            	//BlocksToCrispee.comboHandler();
-            	//console.log("confirm: " + BlocksToCrispee.blockOutRedOn().x)
-
-            	//if (BlocksToCrispee.blockOutRedOn().x == 350){console.log("werk");}
-
-            	//if (){
-            		//console.log("get registered");
-            		//Anglerfish.createTankEnvironment();
-            		//angie = addScaledSprite(300, 150, false, colorImg, 0.1);
-            	//}
 
 
              	text.setText(content[index]);
              	index++;
              }
+             if (index === 12){ nextButton.pendingDestroy = true;  }
 
             text.setText(content[index]); 
         	index++;
          }
 
 
-         function moveBack(){
-
+         function resetGame(){
+         	index = 10;
          }
     }//end of create function
 
