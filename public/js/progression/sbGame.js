@@ -56,6 +56,10 @@ var SBGameState = (function() {
     var update = function(){
         game.physics.arcade.overlap(anglerfish, hiddenAnglerfish, nearHandler, null, this);
         game.physics.arcade.overlap(anglerfish, transFish, transHandler, null, this);
+        if (!game.physics.arcade.overlap(anglerfish, hiddenAnglerfish) && 
+            !game.physics.arcade.overlap(anglerfish, transFish)){
+            anglerfish.loadTexture('angieBlackCrop');
+        }
     }
 
     function nearHandler(fish, hiddenFish){
