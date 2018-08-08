@@ -20,37 +20,52 @@ var SBGameState = (function() {
 		game.load.image('hiddenAngler3', 'images/anglerfish/hiddenAngler3.png');
         game.load.image('hiddenAngler4', 'images/anglerfish/hiddenAngler4.png');
         game.load.image('angieBlackCrop', 'images/anglerfish/angieBlackCrop.png');
-        game.load.image('angieMagentaCrop', 'images/anglerfish/angieMagentaCrop.png')
+        game.load.image('angieMagentaCrop', 'images/anglerfish/angieMagentaCrop.png');
+        game.load.image('findInstructions', 'images/text/findInstructions.png');
 
 
     }
 
     var create = function(){
         SubUnderwater.create();
+        instructions = addScaledSprite(0, 0, false, 'findInstructions', 0.2);
+
         hiddenAnglerfish = game.add.physicsGroup();
         hiddenOne = addScaledSprite(100, 100, false, 'hiddenAngler1', 0.1);
         hiddenTwo = addScaledSprite(400, 250, false, 'hiddenAngler2', 0.1);
         hiddenThree = addScaledSprite(600, 100, false, 'hiddenAngler3', 0.1);
         hiddenFour = addScaledSprite(600, 300, false, 'hiddenAngler4', 0.1);
-        hiddenAnglerfish.add(hiddenOne);
-        hiddenAnglerfish.add(hiddenTwo);
-        hiddenAnglerfish.add(hiddenThree);
-        hiddenAnglerfish.add(hiddenFour);
+        hiddenAnglerfish.add(hiddenOne); hiddenAnglerfish.add(hiddenTwo); 
+        hiddenAnglerfish.add(hiddenThree); hiddenAnglerfish.add(hiddenFour);
         hiddenAnglerfish.setAll('alpha', 0);
+
         transFish = game.add.physicsGroup();
         transOne = addScaledSprite(100, 100, false, 'hiddenAngler1', 0.3);
         transTwo = addScaledSprite(400, 250, false, 'hiddenAngler2', 0.3);
         transThree = addScaledSprite(600, 100, false, 'hiddenAngler3', 0.3);
         transFour = addScaledSprite(600, 300, false, 'hiddenAngler4', 0.3);
-        transFish.add(transOne);
-        transFish.add(transTwo);
-        transFish.add(transThree);
-        transFish.add(transFour);
+        transFish.add(transOne); transFish.add(transTwo);
+        transFish.add(transThree);transFish.add(transFour);
         transFish.setAll('alpha', 0);
-        anglerfish = addScaledSprite(0,0, false, 'angieBlackCrop', 0.04);
+
+        anglerfish = addScaledSprite(350, 100, false, 'angieBlackCrop', 0.04);
         game.physics.enable(anglerfish, Phaser.Physics.ARCADE);
         anglerfish.inputEnabled = true;
         anglerfish.input.enableDrag();
+
+        // bubble = Text.create(40, -60, 'bubble', 0.1);
+        // next = Text.createNextButton(280, 85, 0.2, function(){
+        //     bubble.destroy();
+        //     text.destroy();
+        //     next.destroy();
+        // }, 1);
+    
+        // text = game.add.text(65, 30, "Move Angie around and see \nif we can use her biosensor \nto detect other anglerfish!", 
+        //     {font: "22px Arial",
+        //     fill: "#000000",
+        //     align: "left"});
+        // text.alpha = 0;
+        // game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
     }
 
     var update = function(){
@@ -60,6 +75,7 @@ var SBGameState = (function() {
             !game.physics.arcade.overlap(anglerfish, transFish)){
             anglerfish.loadTexture('angieBlackCrop');
         }
+
     }
 
     function nearHandler(fish, hiddenFish){

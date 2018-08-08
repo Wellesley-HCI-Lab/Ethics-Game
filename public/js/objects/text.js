@@ -21,6 +21,7 @@ var Text = (function() {
 	function load(bubble, path) {
         game.load.image(bubble, path);
         // game.load.spritesheet('bubble', 'images/text/bubble.png', 521, 193);
+        game.load.image('bubble', 'images/text/bubbleNew.png')
         game.load.image('speechLong', 'images/text/long.png');
         game.load.spritesheet('nextButton', 'images/text/nextButtonSprite.png', 521, 193);
         game.load.atlasJSONHash('nameButton', 'images/text/nameButtonSprite.png','images/text/nameButton.json');
