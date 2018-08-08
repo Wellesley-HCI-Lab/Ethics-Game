@@ -22,6 +22,8 @@ game.state.add('crispeePlay', crispeePlayState)
 game.state.add('socialBiosensor', socialBiosensorState)
 // Loads state with the state where user finds other anglerfish using the social biosensor
 game.state.add('sbGame', sbGameState)
+// Loads state with the conquences of storyline 1
+game.state.add('consequenceOne', consequenceOneState)
 
 function create() { 
 	game.physics.startSystem(Phaser.Physics.ARCADE);
