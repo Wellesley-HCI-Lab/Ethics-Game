@@ -33,10 +33,10 @@ var FindAnglerfishState = (function() {
         SubUnderwater.create();
         GlowingAnglerfish.create();
 
-        //what is this
+        //what is this?
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
 
-        //format and add the speechBubble
+        //format and add the speechBubble, hiding the text with alpha = 0
         speechBubble = Text.create(-30, 250, 'speechBubble', 0.15);
         text = game.add.text(45, 380, 'I wonder what that could be?\nIf you click on it maybe we can find\nout.', 
             {font: "22px Arial",
@@ -44,11 +44,13 @@ var FindAnglerfishState = (function() {
             align: "left"});
         text.alpha = 0;
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
-        //
+        
+        //add the zoom sprite and scale it, hiding it with alpha = 0
         zoom = game.add.sprite(300, 85, 'zoom');
         zoom.scale.setTo(0.7, 0.7);
         zoom.alpha = 0;
 
+        //add the walkie talkie and scale it, plus animate it, hiding it with alpha = 0
         walkie = game.add.sprite(400,200,'radio');
         walkie.scale.setTo(1,1);
         walkie.animations.add('walk');
@@ -67,27 +69,36 @@ var FindAnglerfishState = (function() {
          "The lure helps them to attract \n curious prey into their large mouths,\nand sometimes, to attract friends." ];
         
         index = 0;
+
+        //create and add the callback function for the nextButton
         nextButton = Text.createNextButton(300, 490, 0.2, actionOnClick, 0);
     }
 
+    //event loop for this progression
     var update = function(){
-        { if(testing) BootState.updateLevel('learn'); }
+        { if(testing) BootState.updateLevel('learn'); }//for debugging
         GlowingAnglerfish.update();
+        //if angie appears, make the next button appear
         if (angieAppears.alpha === 1){
             nextButton.alpha = 1;
-            if (index ===0){
+            //when index is initialied to 0, make the text appear and increase index
+            if (index === 0){
                 text.setText(content[0]);
                 index++;
             }
         };
     }
 
+    //callback function for nextButton
     function actionOnClick(){
+        //go to the next progression when we have gone through the content
         if (index === content.length){
             console.log('1');
             game.state.start('dilemmaOne');
             return;
-        } if (index === 11){
+        } 
+        //index trigger for when zoom and walkie talkie shoudl appear
+        if (index === 11){
             text.setText(content[index]);
             zoom.alpha = 1;
             index++;
@@ -96,13 +107,18 @@ var FindAnglerfishState = (function() {
             text.setText(content[index]);
             walkie.alpha = 1;
             index++;
-        } else {
+        }
+        //otherwise...
+        else {
             //if (typeof walkie !== "undefined") {walkie.destroy();}
+            //hide the zoom and walkie-talkies
             zoom.alpha = 0;
             walkie.alpha = 0;
 
+            //set the text to the current index
             text.setText(content[index]);
-            console.log(content[index])
+            console.log(content[index]);
+
             index++;
         }
     }
