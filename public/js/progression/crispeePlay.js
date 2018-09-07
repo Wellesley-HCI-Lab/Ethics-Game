@@ -5,7 +5,6 @@
  * in order to change the color of Angie's lure.
  * @exports findAnglerfishState
  */
-
 var content;
 var blocks;
 var trialIndex = 0;
@@ -14,7 +13,6 @@ var crispeePlayState = {
     load: function(){ CrispeePlay.load();},
     create: function(){CrispeePlay.create(); },
     update: function(){if(testing) BootState.updateLevel('socialBiosensor');}
-    
 }
 
 var CrispeePlay = (function() {
@@ -25,9 +23,9 @@ var CrispeePlay = (function() {
     }
 
     var create = function(){
-
-   
         BlocksToCrispee.create();
+
+        //
         trials = [['greenBlockOut', 'greenBlockIn', ["This is our CRISPEE machine!", 
         "Each of these blocks represents \na gene.",
         "We can arrange genes in \ndifferent ways to bioengineer \nliving things!",
@@ -54,24 +52,35 @@ var CrispeePlay = (function() {
 
     function intro(trials){
         console.log(trials[5]);
+        
         addScaledSprite(138, 317, false, trials[6], 0.226); // one
         addScaledSprite(232, 313, false, trials[5], 0.226); // two
+        
         block = BlocksToCrispee.createBlock(trials[0], 620, 400, 0.225, trials[1], 319, 313, 0.225);
+        
         if (trialIndex === 0) {block.inputEnabled = false;}
 
+        //add border and next button, make them appear
         bubble = Text.create(40, -60, 'speechLong', 0.1);
         next = Text.createNextButton(280, 85, 0.2, function(){
             actionOnClick(block, trials[3], trials[4]);
         }, 1);
     
+        //content is third item in trials, block of text
         content = trials[2];
+        
         index = 0;
+
+        //format and hide text
         text = game.add.text(65, 30, content[index], 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
         text.alpha = 0;
+
+        //show text and add animation
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+        
         index++;
     }
 
@@ -81,8 +90,11 @@ var CrispeePlay = (function() {
         tank = addSprite(0, 0, false, 'tank', game.width, game.height);
         angie = addScaledSprite(300, 150, false, colorImg, 0.1);
         bubble = Text.create(80, 315, 'speechLong', 0.12);
+        
+        //buttons for yes and no question "do you want to make another color?"
         no = game.add.button(270, 500, 'noButton', noHandler);
         no.scale.setTo(0.2, 0.2);
+        
         yes = game.add.button(390, 500, 'yesButton', yesHandler);
         yes.scale.setTo(0.2, 0.2);
 
@@ -95,15 +107,17 @@ var CrispeePlay = (function() {
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
     }
 
+    //go back to the inital "create" if user answers yes
     function yesHandler(){
         create();
     }
 
+    //go to the next state if user says they don't want to make another color
     function noHandler(){
         game.state.start('socialBiosensor');
     }
 
-
+    //callback for next button
     function actionOnClick(block, colorImg, color){
         console.log(index);
         if (index === content.length){
