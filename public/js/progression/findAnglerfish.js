@@ -15,7 +15,6 @@ var findAnglerfishState = {
 	// shutdown: function(){ FindAnglerfish.shutdown(); }
 }
 
-
 var introText;
 var text;
 var content;
@@ -32,9 +31,12 @@ var FindAnglerfishState = (function() {
 
     var create = function(){
         SubUnderwater.create();
-        GlowingAnglerfish.create()
+        GlowingAnglerfish.create();
+
+        //what is this
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
 
+        //format and add the speechBubble
         speechBubble = Text.create(-30, 250, 'speechBubble', 0.15);
         text = game.add.text(45, 380, 'I wonder what that could be?\nIf you click on it maybe we can find\nout.', 
             {font: "22px Arial",
@@ -42,6 +44,7 @@ var FindAnglerfishState = (function() {
             align: "left"});
         text.alpha = 0;
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+        //
         zoom = game.add.sprite(300, 85, 'zoom');
         zoom.scale.setTo(0.7, 0.7);
         zoom.alpha = 0;
@@ -52,20 +55,20 @@ var FindAnglerfishState = (function() {
         walkie.animations.play('walk', 5, true);
         walkie.alpha = 0;
 
-        content = ["My goodness!", "I'm not sure what it is?\n Do you?", 
+        content = ["My goodness!", "I'm not sure what it is?\nDo you?", 
         "Maybe the radio can tell us more?",
         "Radio, My crew of explorers have \nfound an interesting animal!", "Can you help us a bit?", 
         "Of course! \n just describe what you see.",
         "I'm sure it's a fish!\n It has a very big jaw,\n with a bulb floating right above it!", 
         "Wow! This is exciting news!","You've encountered a live Anglerfish",
-        "From what scientists know about them,\n there are a few important things to know\n about Anglerfish",
+        "There are a few important things to \nknow about Anglerfish",
         "Anglerfish are deep sea creatures\n that live in solitude.\n This means they prefer to be alone.",
         "That bulb hanging from their head is called\n a lure.",
          "The lure helps them to attract \n curious prey into their large mouths,\nand sometimes, to attract friends." ];
+        
         index = 0;
         nextButton = Text.createNextButton(300, 490, 0.2, actionOnClick, 0);
     }
-
 
     var update = function(){
         { if(testing) BootState.updateLevel('learn'); }
@@ -124,10 +127,9 @@ var FindAnglerfishState = (function() {
     // } //END OF ONCLICK
 
     
-
-    var onTap = function(){
-        game.state.start('learn');
-    }
+    //var onTap = function(){
+        //game.state.start('learn');
+    //}
 
 
     return {
