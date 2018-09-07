@@ -61,12 +61,12 @@ var FindAnglerfishState = (function() {
         "Maybe the radio can tell us more?",
         "Radio, my crew of explorers have \nfound an interesting animal!", "Can you help us a bit?", 
         "Of course! \n Just describe what you see.",
-        "I'm sure it's a fish!\n It has a very big jaw,\n with a bulb floating right above it!", 
+        "I'm sure it's a fish!\n It has a very big jaw\n with a bulb floating right above it!", 
         "Wow! This is exciting news!","You've encountered a live anglerfish",
         "There are a few important things to \nknow about anglerfish.",
         "Anglerfish are deep sea creatures\n that live in solitude.\n This means they prefer to be alone.",
         "That bulb hanging from their head is called\n a lure.",
-         "The lure helps them to attract \n curious prey into their large mouths,\nand sometimes, to attract friends."];
+         "The lure helps them attract \n curious prey into their large mouths \nand to attract friends."];
         
         index = 0;
 
