@@ -63,7 +63,7 @@ var DilemmaOneState = (function() {
      "We know that this is a \nfemale anglerfish because of\n its size",
      "Female anglerfish are\n very large in size.",
      "Maybe we should give this \nanglerfish a name?",
-     name + " is a great name!!",
+     name + " is a great name!",
      "We can use our CRISPEE machine\n to genetically modify " + name + "'s genes\n so that she can light up",
      "Let’s go over to our \nCRISPEE machine and see \nwhat we can do."
      ];

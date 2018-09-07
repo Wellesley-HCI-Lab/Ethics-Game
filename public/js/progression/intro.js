@@ -32,16 +32,16 @@ var Intro = (function() {
         nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick,1);
         
         // Intro dialogue broken into individual sentences
-        var content = ["Hi, and welcome! ", 
+        var content = ["Hi and welcome! ", 
         "It’s so good to meet the \nfinal member of our deep sea crew! ", 
         "I’m Pam and this is my crew of \nbioengineers.",
         "We want to study the deep sea and \nits mysterious creatures!",
         "This is our submarine!",
-        "It will keep us alive in depths up \nto 13000 ft where sunlight\ncan’t reach!", 
+        "It will keep us alive in depths up \nto 13000 feet where sunlight\ncan’t reach!", 
         "It will also serve as our lab space to\nuse CRISPEE, a machine we can \nuse to bioengineer genes.",
         "Pretty handy, huh?",
-        "As part of our research team, we \nalso have a scientist who is an \nexpert on deep creatures \nhelping us!",
-        "She’s still on land, so we use a radio\nto contact her.", 
+        "As part of our research team, we \nalso have a scientist who is an \nexpert on deep sea \ncreatures helping us!",
+        "She’s still on land, so we will use a radio\nto contact her.", 
         "If we ever want to talk to her, \nshe can tell us lots of helpful facts \nabout deep sea animals.", 
         "Well now that you’re here to help us, \nit’s time for us to board the \nsubmarine!"];
 

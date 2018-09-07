@@ -30,13 +30,13 @@ var CrispeePlay = (function() {
         "Each of these blocks represents \na gene.",
         "We can arrange genes in \ndifferent ways to bioengineer \nliving things!",
         "We can use it to bioengineer \nAngie",
-        "Click on the green block to \nadd it to CRISPEE" ], 
+        "Click on the green block to \nadd it to CRISPEE." ], 
         'angieWhite', 'white', 'redBlockIn', 'blueBlockIn'],
         ['greenBlockOut', 'greenBlockIn', [
-        "Click on the green block to \nadd it to CRISPEE" ], 
+        "Click on the green block to \nadd it to CRISPEE." ], 
         'angieCyan', 'cyan', 'redBlockOffIn', 'blueBlockIn'],
         ['greenBlockOut', 'greenBlockIn', [
-        "Click on the green block to \nadd it to CRISPEE" ], 
+        "Click on the green block to \nadd it to CRISPEE." ], 
         'angieYellow', 'yellow', 'redBlockIn', 'blueBlockOffIn']];
         intro(trials[trialIndex]);
 
