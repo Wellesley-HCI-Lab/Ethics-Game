@@ -51,6 +51,8 @@ var SBGameState = (function() {
         game.physics.enable(anglerfish, Phaser.Physics.ARCADE);
         anglerfish.inputEnabled = true;
         anglerfish.input.enableDrag();
+        console.log("color: " + color);
+
     }
 
     var update = function(){

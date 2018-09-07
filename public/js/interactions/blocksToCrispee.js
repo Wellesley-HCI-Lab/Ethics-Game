@@ -3,6 +3,8 @@
  * @exports BlockToCrispee
  */
 
+ var color;
+
 var BlocksToCrispee = (function() {
 
     var load = function() {
