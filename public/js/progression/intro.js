@@ -33,7 +33,7 @@ var Intro = (function() {
         
         // Intro dialogue broken into individual sentences
         var content = ["Hi and welcome! ", 
-        "It’s so good to meet the \nfinal member of our deep sea crew! ", 
+        "It’s so good to meet the \nfinal member of our deep sea crew!", 
         "I’m Pam and this is my crew of \nbioengineers.",
         "We want to study the deep sea and \nits mysterious creatures!",
         "This is our submarine!",

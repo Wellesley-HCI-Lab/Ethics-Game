@@ -62,7 +62,7 @@ var FindAnglerfishState = (function() {
         "Radio, my crew of explorers have \nfound an interesting animal!", "Can you help us a bit?", 
         "Of course! \nJust describe what you see.",
         "I'm sure it's a fish!\nIt has a very big jaw with \na bulb floating right above it!", 
-        "Wow! This is exciting news!","You've encountered a live anglerfish",
+        "Wow! This is exciting news!","You've encountered a live anglerfish.",
         "There are a few important things to \nknow about anglerfish.",
         "Anglerfish are deep sea creatures\nthat live in solitude.\nThis means they prefer to be alone.",
         "That bulb hanging from their head is called\na lure.",
