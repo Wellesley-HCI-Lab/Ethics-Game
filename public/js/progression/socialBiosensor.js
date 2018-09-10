@@ -35,18 +35,18 @@ var SocialBiosensorState = (function() {
         speechBubble = Text.create(315, 280, 'speechBubble', 0.15);
         nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick,1);
 
-        content =["We brought Angie aboard and we’ve\n fixed her light! She’s now \nready to go.",
+        content =["We brought Angie aboard and we’ve\nfixed her light! She’s now \nready to go.",
         "What do we know about anglerfish?",
-        "Can you think of a way in which\n Angie can help us discover\n other deep sea creatures?",
-        "Did you know that a biosensor\n is when a living thing acts\n like a sensor?",
-        "Your body has senses that tell\n you when it's hot and cold\n and when music is playing",
-        "Animal bodies also have \nspecial senses that can tell them\n things",
-        "like when another animal\n like them is nearby. ",
-        "We can use CRISPEE to add\n these special senses, called biosensors,\n into an animal's gene program",
-        "If Angie has a biosensor,\n her light could point us to\n other anglerfish",
-        "Doing this could help us observe\n them!",
-        "What color should Angie light up\n when she senses friends in her\n environment?",
-        "Code a color that will act as\n a biosensor", "Click the button that appears\n after you've filled all three slots.\nThis button mixes your program!"
+        "Can you think of a way in which\nAngie can help us discover\nother deep sea creatures?",
+        "Did you know that a biosensor\nis when a living thing acts\nlike a sensor?",
+        "Your body has senses that tell\nyou when it's hot and cold\nand when music is playing",
+        "Animal bodies also have \nspecial senses that can tell them\nthings",
+        "like when another animal\nlike them is nearby. ",
+        "We can use CRISPEE to add\nthese special senses, called biosensors,\ninto an animal's gene program",
+        "If Angie has a biosensor,\nher light could point us to\nother anglerfish",
+        "Doing this could help us observe\nthem!",
+        "What color should Angie light up\nwhen she senses friends in her\nenvironment?",
+        "Code a color that will act as\na biosensor", "Click the button that appears\nafter you've filled all three slots.\nThis button mixes your program!"
         ];
         //radioContent = [];
 

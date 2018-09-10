@@ -41,7 +41,7 @@ var Intro = (function() {
         "It will also serve as our lab space to\nuse CRISPEE, a machine we can \nuse to bioengineer genes.",
         "Pretty handy, huh?",
         "As part of our research team, we \nalso have a scientist who is an \nexpert on deep sea \ncreatures helping us!",
-        "She’s still on land, so we will use a radio\nto contact her.", 
+        "She’s still on land, so we will use a \nradio to contact her.", 
         "If we ever want to talk to her, \nshe can tell us lots of helpful facts \nabout deep sea animals.", 
         "Well now that you’re here to help us, \nit’s time for us to board the \nsubmarine!"];
 

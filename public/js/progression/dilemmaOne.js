@@ -57,14 +57,14 @@ var DilemmaOneState = (function() {
 
      game.add.plugin(PhaserInput.Plugin);
 
-     content =["We can see that this fish has\n a lure, but it doesn’t seem to\n be glowing.",
-     "This fish might not be able to\n light up on its own.",
-     "This is a chance to learn more\n about deep sea creatures\n and to help this anglerfish!",
-     "We know that this is a \nfemale anglerfish because of\n its size",
-     "Female anglerfish are\n very large in size.",
+     content =["We can see that this fish has\na lure, but it doesn’t seem to\nbe glowing.",
+     "This fish might not be able to\nlight up on its own.",
+     "This is a chance to learn more\nabout deep sea creatures\nand to help this anglerfish!",
+     "We know that this is a \nfemale anglerfish because of\nits size",
+     "Female anglerfish are\nvery large in size.",
      "Maybe we should give this \nanglerfish a name?",
      name + " is a great name!",
-     "We can use our CRISPEE machine\n to genetically modify " + name + "'s genes\n so that she can light up",
+     "We can use our CRISPEE machine\nto genetically modify " + name + "'s genes\nso that she can light up",
      "Let’s go over to our \nCRISPEE machine and see \nwhat we can do."
      ];
 

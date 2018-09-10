@@ -60,26 +60,25 @@ var FindAnglerfishState = (function() {
         content = ["My goodness!", "I'm not sure what it is?\nDo you?", 
         "Maybe the radio can tell us more?",
         "Radio, my crew of explorers have \nfound an interesting animal!", "Can you help us a bit?", 
-        "Of course! \n Just describe what you see.",
-        "I'm sure it's a fish!\n It has a very big jaw\n with a bulb floating right above it!", 
+        "Of course! \nJust describe what you see.",
+        "I'm sure it's a fish!\nIt has a very big jaw with \na bulb floating right above it!", 
         "Wow! This is exciting news!","You've encountered a live anglerfish",
         "There are a few important things to \nknow about anglerfish.",
-        "Anglerfish are deep sea creatures\n that live in solitude.\n This means they prefer to be alone.",
-        "That bulb hanging from their head is called\n a lure.",
-         "The lure helps them attract \n curious prey into their large mouths \nand to attract friends."];
+        "Anglerfish are deep sea creatures\nthat live in solitude.\nThis means they prefer to be alone.",
+        "That bulb hanging from their head is called\na lure.",
+        "The lure helps them attract \ncurious prey into their large mouths \nand to attract friends."];
         
         index = 0;
-
-        //create and add the callback function for the nextButton
-        nextButton = Text.createNextButton(300, 490, 0.2, actionOnClick, 0);
     }
 
     //event loop for this progression
     var update = function(){
         { if(testing) BootState.updateLevel('learn'); }//for debugging
         GlowingAnglerfish.update();
-        //if angie appears, make the next button appear
+        //if angie appears, create the next and make it appear
         if (angieAppears.alpha === 1){
+            //create and add the callback function for the nextButton
+            nextButton = Text.createNextButton(300, 490, 0.2, actionOnClick, 0);
             nextButton.alpha = 1;
             //when index is initialied to 0, make the text appear and increase index
             if (index === 0){
@@ -143,9 +142,9 @@ var FindAnglerfishState = (function() {
     // } //END OF ONCLICK
 
     
-    //var onTap = function(){
-        //game.state.start('learn');
-    //}
+    var onTap = function(){
+        game.state.start('learn');
+    }
 
 
     return {
