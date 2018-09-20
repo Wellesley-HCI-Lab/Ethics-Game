@@ -18,9 +18,6 @@ var content;
 var speechBubble;
 var nextButton;
 
-
-
-
 var SocialBiosensorState = (function() {
 	var load = function(){
 		game.load.image('angieMagenta', 'images/anglerfish/angieMagenta.png');
@@ -46,7 +43,7 @@ var SocialBiosensorState = (function() {
         "If Angie has a biosensor,\nher light could point us to\nother anglerfish.",
         "Doing this could help us observe\nthem!",
         "What color should Angie light up\nwhen she senses friends in her\nenvironment?",
-        "Code a color that will act as\na biosensor", "Click the button that appears\nafter you've filled all three slots.\nThis button mixes your program!"
+        "Code a color that will act as\na biosensor.", "Click the button that appears\nafter you've filled all three slots.\nThis button mixes your program!"
         ];
         //radioContent = [];
 

@@ -61,6 +61,12 @@ var BootState = (function() {
     var load = function(){ 
         //game.load.image('background', 'images/background/background.png');
         game.load.image('button', 'images/background/playButton.png');
+
+        //images for buttons to jump to different storylines
+        game.load.image('button1', 'images/background/button1.png');
+        game.load.image('button2', 'images/background/button2.png');
+        game.load.image('button3', 'images/background/button3.png');
+
         game.load.image('porthole', 'images/background/portholeSub.png');
         game.load.image('underwaterbac', 'images/background/underwater.png');
         game.load.image('ang', 'images/background/ang.png');
@@ -80,8 +86,17 @@ var BootState = (function() {
         game.load.image('noButton', 'images/text/noButton.png');
         game.load.image('yesButton', 'images/text/yesButton.png');
 
-
-
+        //loading objects
+        Submarine.load();
+        SubUnderwater.load();
+        GlowingAnglerfish.load();
+        Scientist.load();
+        Anglerfish.load();
+        BlocksToCrispee.load();
+        Text.load();
+        Text.load('speechBubble', 'images/text/bubbleNew.png');
+        game.load.image('pointer', 'images/text/pointer.png');
+        game.load.image('speechLong', 'images/text/long.png');
     }
     
     var create = function(){
@@ -106,15 +121,45 @@ var BootState = (function() {
         //the blue gradient background
         // underwaterbac = game.add.tileSprite(game.world.centerX-180, -150, 400, 600, 'underwaterbac');
         background = addSprite(0, 0, false, 'splashPage', game.width, game.height);
+        
         start = game.add.button(190, 335, 'playButton', callLoad, this, 1, 0, 1);
         start.scale.setTo(0.238, 0.238);
+        
+        //buttons to skip to different storylines
+        storyOneBttn = game.add.button(0, 0, 'button1', startStoryOne, this, 1, 0, 1);
+        storyOneBttn.scale.setTo(0.5, 0.5);
+        
+        storyTwoBttn = game.add.button(0, 60, 'button2', startStoryTwo, this, 1, 0, 1);
+        storyTwoBttn.scale.setTo(0.5, 0.5);
+        
+        storyThreeBttn = game.add.button(0, 120, 'button3', startStoryThree, this, 1, 0, 1);
+        storyThreeBttn.scale.setTo(0.5, 0.5);
+
         }
 
         //calls for next game state
         var callLoad = function(){
-            game.state.start('load');
+            game.state.start('intro');
             console.log('move state to game');
             game.sound.stopAll();
+        }
+
+        //callback for first storyline
+        var startStoryOne = function(){
+            game.state.start('intro');
+            console.log('move to storyline 1');
+        }
+
+        //callback for second storyline
+        var startStoryTwo = function(){
+            game.state.start('socialBiosensor');
+            console.log('move to storyline 2');
+        }
+
+        //callback for third storyline
+        var startStoryThree = function(){
+            game.state.start('socialBiosensor');
+            console.log('move to storyline 3, it doesn\'t exist right now');
         }
     
         /**
