@@ -29,7 +29,7 @@ var CrispeePlay = (function() {
         trials = [['greenBlockOut', 'greenBlockIn', ["This is our CRISPEE machine!", 
         "Each of these blocks represents \na gene.",
         "We can arrange genes in \ndifferent ways to bioengineer \nliving things!",
-        "We can use it to bioengineer \nAngie",
+        "We can use it to bioengineer \nAngie.",
         "Click on the green block to \nadd it to CRISPEE." ], 
         'angieWhite', 'white', 'redBlockIn', 'blueBlockIn'],
         ['greenBlockOut', 'greenBlockIn', [
@@ -99,7 +99,7 @@ var CrispeePlay = (function() {
         yes.scale.setTo(0.2, 0.2);
 
         text = game.add.text(105, 420, "You made the color " + color + 
-                            "! \nDo you want to make another color?", 
+                            "! \nDo you want to do that again?", 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
