@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/24)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 9/21)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * State that boots up the game
  * @type {State}
  * @property {Function} preload Before the state loads
@@ -158,7 +158,7 @@ var BootState = (function() {
 
         //callback for third storyline
         var startStoryThree = function(){
-            game.state.start('socialBiosensor');
+            game.state.start('crispeePlay');
             console.log('move to storyline 3, it doesn\'t exist right now');
         }
     

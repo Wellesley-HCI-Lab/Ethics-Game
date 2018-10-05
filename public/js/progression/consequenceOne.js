@@ -1,4 +1,9 @@
-
+/**
+ * PROGRESSION OF STATES (updated 9/21)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
+ * consequenceOne state for the consequence of user's choice in dilemmaOne
+ *
+ */
 
 var consequenceOneState = {
     preload: function() { ConsequenceOneState.preload();},

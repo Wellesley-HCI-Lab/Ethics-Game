@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/24)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 9/21)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * The Intro state, where Pam and the submarine crew are 
  * introduced, and their mission is explained
  * The top of submarine is open

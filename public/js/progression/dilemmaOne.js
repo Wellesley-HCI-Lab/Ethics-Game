@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/24)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 9/21)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * State where user is presented with the first ethical dilemma
  * @exports dilemmaOneState
  */
@@ -60,7 +60,7 @@ var DilemmaOneState = (function() {
      content =["We can see that this fish has\na lure, but it doesn’t seem to\nbe glowing.",
      "This fish might not be able to\nlight up on its own.",
      "This is a chance to learn more\nabout deep sea creatures\nand to help this anglerfish!",
-     "We know that this is a \nfemale anglerfish because of\nits size",
+     "We know that this is a \nfemale anglerfish because of\nits size.",
      "Female anglerfish are\nvery large in size.",
      "Maybe we should give this \nanglerfish a name?",
      name + " is a great name!",

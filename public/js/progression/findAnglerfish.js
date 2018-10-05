@@ -1,6 +1,6 @@
 /**
- * PROGRESSION OF STATES (updated 7/24)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js
+ * PROGRESSION OF STATES (updated 9/21)
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * The findAnglerfishState, where the submarine sees the glow in the water
  * and discovers an anglerfish
  * @exports findAnglerfishState
