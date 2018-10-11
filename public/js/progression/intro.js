@@ -10,18 +10,24 @@
  * @exports introState
  */
 
+var subSprites;
+
 var introState = {
 	preload: function(){ Intro.load(); },
     create: function(){ Intro.create();},
     update: function(){ Intro.update();}
 }
 
-
 var Intro = (function() {
 
     var load = function(){
         Text.load('speechBubble', 'images/text/bubbleNew.png');
         game.load.image('pointer', 'images/text/pointer.png');
+
+        //descending submarine images
+        game.load.image('sub','images/submarine/subAboveWater.png');
+
+        subSpritesImg = game.load.spritesheet('subSpritesImg','images/submarine/submarineCutscene.png',864,625,10);
     }
 
     var create = function(){
@@ -63,9 +69,10 @@ var Intro = (function() {
 
         //event loop that goes through each line of the content when next is clicked
         function actionOnClick(){
-            //
+            //go to the cutscene for the submarine descending
             if (index === content.length){
-                game.state.start('findAnglerfish');
+                subCutscene();
+                //game.state.start('findAnglerfish');
                 return;
             } 
             //at the 5th line, bring out the pointer sprite
@@ -89,10 +96,19 @@ var Intro = (function() {
                 if (typeof pointer !== "undefined"){pointer.destroy();}
                 if (typeof radio !== "undefined"){radio.destroy();}
                 text.setText(content[index]);
-                console.log(index)
                 index++;
             }
         }  
+    }
+
+    //cutscene for submarine
+    function subCutscene() {
+        subSprites = game.add.sprite(-1, -1, 'subSpritesImg');
+        subSprites.animations.add('cutscene',[0,1,2,3,4,5,6,7,8,9]);
+        subSprites.animations.play('cutscene', 1, false);
+        subSprites.scale.set(1);
+        subSprites.smoothed = false;
+
     }
 
     var update = function(){
