@@ -261,8 +261,8 @@ var BlocksToCrispee = (function() {
             nextButton = Text.createNextButton(640, 522, 0.2, actionOnClick,1);
 
             content = ["Great, you did it!", 
-            "Now Angie has a biosensor\n that lights up "  + color + " \nwhen other anglerfish are near.",
-            "Let’s put Angie back in the ocean,\n and see if the other fish come\n near her."];
+            "Now Angie has a biosensor\nthat lights up "  + color + " \nwhen other anglerfish are near.",
+            "Let’s put Angie back in the ocean,\nand see if the other fish come\nnear her."];
 
             index = 0;
             text = game.add.text(390, 420, content[index], 
