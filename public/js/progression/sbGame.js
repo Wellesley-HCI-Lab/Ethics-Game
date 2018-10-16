@@ -78,8 +78,6 @@ var SBGameState = (function() {
             anglerfish.loadTexture('angieYellowSmall');
         }
 
-
-
         if (hiddenAnglerfish.checkAll('alpha', 1)){
             num++; // VERY HACKY
             nextState();

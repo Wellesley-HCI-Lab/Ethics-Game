@@ -79,6 +79,16 @@ var BootState = (function() {
         game.load.spritesheet('playButton', 'images/background/playButtonSprite.png', 758, 934);
         game.load.image('rename', 'images/text/renamePage01.png');
 
+        //loading test audio
+        game.load.audio('01','audio/01.wav');
+        game.load.audio('02','audio/02.wav');
+        game.load.audio('03','audio/03.wav');
+        game.load.audio('04','audio/04.wav');
+
+        //sound image files
+        game.load.image('soundOff','images/background/soundoff.png');
+        game.load.image('soundOn','images/background/soundon.png');
+
         // For crispeePlay state
         game.load.image('angieWhite', 'images/anglerfish/angieWhite.png');
         game.load.image('angieYellow', 'images/anglerfish/angieYellow.png');

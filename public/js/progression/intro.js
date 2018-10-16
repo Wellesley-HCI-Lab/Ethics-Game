@@ -10,7 +10,9 @@
  * @exports introState
  */
 
-var subSprites;
+var subSpritesImg0;
+var subSpritesImg1;
+var subSprite;
 
 var introState = {
 	preload: function(){ Intro.load(); },
@@ -27,7 +29,9 @@ var Intro = (function() {
         //descending submarine images
         game.load.image('sub','images/submarine/subAboveWater.png');
 
-        subSpritesImg = game.load.spritesheet('subSpritesImg','images/submarine/submarineCutscene.png',864,625,10);
+        //adding spritesheets for the submarine cutscene
+        subSpritesImg0 = game.load.spritesheet('subSpritesImg0','images/submarine/submarineCutscene-0.png',866,627,6);
+        subSpritesImg1 = game.load.spritesheet('subSpritesImg1','images/submarine/submarineCutscene-1.png',866,627,5);
     }
 
     var create = function(){
@@ -70,45 +74,74 @@ var Intro = (function() {
         //event loop that goes through each line of the content when next is clicked
         function actionOnClick(){
             //go to the cutscene for the submarine descending
-            if (index === content.length){
-                subCutscene();
-                //game.state.start('findAnglerfish');
-                return;
-            } 
-            //at the 5th line, bring out the pointer sprite
-            else if (index === 4){
-                text.setText(content[index]);
-                pointer = game.add.sprite(500, 200, 'pointer');
-                pointer.scale.setTo(0.1, 0.1);
-                index++;
-            } 
-            //at the 11th line, bring out the radio
-            else if (index === 10){
-                text.setText(content[index]);
-                radio = game.add.sprite(180, 100,'radio');
-                radio.scale.setTo(0.75,0.75);
-                radio.animations.add('walk');
-                radio.animations.play('walk', 5, true); 
-                index++;
-            } 
-            //increase the index otherwise
-            else {
-                if (typeof pointer !== "undefined"){pointer.destroy();}
-                if (typeof radio !== "undefined"){radio.destroy();}
-                text.setText(content[index]);
-                index++;
+            switch(index){
+                // case 1:
+                //     text.setText(content[index]);
+                //     music = game.add.audio('01');
+                //     music.play();
+                //     index++;
+                //     break;
+                // case 2:
+                //     music.destroy();
+                //     text.setText(content[index]);
+                //     music1 = game.add.audio('02');
+                //     music1.play();
+                //     index++;
+                //     break;
+                case 4:
+                    text.setText(content[index]);
+                    pointer = game.add.sprite(500, 200, 'pointer');
+                    pointer.scale.setTo(0.1, 0.1);
+                    index++;
+                    break;
+                case 10:
+                    text.setText(content[index]);
+                    radio = game.add.sprite(180, 100,'radio');
+                    radio.scale.setTo(0.75,0.75);
+                    radio.animations.add('walk');
+                    radio.animations.play('walk', 5, true); 
+                    index++;
+                    break;
+                case (content.length):
+                    subCutscene();
+                    break;
+                default:
+                    if (typeof pointer !== "undefined"){pointer.destroy();}
+                    if (typeof radio !== "undefined"){radio.destroy();}
+                    text.setText(content[index]);
+                    index++;
             }
         }  
     }
 
-    //cutscene for submarine
+    //first section of cutscene for submarine
     function subCutscene() {
-        subSprites = game.add.sprite(-1, -1, 'subSpritesImg');
-        subSprites.animations.add('cutscene',[0,1,2,3,4,5,6,7,8,9]);
-        subSprites.animations.play('cutscene', 1, false);
-        subSprites.scale.set(1);
-        subSprites.smoothed = false;
+        subSprite = game.add.sprite(-1, -1, 'subSpritesImg0');
+        subSprite.animations.add('cutscene',[0,1,2,3,4,5]);
+        subSprite.animations.play('cutscene', 1, false);
+        subSprite.scale.set(1);
+        subSprite.smoothed = false;
 
+        //call the second animation when the first one is complete
+        subSprite.animations.currentAnim.onComplete.add(
+            function () {
+                subCutSceneTwo();
+            }, this);
+    }
+
+    //second section of cutscene for submarine
+    function subCutSceneTwo(){
+        subSprite = game.add.sprite(-1, -1, 'subSpritesImg1');
+        subSprite.animations.add('cutscene',[0,1,2,3,4]);
+        subSprite.animations.play('cutscene', 1, false);
+        subSprite.scale.set(1);
+        subSprite.smoothed = false;
+
+        //call the next phase when the second animation is complete
+        subSprite.animations.currentAnim.onComplete.add(
+            function () {
+                game.state.start('findAnglerfish');
+            }, this);
     }
 
     var update = function(){

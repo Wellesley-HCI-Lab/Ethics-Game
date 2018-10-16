@@ -11,7 +11,6 @@ var findAnglerfishState = {
     create: function(){ FindAnglerfishState.create(); },
     update: function(){ FindAnglerfishState.update();},
     destroy: function(){ if(testing) BootState.updateLevel('learn'); }
-
 	// shutdown: function(){ FindAnglerfish.shutdown(); }
 }
 
@@ -33,7 +32,6 @@ var FindAnglerfishState = (function() {
         SubUnderwater.create();
         GlowingAnglerfish.create();
 
-        //what is this?
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
 
         //format and add the speechBubble, hiding the text with alpha = 0
@@ -92,7 +90,6 @@ var FindAnglerfishState = (function() {
     function actionOnClick(){
         //go to the next progression when we have gone through the content
         if (index === content.length){
-            console.log('1');
             game.state.start('dilemmaOne');
             return;
         } 
@@ -102,7 +99,6 @@ var FindAnglerfishState = (function() {
             zoom.alpha = 1;
             index++;
         } if (index ===5 || index>=7){
-            console.log('3');
             text.setText(content[index]);
             walkie.alpha = 1;
             index++;
