@@ -68,6 +68,15 @@ var SBGameState = (function() {
         transFish.add(transOne); transFish.add(transTwo);
         transFish.add(transThree);transFish.add(transFour);
         transFish.setAll('alpha', 0);
+<<<<<<< HEAD
+        anglerfish = addScaledSprite(0,0, false, 'angieBlackCrop', 0.04);
+        game.physics.enable(anglerfish, Phaser.Physics.ARCADE);
+        anglerfish.inputEnabled = true;
+        anglerfish.input.enableDrag();
+        console.log("color: " + color);
+
+=======
+>>>>>>> e8ca33bee5a7f27aa9b83fd1140a38e74f02b1d1
     }
 
     var update = function(){
