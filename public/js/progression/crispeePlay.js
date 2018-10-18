@@ -1,18 +1,19 @@
 /**
  * PROGRESSION OF STATES (updated 9/21)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * The crispeePlay state, where the user gets to input blocks into CRISPEE
  * in order to change the color of Angie's lure.
  * @exports findAnglerfishState
  */
 var content;
 var block;
-var index = 0;
+var index;
+var text;
 
 var crispeePlayState = {
     load: function(){ CrispeePlay.load();},
-    create: function(){CrispeePlay.create(); },
-    update: function(){if(testing) BootState.updateLevel('socialBiosensor');}
+    create: function(){ CrispeePlay.create(); },
+    update: function(){ if(testing) BootState.updateLevel('socialBiosensor');}
 }
 
 var CrispeePlay = (function() {
@@ -27,27 +28,28 @@ var CrispeePlay = (function() {
         BlocksToCrispee.create();
 
         //script content variable
-        content = ["This is our CRISPEE \nmachine!", 
-        "Each of these blocks represents \na gene.",
-        "We can arrange genes to\nbioengineer living things!",
-        "Let's see what happens\nwe bioengineer Angie.",
-        "Click on the green \nblock to add it to \nCRISPEE."]//, 
-        //"You created a program that would \nlight up Angie’s lure.",
-        //"Angie has been successfully \nbioengineered to light up!"]
+        content = ["This is our CRISPEE \nmachine!", //0
+        "Each block represents a gene\nfrom other animals that allows\nthose animals to light up.", //1
+        "Using CRISPEE, we can arrange\nthese genes in a program to\nbioengineer Angie!", //2
+        "A program is a list of instructions\nthat makes something else happen.", //3
+        "Click on the green gene to finish\nAngie’s gene program."//4
+        ] 
 
         crispee = addSprite(0, 0, false, 'crispee', game.width, game.height);
 
         addScaledSprite(138, 317, false, 'redBlockIn', 0.226); 
         addScaledSprite(232, 313, false, 'blueBlockIn', 0.226);
 
+        index = 0;
+
        //add border and next button, make them appear
-        bubble = Text.create(40, -60, 'speechLong', 0.1);
-        next = Text.createNextButton(280, 85, 0.2, function(){
+        bubble = Text.create(30, -70, 'speechLong', 0.11);
+        next = Text.createNextButton(305, 95, 0.2, function(){
             actionOnClick();
         }, 1);
 
         //format and hide text
-        text = game.add.text(65, 30, content[index], 
+        text = game.add.text(55, 30, content[index], 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
@@ -55,28 +57,25 @@ var CrispeePlay = (function() {
 
        //show text and add animation
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
-
         index++;
     }
 
     //callback for next button to change trigger various events
     function actionOnClick(){
-        //when the user is prompted to put in the green block
-        if (index == 4){
-            text.setText(content[index]);
-            block = BlocksToCrispee.createBlock('greenBlockOut', 620, 400, 0.225,'greenBlockIn', 319, 313, 0.225);
+        switch(index){
+            //when the user is prompted to put in the green block
+            case 4:
+                text.setText(content[index]);
+                block = BlocksToCrispee.createBlock('greenBlockOut', 620, 400, 0.225,'greenBlockIn', 319, 313, 0.225);
+                index++;
+                break;   
+            //change to angie being lit up after block is placed at the end of the dialogue
+            case (content.length):
+                showAngieLight();
+            default:
+                text.setText(content[index]);
+                index++;
         }
-        //change to angie being lit up after block is placed at the end of the dialogue
-        if (index == content.length){
-            //if the block is placed in CRISPEE
-            showAngieLight();
-        }
-        //
-        //else change the text content always
-        else {
-            text.setText(content[index]);
-        }
-        index++;
     }
 
     //show users a demo for the CRISPEE blocks
@@ -87,8 +86,7 @@ var CrispeePlay = (function() {
         bubble = Text.create(80, 315, 'speechLong', 0.12);
 
         //add the text
-        text = game.add.text(105, 420, "You made the color white!"+
-                            "\nDo you want to do that again?", 
+        text = game.add.text(105, 420, "You created a program that would\nlight up Angie’s lure. Congratulations!\nTry again?", 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
@@ -139,7 +137,6 @@ var CrispeePlay = (function() {
     }
 
     function continueGame(){
-        text.setText('');
         game.state.start('socialBiosensor');
     }
 

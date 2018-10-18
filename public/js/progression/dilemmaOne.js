@@ -1,6 +1,6 @@
 /**
  * PROGRESSION OF STATES (updated 9/21)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * State where user is presented with the first ethical dilemma
  * @exports dilemmaOneState
  */
@@ -8,7 +8,7 @@
 var dilemmaOneState = {
     load: function(){ DilemmaOneState.load();},
     create: function(){ DilemmaOneState.create(); },
-    update: function() {if(testing) BootState.updateLevel('crispeePlay');}
+    update: function(){ if(testing) BootState.updateLevel('crispeePlay');}
 }
 
 var radio;
@@ -44,28 +44,20 @@ var DilemmaOneState = (function() {
      swim.animations.add('walk');
      swim.animations.play('walk', 1.5, true);
 
-     //add the radio sprite, hide it
-     radio = game.add.sprite(380, 100,'radio');
-     radio.scale.setTo(0.75,0.75);
-     radio.animations.add('walk');
-     radio.animations.play('walk', 5, true);
-     radio.alpha = 0;
-
      //add the nameing the fish box,hide it
      rename = game.add.sprite(35, 0, 'rename');
      rename.alpha = 0;
 
      game.add.plugin(PhaserInput.Plugin);
 
-     content =["We can see that this fish has\na lure, but it doesn’t seem to\nbe glowing.",
-     "This fish might not be able to\nlight up on its own.",
-     "This is a chance to learn more\nabout deep sea creatures\nand to help this anglerfish!",
-     "We know that this is a \nfemale anglerfish because of\nits size.",
-     "Female anglerfish are\nvery large in size.",
-     "Maybe we should give this \nanglerfish a name?",
-     name + " is a great name!",
-     "We can use our CRISPEE machine\nto genetically modify " + name + "'s genes\nso that she can light up.",
-     "Let’s go over to our \nCRISPEE machine and see \nwhat we can do."
+     content =["We can see that this fish has\na lure, but it doesn’t seem to\nbe glowing.",//0
+     "This fish might not be able to\nlight up on its own.",//1
+     "This is a chance to learn more\nabout deep sea creatures\nand to help this anglerfish!",//2
+     "Maybe we should give this anglerfish\na name?",//3
+     name + " is a great name!",//4
+     "We can use a machine called\nCRISPEE to bioengineer "+name+"'s\ngenes.",
+     "Maybe we can change her\ngenes so that she can light up.",//5
+     "Let’s go over to our CRISPEE\nmachine and see what we can do."//6
      ];
 
      index = 0;
@@ -83,39 +75,31 @@ var DilemmaOneState = (function() {
 
      //callback for next button
      function actionOnClick(){
-            //go to crispeePlay at the end of content dialogues
-            if (index === content.length){
-                game.state.start('crispeePlay');
-                return;
-            } 
-            //name fish box appears in the 4th index
-            if (index === 4){
-                rename.alpha = 1;
-                rename.scale.setTo(0.3, 0.3);
-                nameEntryBox = game.add.inputField(412, 112, {
-                        font: '32px Arial',
-                        fontWeight: 'bold',
-                        width: 300,
-                        height: 50,
-                        borderColor: "#eeeeee",
-                        //placeHolder: 'Angie',
-                    });
-                nameEntryBox.startFocus();
-                //name = nameEntryBox.text.text;
-                nameButton = Text.createNameButton(200, 75, 0.2, nameHandle,1); 
-                text.setText(content[index]);
-                index++;
-            } if (index == 3 || index == 4){
-                text.setText(content[index]);
-                radio.alpha = 1;
-                index++; 
-            } else {
-                radio.alpha = 0;
-                text.setText(content[index]);
-                console.log(index);
-                index++;
+            switch(index){
+                //fish box appears
+                case 3:
+                    rename.alpha = 1;
+                    rename.scale.setTo(0.3, 0.3);
+                    nameEntryBox = game.add.inputField(412, 112, {
+                            font: '32px Arial',
+                            fontWeight: 'bold',
+                            width: 300,
+                            height: 50,
+                            borderColor: "#eeeeee"
+                        });
+                    nameEntryBox.startFocus();
+                    //name = nameEntryBox.text.text;
+                    nameButton = Text.createNameButton(200, 75, 0.2, nameHandle,1); 
+                    text.setText(content[index]);
+                    index++;
+                    break;
+                case (content.length):
+                    game.state.start('crispeePlay');
+                    break;
+                default:
+                    text.setText(content[index]);
+                    index++;
             }
-
         }// end of actionOnClick
 
     //callback function for name box
@@ -130,9 +114,7 @@ var DilemmaOneState = (function() {
             name = nameEntryBox.text.text
             console.log(" unique name " + name);
         }
-
         console.log("nameHandled " + name);
-
         destroyBox();
 
      }

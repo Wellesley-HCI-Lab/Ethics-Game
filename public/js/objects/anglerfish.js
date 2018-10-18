@@ -29,24 +29,6 @@ var Anglerfish = (function() {
         return tank;
     }
 
-    //function createbioExplCyan(){
-
-    //}
-
-    //function createbioExplYellow(){
-        
-    //}
-
-    //intended to repace original image
-    //function createbioExplWhite(){
-     //   addSprite(0,0, false, 'bioExplWhite', game.width, game.height);
-        
-    //}
-
-    //function createbioExplFound(){
-        
-    //}
-
 
 	return {
         load: load,

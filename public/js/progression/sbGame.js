@@ -1,6 +1,11 @@
 /**
+<<<<<<< HEAD
 * PROGRESSION OF STATES (updated 7/31)
 * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js 
+=======
+* PROGRESSION OF STATES (updated 9/21)
+* boot.js -> load.js -> intro.js -> findAnglerfish.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
+>>>>>>> 73daf44e2d9e3e6e22cccdb224b8991cc720b885
 * -> sbGame.js
 * The Learn state, where the user gets to explore facts about Anglerfish
 * @exports sbGameState
@@ -52,7 +57,10 @@ var SBGameState = (function() {
         anglerfish.inputEnabled = true;
         anglerfish.input.enableDrag();
         console.log("color: " + color);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 73daf44e2d9e3e6e22cccdb224b8991cc720b885
     }
     // for every friend update text with number of friends found 
 
@@ -61,7 +69,16 @@ var SBGameState = (function() {
         game.physics.arcade.overlap(anglerfish, transFish, transHandler, null, this);
         if (!game.physics.arcade.overlap(anglerfish, hiddenAnglerfish) && 
             !game.physics.arcade.overlap(anglerfish, transFish)){
+<<<<<<< HEAD
             anglerfish.loadTexture('angieBlackCrop');
+=======
+            anglerfish.loadTexture('angieYellowSmall');
+        }
+
+        if (hiddenAnglerfish.checkAll('alpha', 1)){
+            num++; // VERY HACKY
+            nextState();
+>>>>>>> 73daf44e2d9e3e6e22cccdb224b8991cc720b885
         }
     }
 
