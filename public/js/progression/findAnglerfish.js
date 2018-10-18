@@ -1,6 +1,6 @@
 /**
  * PROGRESSION OF STATES (updated 9/21)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * The findAnglerfishState, where the submarine sees the glow in the water
  * and discovers an anglerfish
  * @exports findAnglerfishState
@@ -11,7 +11,6 @@ var findAnglerfishState = {
     create: function(){ FindAnglerfishState.create(); },
     update: function(){ FindAnglerfishState.update();},
     destroy: function(){ if(testing) BootState.updateLevel('learn'); }
-	// shutdown: function(){ FindAnglerfish.shutdown(); }
 }
 
 var introText;
@@ -22,6 +21,8 @@ var newIndex;
 var signalCrossed;
 var speechBubble;
 var nextButton;
+var retrieve = false;
+var retrieveButton;
 
 var FindAnglerfishState = (function() {
     var load = function(){
@@ -36,7 +37,7 @@ var FindAnglerfishState = (function() {
 
         //format and add the speechBubble, hiding the text with alpha = 0
         speechBubble = Text.create(-30, 250, 'speechBubble', 0.15);
-        text = game.add.text(45, 380, 'I wonder what that could be?\nIf you click on it maybe we can find\nout.', 
+        text = game.add.text(45, 380, 'Wow it sure is dark down here!\nClick on the sub’s light beam to see\nwhat we can find.', 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
@@ -55,16 +56,14 @@ var FindAnglerfishState = (function() {
         walkie.animations.play('walk', 5, true);
         walkie.alpha = 0;
 
-        content = ["My goodness!", "I'm not sure what it is?\nDo you?", 
-        "Maybe the radio can tell us more?",
-        "Radio, my crew of explorers have \nfound an interesting animal!", "Can you help us a bit?", 
-        "Of course! \nJust describe what you see.",
-        "I'm sure it's a fish!\nIt has a very big jaw with \na bulb floating right above it!", 
-        "Wow! This is exciting news!","You've encountered a live anglerfish.",
-        "There are a few important things to \nknow about anglerfish.",
-        "Anglerfish are deep sea creatures\nthat live in solitude.\nThis means they prefer to be alone.",
-        "That bulb hanging from their head is called\na lure.",
-        "The lure helps them attract \ncurious prey into their large mouths \nand to attract friends."];
+        content = ["Wow, what’s that!\nDo you know what it is?", //0
+        "What do you see?",//1 radio
+        "We see a fish with a very big jaw\nand some sort of bulb hanging off\nof the front!",//2
+        "Wow! This is exciting news! You’ve\nencountered a live angler fish!",//3 radio
+        "Anglerfish are deep sea creatures\nthat live in solitude. This means\nthey prefer to be alone.",//4 radio
+        "That bulb hanging from their head\nis called a lure and it can light\nup! They use it to hunt for prey.",//5 radio
+        "If it’s bigger than your hand,\nthis is a female anglerfish."//6 radio
+        ];
         
         index = 0;
     }
@@ -73,8 +72,8 @@ var FindAnglerfishState = (function() {
     var update = function(){
         { if(testing) BootState.updateLevel('learn'); }//for debugging
         GlowingAnglerfish.update();
-        //if angie appears, create the next and make it appear
-        if (angieAppears.alpha === 1){
+        //if angie appears and retrieve isn't true, create the next and make it appear
+        if (angieAppears.alpha === 1 && !(retrieve)){
             //create and add the callback function for the nextButton
             nextButton = Text.createNextButton(300, 490, 0.2, actionOnClick, 0);
             nextButton.alpha = 1;
@@ -88,60 +87,63 @@ var FindAnglerfishState = (function() {
 
     //callback function for nextButton
     function actionOnClick(){
-        //go to the next progression when we have gone through the content
-        if (index === content.length){
-            game.state.start('dilemmaOne');
-            return;
-        } 
-        //index trigger for when zoom and walkie talkie shoudl appear
-        if (index === 11){
-            text.setText(content[index]);
-            zoom.alpha = 1;
-            index++;
-        } if (index ===5 || index>=7){
-            text.setText(content[index]);
-            walkie.alpha = 1;
-            index++;
-        }
-        //otherwise...
-        else {
-            //if (typeof walkie !== "undefined") {walkie.destroy();}
-            //hide the zoom and walkie-talkies
-            zoom.alpha = 0;
-            walkie.alpha = 0;
+        switch(index){
+            //go to the next progression when we have gone through the content
+            case (content.length):
+                //retrieve is iniated, so next button is destroyed
+                retrieve = true;
+                nextButton.kill();
 
-            //set the text to the current index
-            text.setText(content[index]);
-            console.log(content[index]);
+                //start retrieve angie cutscene
+                retrieveAngie();
 
-            index++;
+                //game.state.start('dilemmaOne');
+                break;
+            //index trigger for when zoom and walkie talkie should appear
+            case 4:
+                text.setText(content[index]);
+                zoom.alpha = 1;
+                index++;
+            default:
+                text.setText(content[index]);
+                zoom.alpha = 0;
+
+                //make the walkie talkie appear when it is talking
+                if (index >= 3 || index === 1){
+                    walkie.alpha = 1;
+                }
+                else{
+                    walkie.alpha = 0;
+                }
+                index++;
         }
     }
+
+    function retrieveAngie(){
+        //hide the zoom and walkie talkie
+        zoom.alpha = 0;
+        walkie.alpha = 0;
         
-    //     ///////////////////ACTIONS REQUIRED//////////////
+        //make the retrieve button appear, all callback for the animation
+        retrieveButton = game.add.button(575,400,'retrieveButton',retrieveBttnCallback,this);
+        retrieveButton.alpha = 1;
+        retrieveButton.scale.setTo(.10,.10);
+        text.setText("Click on the button to retrieve\nthe fish.");
+    }
 
-    //     //MAKE SCIENTIST APPEAR WHEN SHE'S TALKING
-
-    //     //MAKE ZOOM IN OF ANGIE - DISCUSS WITH GROUP/ MAKE IT MORE STREAMLINE INSTEAD OF HAVING IT DRAWN
-
-    //     if (index == content.length){ // PROBS CHANGE TO newIndex instead of index b/c undefined at end
-    //         text.destroy(); //text is destroyed
-    //         speechButton.pendingDestroy = true; // button for text is destroyed
-    //         textBubble.destroy();
-    //         walkie.destroy();
-
-    //         //JUST FOR NOW TO INTEGRATE ONTAP - CHANGE BUTTON WORDS TO SAY 'BRING ANGIE ONBOARD'
-    //         speechButton = game.add.button(500, 500, 'next', onTap, this, 1, 0, 2);
-    //         speechButton.scale.setTo(0.1, 0.1);
-    //         return;
-    //     }
-    // } //END OF ONCLICK
-
+    function retrieveBttnCallback(){
+        //tween for angie being taken onto the ship
+        retrieveTween = game.add.tween(angieAppears).to( { y: 0, alpha: 0}, 2000, Phaser.Easing.Circular.InOut, true);
+        
+        //callback for going to the next level when the tween
+        retrieveTween.onComplete.add(function(){
+            game.state.start('dilemmaOne');
+        }, this);
+    }
     
     var onTap = function(){
-        game.state.start('learn');
+        Anglerfish.create();
     }
-
 
     return {
         load: load,       

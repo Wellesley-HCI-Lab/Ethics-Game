@@ -1,6 +1,6 @@
 /**
  * PROGRESSION OF STATES (updated 9/21)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js -> learn.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
+ * boot.js -> load.js -> intro.js -> findAnglerfish.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * State that boots up the game
  * @type {State}
  * @property {Function} preload Before the state loads
@@ -9,11 +9,9 @@
  */
 
 var bootState = {
-
     preload: function() { BootState.load(); },
     create: function() { BootState.create(); },
     update: function() { if(testing) BootState.updateLevel('load'); },
-
 }
 
 /**
@@ -50,7 +48,6 @@ var keyDown = false;
  */
 var testing = true;
 
-
 var background;
 var startButton;
 var speechButton;
@@ -78,6 +75,7 @@ var BootState = (function() {
         game.load.image('splashPage', 'images/background/splashPage.png');
         game.load.spritesheet('playButton', 'images/background/playButtonSprite.png', 758, 934);
         game.load.image('rename', 'images/text/renamePage01.png');
+        game.load.image('retrieveButton','images/background/retrieveButton.png');
 
         //loading test audio
         game.load.audio('01','audio/01.wav');
@@ -116,8 +114,6 @@ var BootState = (function() {
             downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
             game.input.keyboard.addKeyCapture([ Phaser.Keyboard.UP, Phaser.Keyboard.DOWN ]);
         }
-
-
         // // underwater sounds - 100% for fun
         // music = game.add.audio('bubAudio');
         // music.loop = true;
@@ -150,35 +146,30 @@ var BootState = (function() {
         //calls for next game state
         var callLoad = function(){
             game.state.start('intro');
-            console.log('move state to game');
             game.sound.stopAll();
         }
 
         //callback for first storyline
         var startStoryOne = function(){
             game.state.start('intro');
-            console.log('move to storyline 1');
         }
 
         //callback for second storyline
         var startStoryTwo = function(){
             game.state.start('socialBiosensor');
-            console.log('move to storyline 2');
         }
 
         //callback for third storyline
         var startStoryThree = function(){
             game.state.start('crispeePlay');
-            console.log('move to storyline 3, it doesn\'t exist right now');
         }
-    
         /**
          * Continuously called
          * @memberOf module:BootState
          */
         var updateLevel = function(stateName) {
             if (downKey.isDown){
-                game.state.start(stateName)
+                game.state.start(stateName);
             }
         }
     
