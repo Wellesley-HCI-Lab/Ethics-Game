@@ -26,6 +26,7 @@ var Anglerfish = (function() {
 
     function createTankEnvironment(){
         tank = addSprite(0, 0, false, 'tank', game.width, game.height);
+        return tank;
     }
 
     //function createbioExplCyan(){

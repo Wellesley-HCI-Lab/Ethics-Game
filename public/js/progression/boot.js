@@ -55,6 +55,7 @@ var background;
 var startButton;
 var speechButton;
 var textBubble;
+//var mixButton;
 
 var BootState = (function() {
 
@@ -78,11 +79,10 @@ var BootState = (function() {
         game.load.image('splashPage', 'images/background/splashPage.png');
         game.load.spritesheet('playButton', 'images/background/playButtonSprite.png', 758, 934);
         game.load.image('rename', 'images/text/renamePage01.png');
+        
+
 
         // For crispeePlay state
-        game.load.image('angieWhite', 'images/anglerfish/angieWhite.png');
-        game.load.image('angieYellow', 'images/anglerfish/angieYellow.png');
-        game.load.image('angieCyan', 'images/anglerfish/angieCyan.png');
         game.load.image('noButton', 'images/text/noButton.png');
         game.load.image('yesButton', 'images/text/yesButton.png');
 

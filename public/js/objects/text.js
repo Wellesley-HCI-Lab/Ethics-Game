@@ -2,6 +2,8 @@
  * Exports Text
  * @exports text
  */
+
+    
 var Text = (function() {
 
     var buttonX;
@@ -12,6 +14,7 @@ var Text = (function() {
     var nextState;
     var nextButton;
     var nameButton;
+    var mixButton;
 
 
 	/**
@@ -25,6 +28,7 @@ var Text = (function() {
         game.load.image('speechLong', 'images/text/long.png');
         game.load.spritesheet('nextButton', 'images/text/nextButtonSprite.png', 521, 193);
         game.load.atlasJSONHash('nameButton', 'images/text/nameButtonSprite.png','images/text/nameButton.json');
+        game.load.atlasJSONHash('mixButton', 'images/text/mB.png', 'images/text/mB.json');
 
         // game.load.image(button, path);
 	}
@@ -56,6 +60,15 @@ var Text = (function() {
         return nextButton;
     }
 
+    function createMixButton(X, Y, scale, actionOnClick, alpha){
+        mixButton = game.add.button(X, Y, 'mixButton', actionOnClick, this, 0, 1, 1);
+        mixButton.scale.setTo(scale, scale);
+        buttonX = X; buttonY = Y;
+        mixButton.alpha = 0;
+        game.add.tween(mixButton).to( {alpha: alpha }, 1000, Phaser.Easing.Circular.InOut, true);
+        return mixButton;
+    }
+
     //I was trying to figure out how to put the spritesheet for nameButton and nameClicked
     function createNameButton(X, Y, scale, actionOnClick, alpha){
         nameButton = game.add.button(X, Y, 'nameButton', actionOnClick, this, 0, 1, 1);
@@ -70,6 +83,7 @@ var Text = (function() {
         load: load,
         create: create,
         createNextButton: createNextButton,
+        createMixButton: createMixButton,
         createNameButton: createNameButton
         // addContent: addContent,
         // actionOnClick: actionOnClick

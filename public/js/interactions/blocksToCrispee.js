@@ -3,7 +3,7 @@
  * @exports BlockToCrispee
  */
 
- var color;
+var color;
 
 var BlocksToCrispee = (function() {
 
@@ -33,6 +33,14 @@ var BlocksToCrispee = (function() {
 
         //combo Outcomes
         game.load.image('angieMagenta', 'images/anglerfish/angieMagenta.png');
+        game.load.image('angieWhite', 'images/anglerfish/angieWhite.png');
+        game.load.image('angieYellow', 'images/anglerfish/angieYellow.png');
+        game.load.image('angieCyan', 'images/anglerfish/angieCyan.png');
+        
+        game.load.image('angieRed', 'images/anglerfish/angieRed.png');
+        game.load.image('angieBlue', 'images/anglerfish/angieBlue.png');
+        game.load.image('angieGreen', 'images/anglerfish/angieGreen.png');
+
 
 
     };
@@ -140,6 +148,7 @@ var BlocksToCrispee = (function() {
         //game.time.events.add(1000, comboHandler);
         //check if other allele is in position
         //console.log("check2 before: " + blockInBlueOnS.alpha);
+        game.time.events.add(1000, pText);
         if (blockInRedOnS.alpha == 1){
             //console.log("check2 after: " + blockInBlueOnS.alpha);
             blockInRedOnS.alpha = 0;
@@ -164,6 +173,7 @@ var BlocksToCrispee = (function() {
         console.log("b");
         //comboHandler();
         console.log("check2 before: " + blockInBlueOffS.alpha);
+        game.time.events.add(1000, pText);
         if (blockInBlueOffS.alpha == 1){
             console.log("check2 after: " + blockInBlueOffS.alpha);
             blockInBlueOffS.alpha = 0;
@@ -188,6 +198,7 @@ var BlocksToCrispee = (function() {
         //game.time.events.add(1000, comboHandler);
         //check if other allele is in position
         console.log("check2 before: " + blockInBlueOnS.alpha);
+        game.time.events.add(1000, pText);
         if (blockInBlueOnS.alpha == 1){
             console.log("check2 after: " + blockInBlueOnS.alpha);
             blockInBlueOnS.alpha = 0;
@@ -211,6 +222,7 @@ var BlocksToCrispee = (function() {
         console.log("a");
         console.log(" after blockInRedOnS al " + blockInRedOnS.alpha);
         //game.time.events.add(1000, comboHandler);
+        game.time.events.add(1000, pText);
         if (blockInGreenOffS.alpha == 1){
             //console.log("check2 after: " + blockInBlueOnS.alpha);
             blockInGreenOffS.alpha = 0;
@@ -251,7 +263,8 @@ var BlocksToCrispee = (function() {
         //             {font: "22px Arial",
         //             fill: "#000000",
         //             align: "left"});
-        mixButton = Text.createNextButton(200, 500, 0.2, comboHandler,1);
+        mixButton = Text.createMixButton(200, 500, 0.2, comboHandler,1);
+        return pText;
     }
 
      comboHandler = function(){
@@ -308,7 +321,7 @@ var BlocksToCrispee = (function() {
          } // END OF 2ND COMBO
 
 
-         ////3Rd COMBO - RED == ON// BLUE == ON// GREEN == OFF
+         ////3Rd COMBO - RED == ON// BLUE == ON// GREEN == OFF --> YELLOW
          if (blockInRedOnS.alpha == 1 && blockInBlueOffS.alpha == 1 && blockInGreenOnS.alpha == 1){
             tank = Anglerfish.createTankEnvironment();
             color = "Yellow";
@@ -327,7 +340,36 @@ var BlocksToCrispee = (function() {
             comboHandlerText();
          }// END OF 4TH COMBO
 
-         //ToDo: MISSING ART: angieRed, angieBlue, and angieGreen
+        ////5TH COMBO - RED == ON// BLUE == OFF// GREEN == OFF --> RED
+         if (blockInRedOnS.alpha == 1 && blockInBlueOffS.alpha == 1 && blockInGreenOffS.alpha == 1){
+            console.log("color");
+            tank = Anglerfish.createTankEnvironment();
+            color = "Red";
+            angie = addScaledSprite(300, 150, false, 'angie'+ color, 0.1);
+
+            comboHandlerText();
+         }// END OF 5TH COMBO
+
+         ////6TH COMBO - RED == OFF// BLUE == ON// GREEN == OFF --> BLUE
+         if (blockInRedOffS.alpha == 1 && blockInBlueOnS.alpha == 1 && blockInGreenOffS.alpha == 1){
+            console.log("color2");
+            tank = Anglerfish.createTankEnvironment();
+            color = "Blue";
+            angie = addScaledSprite(300, 150, false, 'angie'+ color, 0.1);
+
+            comboHandlerText();
+         }// END OF 6TH COMBO
+
+         ////7TH COMBO - RED == OFF// BLUE == OFF// GREEN == ON --> GREEN
+         if (blockInRedOffS.alpha == 1 && blockInBlueOffS.alpha == 1 && blockInGreenOnS.alpha == 1){
+            console.log("color3");
+            tank = Anglerfish.createTankEnvironment();
+            color = "Green";
+            angie = addScaledSprite(300, 150, false, 'angie'+ color, 0.1);
+
+            comboHandlerText();
+         }//END OF 7TH COMBO
+
 
     }
 
