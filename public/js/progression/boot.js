@@ -77,8 +77,13 @@ var BootState = (function() {
         game.load.spritesheet('playButton', 'images/background/playButtonSprite.png', 758, 934);
         game.load.image('rename', 'images/text/renamePage01.png');
 
+        //retrieve button for angie
         game.load.image('retrieveButton','images/background/retrieveButton.png');
 
+        //firstConsequence images
+        game.load.image('subFish', 'images/consequence/subFish.png');
+        game.load.spritesheet('fishSpritesImg','images/consequence/fishDecrease.png',864,625,5);
+        
         //loading test audio
         game.load.audio('01','audio/01.wav');
         game.load.audio('02','audio/02.wav');
@@ -88,7 +93,6 @@ var BootState = (function() {
         //sound image files
         game.load.image('soundOff','images/background/soundoff.png');
         game.load.image('soundOn','images/background/soundon.png');
-
 
         // For crispeePlay state
         game.load.image('noButton', 'images/text/noButton.png');
@@ -140,7 +144,6 @@ var BootState = (function() {
         
         storyThreeBttn = game.add.button(0, 120, 'button3', startStoryThree, this, 1, 0, 1);
         storyThreeBttn.scale.setTo(0.5, 0.5);
-
         }
 
         //calls for next game state
@@ -161,7 +164,7 @@ var BootState = (function() {
 
         //callback for third storyline
         var startStoryThree = function(){
-            game.state.start('crispeePlay');
+            game.state.start('consequence');
         }
         /**
          * Continuously called

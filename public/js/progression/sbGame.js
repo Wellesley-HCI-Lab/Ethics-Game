@@ -57,10 +57,6 @@ var SBGameState = (function() {
         anglerfish.inputEnabled = true;
         anglerfish.input.enableDrag();
         console.log("color: " + color);
-<<<<<<< HEAD
-
-=======
->>>>>>> 73daf44e2d9e3e6e22cccdb224b8991cc720b885
     }
     // for every friend update text with number of friends found 
 
@@ -69,16 +65,13 @@ var SBGameState = (function() {
         game.physics.arcade.overlap(anglerfish, transFish, transHandler, null, this);
         if (!game.physics.arcade.overlap(anglerfish, hiddenAnglerfish) && 
             !game.physics.arcade.overlap(anglerfish, transFish)){
-<<<<<<< HEAD
             anglerfish.loadTexture('angieBlackCrop');
-=======
             anglerfish.loadTexture('angieYellowSmall');
         }
 
         if (hiddenAnglerfish.checkAll('alpha', 1)){
             num++; // VERY HACKY
             nextState();
->>>>>>> 73daf44e2d9e3e6e22cccdb224b8991cc720b885
         }
     }
 
@@ -91,13 +84,10 @@ var SBGameState = (function() {
         console.log('Overlap with transparent sprite');
         fish.loadTexture('angieMagentaCrop');
     }
-}
 
-
-return {  
+    return  {  
         preload: preload,     
         create: create,
         update: update
     };
-
 }());

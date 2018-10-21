@@ -13,13 +13,15 @@ game.state.add('findAnglerfish', findAnglerfishState);
 // Loads state where user is presented with first ethical dilemma
 game.state.add('dilemmaOne', dilemmaOneState);
 // Loads state with the CRISPEE interaction
-game.state.add('crispeePlay', crispeePlayState)
+game.state.add('crispeePlay', crispeePlayState);
 // Loads state with the CRISPEE used to make a social biosensor
-game.state.add('socialBiosensor', socialBiosensorState)
+game.state.add('socialBiosensor', socialBiosensorState);
 // Loads state with the state where user finds other anglerfish using the social biosensor
-game.state.add('sbGame', sbGameState)
-// Loads state with the conquences of storyline 1
-game.state.add('consequenceOne', consequenceOneState)
+game.state.add('sbGame', sbGameState);
+// Loads state with the conquences of storyline 2
+game.state.add('consequence',consequenceState);
+// Loads start of toxins storyline
+game.state.add('toxins',toxinsState);
 
 function create() { 
 	game.physics.startSystem(Phaser.Physics.ARCADE);
