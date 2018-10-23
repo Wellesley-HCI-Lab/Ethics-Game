@@ -105,6 +105,13 @@ var consequence = (function() {
         fishSprite.scale.set(1);
         fishSprite.smoothed = false;
 
+        angieSprite = game.add.sprite(300, 200, 'angieHunger');
+        angieSprite.animations.add('cutscene',[0,1,2,3]);
+        angieSprite.animations.play('cutscene', 1, false);
+        angieSprite.scale.set(1);
+        angieSprite.smoothed = false;
+        game.world.bringToTop(angieSprite);
+
         //call the second animation when the first one is complete
         fishSprite.animations.currentAnim.onComplete.add(
             function () {

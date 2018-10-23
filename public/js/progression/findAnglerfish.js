@@ -50,8 +50,8 @@ var FindAnglerfishState = (function() {
         zoom.alpha = 0;
 
         //add the walkie talkie and scale it, plus animate it, hiding it with alpha = 0
-        walkie = game.add.sprite(400,200,'radio');
-        walkie.scale.setTo(1,1);
+        walkie = game.add.sprite(550,200,'radio');
+        walkie.scale.setTo(.3,.3);
         walkie.animations.add('walk');
         walkie.animations.play('walk', 5, true);
         walkie.alpha = 0;
@@ -125,9 +125,9 @@ var FindAnglerfishState = (function() {
         walkie.alpha = 0;
         
         //make the retrieve button appear, all callback for the animation
-        retrieveButton = game.add.button(575,400,'retrieveButton',retrieveBttnCallback,this);
+        retrieveButton = game.add.button(575,385,'retrieveButton',retrieveBttnCallback,this);
         retrieveButton.alpha = 1;
-        retrieveButton.scale.setTo(.10,.10);
+        retrieveButton.scale.setTo(.03,.03);
         text.setText("Click on the button to retrieve\nthe fish.");
     }
 

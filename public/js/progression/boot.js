@@ -83,6 +83,7 @@ var BootState = (function() {
         //firstConsequence images
         game.load.image('subFish', 'images/consequence/subFish.png');
         game.load.spritesheet('fishSpritesImg','images/consequence/fishDecrease.png',864,625,5);
+        game.load.spritesheet('angieHunger','images/anglerfish/angieHunger.png',300,240,4);
 
         //toxins images
         game.load.image('pollution', 'images/toxins/pollution.png');

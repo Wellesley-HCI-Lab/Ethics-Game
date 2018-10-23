@@ -93,8 +93,8 @@ var Intro = (function() {
                     break;
                 case 6:
                     text.setText(content[index]);
-                    radio = game.add.sprite(180, 100,'radio');
-                    radio.scale.setTo(0.75,0.75);
+                    radio = game.add.sprite(280, 100,'radio');
+                    radio.scale.setTo(0.3,0.3);
                     radio.animations.add('walk');
                     radio.animations.play('walk', 5, true); 
                     index++;

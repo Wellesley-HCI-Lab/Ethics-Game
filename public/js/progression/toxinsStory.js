@@ -87,8 +87,8 @@ var toxinsStart = (function() {
             case 11:
                 tankBackground = addSprite(0, 0, false, 'noScreen', game.width, game.height);
 
-                walkie = game.add.sprite(400,100,'radio');
-                walkie.scale.setTo(1,1);
+                walkie = game.add.sprite(550,200,'radio');
+                walkie.scale.setTo(.3,.3);
                 walkie.animations.add('walk');
                 walkie.animations.play('walk', 5, true);
 
