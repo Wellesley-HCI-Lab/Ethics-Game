@@ -21,16 +21,8 @@ var Submarine = (function() {
 		subAboveWater = addSprite(0, 0, false, 'subAboveWater', game.width, game.height);
 	}
 
-	function move() {
-		// game.add.tween(subAboveWater).to( { x: -400}, 2000, Phaser.Easing.Linear.None, true);
-		// game.add.tween(subAboveWater).to( { x: -100}, 100, Phaser.Easing.Linear.None, true);
-
-
-	}
-
 	return {
         load: load,
-		create: create,
-		move: move
+		create: create
     };
 }());

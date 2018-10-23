@@ -13,7 +13,8 @@ var text;
 
 var yesStartState = {
     load: function(){ yesChoice.load();},
-    create: function(){ yesChoice.create();}
+    create: function(){ yesChoice.create();},
+    update: function(){  BootState.updateLevel('toxins',''); }
 }
 
 var yesChoice = (function() {
@@ -83,14 +84,49 @@ var yesChoice = (function() {
 
                 text.setText(content[index]);
                 index++;
+
+                next.inputEnabled = false;
+                toxinsCutscene();
+
                 break;
             //angie being sick
             case 5:
+                SubUnderwater.create();
 
+                game.world.bringToTop(bubble);
+                game.world.bringToTop(next);
+                game.world.bringToTop(text);
+
+                sickFish = game.add.sprite(150, 160,'angieSick');
+                sickFish.scale.setTo(0.4,0.4);
+
+                text.setText(content[index]);
+                index++;
+                break;
             default:
                 text.setText(content[index]);
                 index++;
         }
+    }
+
+    function toxinsCutscene(){
+        toxinsSprite = addSprite(0, 0, false, 'toxinsImg', game.width, game.height);
+        toxinsSprite.animations.add('cutscene',[0,1,2,3,4,5]);
+        toxinsSprite.animations.play('cutscene', 1, false);
+        toxinsSprite.scale.set(1);
+        toxinsSprite.smoothed = false;
+
+        toxinsSprite.animations.currentAnim.onComplete.add(
+            function () {
+                next.inputEnabled = true;
+                
+                game.world.bringToTop(bubble);
+                game.world.bringToTop(next);
+                game.world.bringToTop(text);
+
+                text.setText(content[index]);
+                index++;
+            }, this);
     }
 
     return {      

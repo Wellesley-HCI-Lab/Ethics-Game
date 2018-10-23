@@ -8,7 +8,7 @@
 var dilemmaOneState = {
     load: function(){ DilemmaOneState.load();},
     create: function(){ DilemmaOneState.create(); },
-    update: function(){ if(testing) BootState.updateLevel('crispeePlay');}
+    update: function(){ BootState.updateLevel('findAnglerfish','crispeePlay'); }
 }
 
 var radio;
@@ -127,7 +127,7 @@ var DilemmaOneState = (function() {
 
     return { 
         load: load,      
-        create: create,
+        create: create
     };
 
 }());

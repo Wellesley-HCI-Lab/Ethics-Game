@@ -13,7 +13,7 @@ var text;
 var crispeePlayState = {
     load: function(){ CrispeePlay.load();},
     create: function(){ CrispeePlay.create(); },
-    update: function(){ if(testing) BootState.updateLevel('socialBiosensor');}
+    update: function(){ BootState.updateLevel('dilemmaOne','socialBiosensor'); }
 }
 
 var CrispeePlay = (function() {

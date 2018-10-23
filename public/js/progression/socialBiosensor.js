@@ -8,7 +8,7 @@
 
 var socialBiosensorState = {
     create: function(){ SocialBiosensorState.create();},
-    update: function(){ if(testing) BootState.updateLevel('sbGame');}
+    update: function(){  BootState.updateLevel('crispeePlay','sbGame'); }
 }
 
 var background;

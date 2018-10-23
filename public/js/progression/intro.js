@@ -1,6 +1,6 @@
 /**
  * PROGRESSION OF STATES (updated 9/21)
- * boot.js -> load.js -> intro.js -> findAnglerfish.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
+ * boot.js -> intro.js -> findAnglerfish.js ->  dilemmaOne.js -> crispeePlay.js -> socialBiosensor.js -> sbGame.js
  * The Intro state, where Pam and the submarine crew are 
  * introduced, and their mission is explained
  * The top of submarine is open
@@ -143,11 +143,7 @@ var Intro = (function() {
     }
 
     var update = function(){
-        Submarine.move();
-        //if for debugging purposes
-        if(testing) {
-            BootState.updateLevel('socialBiosensor'); 
-        }
+        BootState.updateLevel('boot','findAnglerfish'); 
     }
 
     return {   

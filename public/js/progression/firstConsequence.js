@@ -13,7 +13,8 @@ var text;
 
 var consequenceState = {
     load: function(){ consequence.load();},
-    create: function(){ consequence.create(); }
+    create: function(){ consequence.create(); },
+    update: function(){  BootState.updateLevel('sbGame','toxins'); }
 }
 
 var consequence = (function() {

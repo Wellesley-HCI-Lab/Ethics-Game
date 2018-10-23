@@ -16,7 +16,8 @@ var counterNum = 0;
 
 var noStartState = {
     load: function(){ noChoice.load();},
-    create: function(){ noChoice.create(); }
+    create: function(){ noChoice.create(); },
+    update: function(){  BootState.updateLevel('toxins',''); }
 }
 
 var noChoice = (function() {

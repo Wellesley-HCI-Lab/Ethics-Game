@@ -10,10 +10,14 @@ var content;
 var block;
 var index;
 var text;
+var leftKey;
+var upKey;
+var downKey;
 
 var toxinsStartState = {
     load: function(){ toxinsStart.load();},
-    create: function(){ toxinsStart.create(); }
+    create: function(){ toxinsStart.create(); },
+    update: function(){  toxinsStart.update(); }
 }
 
 var toxinsStart = (function() {
@@ -22,6 +26,10 @@ var toxinsStart = (function() {
     }
 
     var create = function(){
+        leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+        upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
+        downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+
         //script content variable
         content = ["We’re in a new part of the ocean,\nand the water seems unusually\npolluted here.", //0
         "We have to avoid the pollution\nbecause the pollution could break\nour submarine.", //1
@@ -114,9 +122,22 @@ var toxinsStart = (function() {
         }
     }
 
+    function update(){
+        if (leftKey.isDown){
+                game.state.start('consequence');
+            }
+        if (upKey.isDown){
+                game.state.start('yesStory');
+            }
+        if (downKey.isDown){
+                game.state.start('noStory');
+            }
+    }
+
     return {      
         load: load, 
-        create: create
+        create: create,
+        update: update
     };
 
 }());

@@ -71,6 +71,8 @@ var SBGameState = (function() {
     }
 
     var update = function(){
+        BootState.updateLevel('socialBiosensor','consequence'); 
+        
         game.physics.arcade.overlap(anglerfish, hiddenAnglerfish, overlapHandler, null, this);
         game.physics.arcade.overlap(anglerfish, transFish, transHandler, null, this);
         if (!game.physics.arcade.overlap(anglerfish, hiddenAnglerfish) && 

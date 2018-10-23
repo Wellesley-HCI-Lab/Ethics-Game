@@ -70,7 +70,7 @@ var FindAnglerfishState = (function() {
 
     //event loop for this progression
     var update = function(){
-        { if(testing) BootState.updateLevel('learn'); }//for debugging
+        BootState.updateLevel('intro','dilemmaOne');//for debugging
         GlowingAnglerfish.update();
         //if angie appears and retrieve isn't true, create the next and make it appear
         if (angieAppears.alpha === 1 && !(retrieve)){
