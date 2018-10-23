@@ -35,8 +35,8 @@ var SocialBiosensorState = (function() {
     	background2 = BlocksToCrispee.createCrispeeW(1);
         background = Anglerfish.createTankEnvironment();
 
-        swim = game.add.sprite(280, 145,'angieWhite');
-        swim.scale.setTo(0.1,0.1);
+        fish = game.add.sprite(280, 145,'angieWhite');
+        fish.scale.setTo(0.1,0.1);
 
         //BlocksToCrispee.create(0);
         Scientist.create(-140, 400);
@@ -75,9 +75,9 @@ var SocialBiosensorState = (function() {
                     background.alpha = 0; // made old background disappear
                     background2 = BlocksToCrispee.createCrispeeW(); // made new backgroound with tank in back and CRISPEE in front appear
 
-                    bubble = Text.create(30, -60, 'speechLong', 0.11); // create text box at the top
-                    nextButton = Text.createNextButton(280, 84, 0.2, actionOnClick,1); // next button that triggers actionOnClick appears
-                    text = game.add.text(65, 30, content[index], 
+                    bubble = Text.create(0, -80, 'speechLong', 0.12); // create text box at the top
+                    nextButton = Text.createNextButton(310, 105, 0.2, actionOnClick,1); // next button that triggers actionOnClick appears
+                    text = game.add.text(20, 20, content[index], 
                                 {font: "22px Arial",
                                 fill: "#000000",
                                 align: "left"});

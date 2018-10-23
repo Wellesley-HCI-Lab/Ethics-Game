@@ -116,7 +116,6 @@ var DilemmaOneState = (function() {
         }
         console.log("nameHandled " + name);
         destroyBox();
-
      }
 
      function destroyBox(){

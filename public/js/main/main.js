@@ -21,7 +21,11 @@ game.state.add('sbGame', sbGameState);
 // Loads state with the conquences of storyline 2
 game.state.add('consequence',consequenceState);
 // Loads start of toxins storyline
-game.state.add('toxins',toxinsState);
+game.state.add('toxins', toxinsStartState);
+//load yes choice
+game.state.add('yesStory',yesStartState);
+//load no choice
+game.state.add('noStory',noStartState);
 
 function create() { 
 	game.physics.startSystem(Phaser.Physics.ARCADE);

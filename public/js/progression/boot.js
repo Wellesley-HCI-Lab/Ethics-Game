@@ -83,6 +83,11 @@ var BootState = (function() {
         //firstConsequence images
         game.load.image('subFish', 'images/consequence/subFish.png');
         game.load.spritesheet('fishSpritesImg','images/consequence/fishDecrease.png',864,625,5);
+
+        //toxins images
+        game.load.image('pollution', 'images/toxins/pollution.png');
+        game.load.image('yesScreen', 'images/toxins/dilemmaScreen_yes.png');
+        game.load.image('noScreen', 'images/toxins/dilemmaScreen_no.png');
         
         //loading test audio
         game.load.audio('01','audio/01.wav');
@@ -95,8 +100,15 @@ var BootState = (function() {
         game.load.image('soundOn','images/background/soundon.png');
 
         // For crispeePlay state
-        game.load.image('noButton', 'images/text/noButton.png');
-        game.load.image('yesButton', 'images/text/yesButton.png');
+        game.load.image('noButton','images/text/noButton.png');
+        game.load.image('yesButton','images/text/yesButton.png');
+
+        //no choice
+        game.load.image('lightLeft','images/toxins/lightLeft.png');
+        game.load.image('lightMiddle','images/toxins/lightMiddle.png');
+        game.load.image('lightRight','images/toxins/lightRight.png');
+        game.load.image('startButton','images/toxins/start.png');
+        game.load.image('pollutionCloud','images/toxins/pollutionCloud.png');
 
         //loading objects
         Submarine.load();
@@ -106,9 +118,9 @@ var BootState = (function() {
         Anglerfish.load();
         BlocksToCrispee.load();
         Text.load();
-        Text.load('speechBubble', 'images/text/bubbleNew.png');
-        game.load.image('pointer', 'images/text/pointer.png');
-        game.load.image('speechLong', 'images/text/long.png');
+        Text.load('speechBubble','images/text/bubbleNew.png');
+        game.load.image('pointer','images/text/pointer.png');
+        game.load.image('speechLong','images/text/long.png');
     }
     
     var create = function(){
@@ -164,7 +176,7 @@ var BootState = (function() {
 
         //callback for third storyline
         var startStoryThree = function(){
-            game.state.start('consequence');
+            game.state.start('yesStory');
         }
         /**
          * Continuously called

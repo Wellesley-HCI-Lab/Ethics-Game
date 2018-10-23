@@ -113,6 +113,7 @@ var Intro = (function() {
 
     //first section of cutscene for submarine
     function subCutscene() {
+        nextButton.inputEnabled = false;
         subSprite = game.add.sprite(-1, -1, 'subSpritesImg0');
         subSprite.animations.add('cutscene',[0,1,2,3,4,5]);
         subSprite.animations.play('cutscene', 1, false);

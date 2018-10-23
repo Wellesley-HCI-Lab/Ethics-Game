@@ -26,15 +26,14 @@ var consequence = (function() {
         content = ["I can’t believe what I’m seeing! Other\nAnglerfishes are appearing!", //0
         "With this many in one spot, we can\nlearn about these creatures and how\nthey interact!", //1
         "Huh? What’s this?", //2
-        "", //3, blank for the cutscene
-        "Their prey population going down\nmuch too fast! There isn’t enough\nfood for all the fish!",//4
-        "This isn’t great for the Anglerfish.\nWe should stop this experiment for\nnow.",//5
-        "Let’s bring Angie back on board, and\nsee if we can figure out what went\nwrong in our experiment.",//6
-        "Do you have any idea why all the\nfood disappeared and the fishes\nstarted getting hungry?",//7
-        "Maybe things that seem really\nhelpful may not be as helpful as\nwe think they are.",//8
-        "Our task is going to be harder than\nwe thought!",//9
-        "Experiments don’t always work but\nwe’ll find a way to learn more\nabout the deep sea!",//10
-        "We should get moving if we want to\nlearn more."//11
+        "Their prey population going down\nmuch too fast! There isn’t enough\nfood for all the fish!",//3
+        "This isn’t great for the Anglerfish.\nWe should stop this experiment for\nnow.",//4
+        "Let’s bring Angie back on board, and\nsee if we can figure out what went\nwrong in our experiment.",//5
+        "Do you have any idea why all the\nfood disappeared and the fishes\nstarted getting hungry?",//6
+        "Maybe things that seem really\nhelpful may not be as helpful as\nwe think they are.",//7
+        "Our task is going to be harder than\nwe thought!",//8
+        "Experiments don’t always work but\nwe’ll find a way to learn more\nabout the deep sea!",//9
+        "We should get moving if we want to\nlearn more."//10
         ];
 
         subBackground = addSprite(0, 0, false, 'subFish', game.width, game.height);
@@ -61,14 +60,35 @@ var consequence = (function() {
 
     //callback for next button to change trigger various events
     function actionOnClick(){
-    	console.log(index);
         switch(index){
         	//fish population decreasing cutscene
         	case 3:
         		subBackground.alpha = 0;
         		fishesCutscene();
-        	case 7:
-        		
+        		break;
+        	//going back to the lab
+        	case 6:
+        		text.setText(content[index]);
+        		fishSprite.alpha = 0;
+
+        		newBackground = Anglerfish.createTankEnvironment();
+                
+                Scientist.create(-140, 400);
+        		fish = game.add.sprite(280, 145,'angieWhite');
+                fish.scale.setTo(0.1,0.1);
+
+        		game.world.bringToTop(fish);
+        		game.world.bringToTop(bubble);
+        		game.world.bringToTop(next);
+        		game.world.bringToTop(text);
+
+                index++;
+
+        		break;
+            //going to next phase
+            case (content.length):
+                game.state.start('toxins');
+                break;
             default:
                 text.setText(content[index]);
                 index++;

@@ -8,7 +8,7 @@ var Scientist = (function() {
      * @memberOf module:Scientist
      */
 	function load() {
-		game.load.image('pam', 'images/scientist/pamWoBack.png');
+		game.load.image('pam', 'images/scientist/Pam.png');
 	}
 
 	/**
