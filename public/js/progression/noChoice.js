@@ -120,6 +120,8 @@ var noChoice = (function() {
         }
     }
 
+    var pollution;
+
     //callback for starting finding the pollution game
     function findPollution(){
         text.alpha = 0
@@ -129,7 +131,7 @@ var noChoice = (function() {
         startBttn.inputEnabled = false;
 
         //start the actual event timer
-        game.time.events.add(Phaser.Timer.SECOND * 3, endGame, this);
+        game.time.events.add(Phaser.Timer.SECOND * 30, endGame, this);
 
         //start the display timer to update every second
         timer = game.time.create(false);

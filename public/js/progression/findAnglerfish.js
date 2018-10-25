@@ -37,7 +37,7 @@ var FindAnglerfishState = (function() {
 
         //format and add the speechBubble, hiding the text with alpha = 0
         speechBubble = Text.create(-30, 250, 'speechBubble', 0.15);
-        text = game.add.text(45, 380, 'Wow it sure is dark down here!\nClick on the sub’s light beam to see\nwhat we can find.', 
+        text = game.add.text(45, 380, 'Wow it sure is dark down here!\nClick on the submarine’s light beam\nto see what we can find.', 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
@@ -61,8 +61,8 @@ var FindAnglerfishState = (function() {
         "We see a fish with a very big jaw\nand some sort of bulb hanging off\nof the front!",//2
         "Wow! This is exciting news! You’ve\nencountered a live angler fish!",//3 radio
         "Anglerfish are deep sea creatures\nthat live in solitude. This means\nthey prefer to be alone.",//4 radio
-        "That bulb hanging from their head\nis called a lure and it can light\nup! They use it to hunt for prey.",//5 radio
-        "If it’s bigger than your hand,\nthis is a female anglerfish."//6 radio
+        "That bulb hanging from their head\nis called a lure and it can light\nup! They use it to hunt for food.",//5 radio
+        "If the fish is bigger than your hand,\nthis is a female anglerfish."//6 radio
         ];
         
         index = 0;
@@ -125,10 +125,10 @@ var FindAnglerfishState = (function() {
         walkie.alpha = 0;
         
         //make the retrieve button appear, all callback for the animation
-        retrieveButton = game.add.button(575,385,'retrieveButton',retrieveBttnCallback,this);
+        retrieveButton = game.add.button(575,385,'retrieveButtonZoom',retrieveBttnCallback,this);
         retrieveButton.alpha = 1;
         retrieveButton.scale.setTo(.03,.03);
-        text.setText("Click on the button to retrieve\nthe fish.");
+        text.setText("Click on the button to catch\nthe fish.");
     }
 
     function retrieveBttnCallback(){

@@ -10,8 +10,6 @@
  * @exports introState
  */
 
-var subSpritesImg0;
-var subSpritesImg1;
 var subSprite;
 
 var introState = {
@@ -28,10 +26,6 @@ var Intro = (function() {
 
         //descending submarine images
         game.load.image('sub','images/submarine/subAboveWater.png');
-
-        //adding spritesheets for the submarine cutscene
-        subSpritesImg0 = game.load.spritesheet('subSpritesImg0','images/submarine/submarineCutscene-0.png',866,627,6);
-        subSpritesImg1 = game.load.spritesheet('subSpritesImg1','images/submarine/submarineCutscene-1.png',866,627,5);
     }
 
     var create = function(){
@@ -43,12 +37,12 @@ var Intro = (function() {
         
         //intro dialogue broken into individual sentences and index number
         var content = ["Hi and welcome!", //0
-        "I’m Pam, a bioengineer.\nThat means I am an engineer who\nuses genes to solve problems.", //1
+        "I’m Pam, a bioengineer.\nThat means I am an engineer who\nuses genes of living things to solve\nproblems.", //1
         "Today you’re going to be\npart of a deep sea dive with me!", //2
         "We are going to study\nmysterious deep sea creatures in\nour submarine.", //3
-        "The sub is a research lab\nand it can take us to the\ndeepest part of the ocean.", //4
+        "The submarine is a research lab\nand it can take us to the\ndeepest part of the ocean.", //4
         "We’re going to explore things\nmost people have never\nseen.", //5
-        "If we have questions we\ncan ask our friends above the\nwater with a radio.",//6
+        "If we have questions we\ncan ask our friends above the\nwater with a walkie-talkie.",//6
         "Let’s go!" //7
         ];
 

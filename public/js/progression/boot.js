@@ -79,11 +79,16 @@ var BootState = (function() {
 
         //retrieve button for angie
         game.load.image('retrieveButton','images/background/retrieveButton.png');
+        game.load.image('retrieveButtonZoom','images/background/retrieveButton_zoom.png');
 
         //firstConsequence images
         game.load.image('subFish', 'images/consequence/subFish.png');
         game.load.spritesheet('fishSpritesImg','images/consequence/fishDecrease.png',864,625,5);
         game.load.spritesheet('angieHunger','images/anglerfish/angieHunger.png',300,240,4);
+
+        //adding spritesheets for the submarine cutscene
+        game.load.spritesheet('subSpritesImg0','images/submarine/submarineCutscene-0.png',864,625,6);
+        game.load.spritesheet('subSpritesImg1','images/submarine/submarineCutscene-1.png',864,625,6);
 
         //toxins images
         game.load.image('pollution', 'images/toxins/pollution.png');
