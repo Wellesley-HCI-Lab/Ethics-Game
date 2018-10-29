@@ -4,4 +4,32 @@ An online interactive storybook and educational game that teaches young children
 
 This game was designed, prototyped and made by the Tangibac team at the <a href="http://cs.wellesley.edu/~hcilab/">Wellesley HCI Lab</a>, using the <a href="https://phaser.io/">Phaser<a> game engine.
 
-To run: Run on a local server
+Instructions for developing this game:
+
+Install MAMP https://www.mamp.info/en/ 
+
+Once MAMP is installed, open the terminal, change to this directory:
+
+$ cd /Applications/MAMP/htdocs
+
+Clone the directory to the file:
+
+$ git clone https://github.com/Wellesley-HCI-Lab/Ethics-Game.git
+
+Start up MAMP, click on “Start Servers”
+
+To play the game, type this into the browser:
+http://localhost:8888/Ethics-Game/public/
+
+Edit the code in the htdocs MAMP directory. Always do a hard refresh in the browser to see your code changes using Command + shift + R.
+
+Push code changes to the master branch in the MAMP directory:
+
+$ git add .
+$ git commit -m “<update to code message>”
+$ git push origin master
+
+
+
+
+
