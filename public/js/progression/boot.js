@@ -68,9 +68,6 @@ var BootState = (function() {
         game.load.image('porthole', 'images/background/portholeSub.png');
         game.load.image('underwaterbac', 'images/background/underwater.png');
         game.load.image('ang', 'images/background/ang.png');
-        game.load.image('ball', 'images/background/bubble256.png');
-        game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
-        game.load.image('title', 'images/background/title.png');
         game.load.atlasJSONHash('radio', 'images/radio/walkietalkie.png', 'images/radio/walkietalkie.json');
         game.load.atlasJSONHash('swim','images/anglerfish/swim.png','images/anglerfish/swim.json');
         game.load.image('splashPage', 'images/background/splashPage.png');
@@ -87,8 +84,9 @@ var BootState = (function() {
         game.load.spritesheet('angieHunger','images/anglerfish/angieHunger.png',300,240,4);
 
         //adding spritesheets for the submarine cutscene
-        game.load.spritesheet('subSpritesImg0','images/submarine/submarineCutscene-0.png',864,625,6);
-        game.load.spritesheet('subSpritesImg1','images/submarine/submarineCutscene-1.png',864,625,6);
+        game.load.spritesheet('subSpritesImg0','images/submarine/submarineCutscene0.png',864,625,6);
+        game.load.spritesheet('subSpritesImg1','images/submarine/submarineCutscene1.png',864,625,6);
+        game.load.spritesheet('subSpritesImg2','images/submarine/submarineCutscene2.png',864,625,2);
 
         //toxins images
         game.load.image('pollution', 'images/toxins/pollution.png');
@@ -100,6 +98,7 @@ var BootState = (function() {
         game.load.audio('02','audio/02.wav');
         game.load.audio('03','audio/03.wav');
         game.load.audio('04','audio/04.wav');
+        game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
 
         //sound image files
         game.load.image('soundOff','images/background/soundoff.png');

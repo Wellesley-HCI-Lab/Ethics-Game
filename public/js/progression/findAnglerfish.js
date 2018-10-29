@@ -125,9 +125,9 @@ var FindAnglerfishState = (function() {
         walkie.alpha = 0;
         
         //make the retrieve button appear, all callback for the animation
-        retrieveButton = game.add.button(575,385,'retrieveButtonZoom',retrieveBttnCallback,this);
+        retrieveButton = game.add.button(550,150,'retrieveButtonZoom',retrieveBttnCallback,this);
         retrieveButton.alpha = 1;
-        retrieveButton.scale.setTo(.03,.03);
+        retrieveButton.scale.setTo(.07,.07);
         text.setText("Click on the button to catch\nthe fish.");
     }
 

@@ -10,7 +10,9 @@
  * @exports introState
  */
 
-var subSprite;
+var subSprite0;
+var subSprite1;
+var subSprite2;
 
 var introState = {
 	preload: function(){ Intro.load(); },
@@ -108,33 +110,50 @@ var Intro = (function() {
     //first section of cutscene for submarine
     function subCutscene() {
         nextButton.inputEnabled = false;
-        subSprite = game.add.sprite(-1, -1, 'subSpritesImg0');
-        subSprite.animations.add('cutscene',[0,1,2,3,4,5]);
-        subSprite.animations.play('cutscene', 1, false);
-        subSprite.scale.set(1);
-        subSprite.smoothed = false;
+        subSprite0 = game.add.sprite(-1, -1, 'subSpritesImg0');
+        subSprite0.animations.add('cutscene',[0,1,2,3,4,5]);
+        subSprite0.animations.play('cutscene', 1, false);
+        subSprite0.scale.set(1);
+        subSprite0.smoothed = false;
 
         //call the second animation when the first one is complete
-        subSprite.animations.currentAnim.onComplete.add(
+        subSprite0.animations.currentAnim.onComplete.add(
+            function () {
+                subCutSceneOne();
+            }, this);
+    }
+
+    //second section of cutscene for submarine
+    function subCutSceneOne(){
+        subSprite1 = game.add.sprite(-1, -1, 'subSpritesImg1');
+        subSprite1.animations.add('cutscene',[0,1,2,3,4,5]);
+        subSprite1.animations.play('cutscene', 1, false);
+        subSprite1.scale.set(1);
+        subSprite1.smoothed = false;
+
+        //call the next phase when the second animation is complete
+        subSprite1.animations.currentAnim.onComplete.add(
             function () {
                 subCutSceneTwo();
             }, this);
     }
 
-    //second section of cutscene for submarine
+    //third section of cutscene for submarines
+
     function subCutSceneTwo(){
-        subSprite = game.add.sprite(-1, -1, 'subSpritesImg1');
-        subSprite.animations.add('cutscene',[0,1,2,3,4]);
-        subSprite.animations.play('cutscene', 1, false);
-        subSprite.scale.set(1);
-        subSprite.smoothed = false;
+        subSprite2 = game.add.sprite(-1, -1, 'subSpritesImg2');
+        subSprite2.animations.add('cutscene',[0,1]);
+        subSprite2.animations.play('cutscene', 1, false);
+        subSprite2.scale.set(1);
+        subSprite2.smoothed = false;
 
         //call the next phase when the second animation is complete
-        subSprite.animations.currentAnim.onComplete.add(
+        subSprite2.animations.currentAnim.onComplete.add(
             function () {
                 game.state.start('findAnglerfish');
             }, this);
     }
+
 
     var update = function(){
         BootState.updateLevel('boot','findAnglerfish'); 
