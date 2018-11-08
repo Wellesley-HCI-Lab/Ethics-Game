@@ -61,8 +61,12 @@ var Intro = (function() {
         //tween to make the text appear
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
         
-        //increment the index
+        //add music then increment the index after first dialogue
+        text.setText(content[index]);
+        music1 = game.add.audio('introjs1');
+        music1.play();
         index++;
+
 
         //event loop that goes through each line of the content when next is clicked
         function actionOnClick(){
@@ -81,18 +85,61 @@ var Intro = (function() {
                 //     music1.play();
                 //     index++;
                 //     break;
+                case 1:
+                    music1.destroy();
+                    text.setText(content[index]);
+                    music2 = game.add.audio('introjs2');
+                    music2.play();
+                    index++;
+                    break;
+                case 2:
+                    music2.destroy();
+                    text.setText(content[index]);
+                    music3 = game.add.audio('introjs3');
+                    music3.play();
+                    index++;
+                    break;
+                case 3:
+                    music3.destroy();
+                    text.setText(content[index]);
+                    music4 = game.add.audio('introjs4');
+                    music4.play();
+                    index++;
+                    break;
                 case 4:
+                    music4.destroy();
+                    text.setText(content[index]);
+                    music5 = game.add.audio('introjs5');
+                    music5.play();
                     text.setText(content[index]);
                     pointer = game.add.sprite(500, 200, 'pointer');
                     pointer.scale.setTo(0.1, 0.1);
                     index++;
                     break;
+                case 5:
+                    music5.destroy();
+                    text.setText(content[index]);
+                    music6 = game.add.audio('introjs6');
+                    music6.play();
+                    index++;
+                    break;
                 case 6:
+                    music6.destroy();
+                    text.setText(content[index]);
+                    music7 = game.add.audio('introjs7');
+                    music7.play();
                     text.setText(content[index]);
                     radio = game.add.sprite(280, 100,'radio');
                     radio.scale.setTo(0.3,0.3);
                     radio.animations.add('walk');
                     radio.animations.play('walk', 5, true); 
+                    index++;
+                    break;
+                case 7:
+                    music7.destroy();
+                    text.setText(content[index]);
+                    music8 = game.add.audio('introjs8');
+                    music8.play();
                     index++;
                     break;
                 case (content.length):
