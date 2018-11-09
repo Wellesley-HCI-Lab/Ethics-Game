@@ -43,7 +43,8 @@ var FindAnglerfishState = (function() {
             align: "left"});
         text.alpha = 0;
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
-        
+        music0 = game.add.audio('findanglerfishjs0');
+        music0.play();
         //add the zoom sprite and scale it, hiding it with alpha = 0
         zoom = game.add.sprite(300, 85, 'zoom');
         zoom.scale.setTo(0.7, 0.7);
@@ -79,7 +80,11 @@ var FindAnglerfishState = (function() {
             nextButton.alpha = 1;
             //when index is initialied to 0, make the text appear and increase index
             if (index === 0){
+                text.setText(content[index]);
                 text.setText(content[0]);
+                music0.destroy();
+                music1 = game.add.audio('findanglerfishjs1');
+                music1.play();
                 index++;
             }
         };
@@ -100,10 +105,49 @@ var FindAnglerfishState = (function() {
                 //game.state.start('dilemmaOne');
                 break;
             //index trigger for when zoom and walkie talkie should appear
-            case 4:
+            case 1:
+                music1.destroy();
+                text.setText(content[index]);
+                music2 = game.add.audio('findanglerfishjs2');
+                music2.play();
+                index++;
+                break;
+            case 2:
+                music2.destroy();
+                text.setText(content[index]);
+                music3 = game.add.audio('findanglerfishjs3');
+                music3.play();
+                index++;
+                break;
+            case 3:
+                music3.destroy();
+                text.setText(content[index]);
+                music4 = game.add.audio('findanglerfishjs4');
+                music4.play();
                 text.setText(content[index]);
                 zoom.alpha = 1;
                 index++;
+            case 4:
+                music4.destroy();
+                text.setText(content[index]);
+                music5 = game.add.audio('findanglerfishjs5');
+                music5.play();
+                index++;
+                break;
+            case 5:
+                music5.destroy();
+                text.setText(content[index]);
+                music6 = game.add.audio('findanglerfishjs6');
+                music6.play();
+                index++;
+                break;
+            case 6:
+                music6.destroy();
+                text.setText(content[index]);
+                music7 = game.add.audio('findanglerfishjs7');
+                music7.play();
+                index++;
+                break;
             default:
                 text.setText(content[index]);
                 zoom.alpha = 0;
@@ -128,8 +172,11 @@ var FindAnglerfishState = (function() {
         retrieveButton = game.add.button(550,150,'retrieveButtonZoom',retrieveBttnCallback,this);
         retrieveButton.alpha = 1;
         retrieveButton.scale.setTo(.07,.07);
+        music7.destroy();
+        music8 = game.add.audio('findanglerfishjs8');
+        music8.play();
         text.setText("Click on the button to catch\nthe fish.");
-    }
+            }
 
     function retrieveBttnCallback(){
         //tween for angie being taken onto the ship
