@@ -71,12 +71,29 @@ var DilemmaOneState = (function() {
 
      //tween for the text
      game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
+     text.setText(content[index]);
+     music0 = game.add.audio('dilemmajs0');
+     music0.play();
      index++;
-
+     
      //callback for next button
      function actionOnClick(){
             switch(index){
                 //fish box appears
+                case 1:
+                    music0.destroy();
+                    text.setText(content[index]);
+                    music1 = game.add.audio('dilemmajs1');
+                    music1.play();
+                    index++;
+                    break;
+                case 2:
+                    music1.destroy();
+                    text.setText(content[index]);
+                    music2 = game.add.audio('dilemmajs2');
+                    music2.play();
+                    index++;
+                    break;
                 case 3:
                     rename.alpha = 1;
                     rename.scale.setTo(0.3, 0.3);
@@ -91,6 +108,31 @@ var DilemmaOneState = (function() {
                     //name = nameEntryBox.text.text;
                     nameButton = Text.createNameButton(200, 75, 0.2, nameHandle,1); 
                     text.setText(content[index]);
+                    music2.destroy();
+                    text.setText(content[index]);
+                    music3 = game.add.audio('dilemmajs3');
+                    music3.play();
+                    index++;
+                    break;
+                case 4:
+                    music3.destroy();
+                    text.setText(content[index]);
+                    music4 = game.add.audio('dilemmajs4');
+                    music4.play();
+                    index++;
+                    break;
+                case 5:
+                    music4.destroy();
+                    text.setText(content[index]);
+                    music5 = game.add.audio('dilemmajs5');
+                    music5.play();
+                    index++;
+                    break;
+                case 7:
+                    music5.destroy();
+                    text.setText(content[index]);
+                    music6 = game.add.audio('dilemmajs6');
+                    music6.play();
                     index++;
                     break;
                 case (content.length):
