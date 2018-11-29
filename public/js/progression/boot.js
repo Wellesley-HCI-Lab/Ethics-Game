@@ -100,34 +100,6 @@ var BootState = (function() {
         game.load.audio('04','audio/04.wav');
         game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
 
-        //loading scenario one audio
-        game.load.audio('dilemmajs0','audio/Storyline1/dilemmaOne.js1.mp3');
-        game.load.audio('dilemmajs1','audio/Storyline1/dilemmaOne.js2.mp3');
-        game.load.audio('dilemmajs2','audio/Storyline1/dilemmaOne.js3.mp3');
-        game.load.audio('dilemmajs3','audio/Storyline1/dilemmaOne.js4.mp3');
-        game.load.audio('dilemmajs4','audio/Storyline1/dilemmaOne.js5.mp3');
-        game.load.audio('dilemmajs5','audio/Storyline1/dilemmaOne.js6.mp3');
-        game.load.audio('dilemmajs6','audio/Storyline1/dilemmaTwo.js7.mp3');
-
-        game.load.audio('findanglerfishjs0','audio/Storyline1/findAnglerfish.js1.mp3');
-        game.load.audio('findanglerfishjs1','audio/Storyline1/findAnglerfish.js2.mp3');
-        game.load.audio('findanglerfishjs2','audio/Storyline1/findAnglerfish.js3.mp3');
-        game.load.audio('findanglerfishjs3','audio/Storyline1/findAnglerfish.js4.mp3');
-        game.load.audio('findanglerfishjs4','audio/Storyline1/findAnglerfish.js5.mp3');
-        game.load.audio('findanglerfishjs5','audio/Storyline1/findAnglerfish.js6.mp3');
-        game.load.audio('findanglerfishjs6','audio/Storyline1/findAnglerfish.js7.mp3');
-        game.load.audio('findanglerfishjs7','audio/Storyline1/findAnglerfish.js8.mp3');
-        game.load.audio('findanglerfishjs8','audio/Storyline1/findAnglerfish.js9.mp3');
-
-        game.load.audio('introjs0','audio/Storyline1/intro.js1.mp3');
-        game.load.audio('introjs1','audio/Storyline1/intro.js2.mp3');
-        game.load.audio('introjs2','audio/Storyline1/intro.js3.mp3');
-        game.load.audio('introjs3','audio/Storyline1/intro.js4.mp3');
-        game.load.audio('introjs4','audio/Storyline1/intro.js5.mp3');
-        game.load.audio('introjs5','audio/Storyline1/intro.js6.mp3');
-        game.load.audio('introjs6','audio/Storyline1/intro.js7.mp3');
-        game.load.audio('introjs7','audio/Storyline1/intro.js8.mp3');
-
         //sound image files
         game.load.image('soundOff','images/background/soundoff.png');
         game.load.image('soundOn','images/background/soundon.png');
@@ -137,15 +109,13 @@ var BootState = (function() {
         game.load.image('yesButton','images/text/yesButton.png');
 
         //yes choice images
-        game.load.spritesheet('toxinsImg','images/toxins/toxinsCutScene.png',829,600,6);
+        game.load.spritesheet('toxinsImg','images/toxins/toxinsCutScene.png',864,625,6);
 
         //no choice images
-        game.load.image('lightLeft','images/toxins/lightLeft.png');
-        game.load.image('lightMiddle','images/toxins/lightMiddle.png');
-        game.load.image('lightRight','images/toxins/lightRight.png');
         game.load.image('startButton','images/toxins/start.png');
         game.load.image('pollutionCloud','images/toxins/pollutionCloud.png');
         game.load.image('angieSick','images/anglerfish/angieSick.png');
+        game.load.image('damagedSub','images/submarine/damagedSub.png');
 
         //loading objects
         Submarine.load();

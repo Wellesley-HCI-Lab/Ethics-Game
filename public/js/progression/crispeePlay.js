@@ -28,11 +28,15 @@ var CrispeePlay = (function() {
         BlocksToCrispee.create();
 
         //script content variable
-        content = ["This is our CRISPEE \nmachine!", //0
-        "Each block represents a gene\nfrom other animals that allows\nthose animals to light up.", //1
-        "Using CRISPEE, we can arrange\nthese genes in a program to\nbioengineer Angie!", //2
-        "A program is a list of instructions\nthat makes something else happen.", //3
-        "Click on the green gene to finish\nAngie’s gene program."//4
+        content = ["This is our CRISPEE\nmachine!", //0
+        "The name CRISPEE comes from a\ntool that scientists use called\nCRISPR.",//1
+        "CRISPR allows scientists to\nchange genes.",//2
+        "Each block represents a gene\nthat comes from an animal that\nlights up.", //3
+        "For example, a jellyfish has\ngenes that allow it to light up.", //4
+        "Can you think of any other\nanimals that light up?", //5
+        "Using CRISPEE, we can arrange\nthese genes in a program to\nbioengineer Angie!",//6
+        "A program is a list of instructions\nthat makes something happen.",//7
+        "Click on the green gene to finish\nAngie’s gene program."//8
         ] 
 
         crispee = addSprite(0, 0, false, 'crispee', game.width, game.height);
@@ -64,7 +68,7 @@ var CrispeePlay = (function() {
     function actionOnClick(){
         switch(index){
             //when the user is prompted to put in the green block
-            case 4:
+            case 8:
                 text.setText(content[index]);
                 block = BlocksToCrispee.createBlock('greenBlockOut', 620, 400, 0.225,'greenBlockIn', 319, 313, 0.225);
                 index++;

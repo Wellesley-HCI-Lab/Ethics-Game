@@ -71,6 +71,7 @@ var noChoice = (function() {
 
         //create start button, hide and disable input
         startBttn = game.add.button(200, 100, 'startButton', findPollution, this, 2, 1, 0);
+        startBttn.scale.setTo(0.2,0.2);
         startBttn.alpha = 0;
         startBttn.inputEnabled = false;
 
@@ -100,8 +101,9 @@ var noChoice = (function() {
                 text.setText(content[index]);
                 index++;
                 break;
-            //go to the surface
             case 7:
+                pollution.destroy();
+                damagedSub.alpha = 0;
                 text.setText(content[index]);
 
                 Submarine.create();
@@ -178,10 +180,16 @@ var noChoice = (function() {
         destroySprites.stop();
         timerSprites.stop();
 
+        damagedSub = addSprite(0, 0, false, 'damagedSub', game.width, game.height);
+
         bubble.alpha = 1;
         text.alpha = 1;
         next.alpha = 1;
         next.inputEnabled = true;
+
+        game.world.bringToTop(bubble);
+        game.world.bringToTop(next);
+        game.world.bringToTop(text);
 
         timerText.alpha = 0;
         pollutionText.alpha = 0;

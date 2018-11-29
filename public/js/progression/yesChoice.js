@@ -36,7 +36,9 @@ var yesChoice = (function() {
         "Do you think we made the right\ndecision?"//9
         ];
 
-        background = BlocksToCrispee.createCrispeeW();
+        background = BlocksToCrispee.createCrispeeW(true);
+
+        //crispToxins = addSprite(0, 0, false, 'crispeeW', game.width, game.height);
 
         index = 0;
 
@@ -97,8 +99,8 @@ var yesChoice = (function() {
                 game.world.bringToTop(next);
                 game.world.bringToTop(text);
 
-                sickFish = game.add.sprite(150, 160,'angieSick');
-                sickFish.scale.setTo(0.4,0.4);
+                sickFish = game.add.sprite(400, 100,'angieSick');
+                sickFish.scale.setTo(0.07,0.07);
 
                 text.setText(content[index]);
                 index++;

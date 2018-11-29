@@ -71,7 +71,7 @@ var SBGameState = (function() {
     }
 
     var update = function(){
-        BootState.updateLevel('socialBiosensor','consequence'); 
+        BootState.updateLevel('socialBiosensor','toxins'); 
         
         game.physics.arcade.overlap(anglerfish, hiddenAnglerfish, overlapHandler, null, this);
         game.physics.arcade.overlap(anglerfish, transFish, transHandler, null, this);
@@ -90,7 +90,7 @@ var SBGameState = (function() {
         if (num === 1){
             bubble = Text.create(420, 350, 'bubble', 0.12);
             next = Text.createNextButton(650, 540, 0.2, function(){
-                console.log(game.state.start('consequence'));
+                console.log(game.state.start('toxins'));
             }, 1);
             text = game.add.text(480, 460, "I can't believe it! I've never \nseen so many anglerfishes \nin one place!", 
                 {font: "22px Arial",
@@ -111,15 +111,10 @@ var SBGameState = (function() {
         fish.loadTexture('angieMagentaSmall');
     }
 
-    var onKeyDown = function() {
-        if(testing) BootState.updateLevel('consequence');
-    }
-
 return {  
         preload: preload,     
         create: create,
-        update: update,
-        onKeyDown: onKeyDown
+        update: update
     };
 
 }());

@@ -34,17 +34,19 @@ var toxinsStart = (function() {
         content = ["We’re in a new part of the ocean,\nand the water seems unusually\npolluted here.", //0
         "We have to avoid the pollution\nbecause the pollution could break\nour submarine.", //1
         "But it’s so dark we can’t see where\nthe pollution is!", //2
-        "Remember how some genes let\nanimals use special senses, called\nbiosensor genes?",//3
-        "Here is another biosensor\nthat we can give to Angie.",//4
-        "This biosensor lets Angie know\nwhen she is near toxic, unhealthy\nwater.",//5
-        "But she could get sick if she swims\nin this water.",//6
-        "Should we bioengineer Angie\neven though it may make her sick?",//7
-        "Or should we use our beam lights\neven though our ship may get stuck?",//8
-        "I think our submarine could\nget stuck and we are so far away\nfrom the shore.",//9
-        "We need Angie’s help to bring us\nto safe water.",//10
-        "I think this water is really\ndangerous for us, and for Angie.",//11
-        "We should find our own way out\nand keep Angie from harm.",//12
-        "What do you think we should\ndo? "//13
+        "Can we use CRISPEE to change\nAngie’s light to help us navigate the\nwater?",//3
+        "We can give Angie a new biosensor\nusing the CRISPEE. ",//4
+        "This biosensor lets Angie know when\nshe is near toxic water or air.",//5
+        "That means it is unsafe to live in\nand could hurt the animals in this\nenvironment.",//6
+        "Let’s use our toxin biosensor and\nprogram Angie to alert us when she\nfinds polluted water!",//7
+        "Wait, this biosensor lets Angie know\nwhen she is near toxic, unhealthy\nwater.",//8
+        "But she could get sick if she swims\nin this water.",//9
+        "We could also use our ship and\nsave Angie from the toxic water. ",//10
+        "But our submarine is not as good as\nAngie at finding pollution.",//11
+        "It could get broken while we look\nfor toxins.",//12
+        "Should we release Angie in the\nocean even though it may make her\nsick?",//13
+        "Or should we use our beam lights\neven though our ship may get\nbroken?",//14
+        "What do you think we should do?"//15
         ];
 
         background = addSprite(0, 0, false, 'pollution', game.width, game.height);
@@ -84,7 +86,7 @@ var toxinsStart = (function() {
                 index++;
                 break;
             //radio makes it's case
-            case 11:
+            case 8:
                 tankBackground = addSprite(0, 0, false, 'noScreen', game.width, game.height);
 
                 walkie = game.add.sprite(550,200,'radio');
@@ -100,7 +102,7 @@ var toxinsStart = (function() {
                 index++;
                 break;
             //add yes or no button
-            case 13:
+            case 15:
                 next.destroy();
                 yes = game.add.button(500, 535, 'yesButton', function(){
                         console.log("yes");
@@ -124,7 +126,7 @@ var toxinsStart = (function() {
 
     function update(){
         if (leftKey.isDown){
-                game.state.start('consequence');
+                game.state.start('sbGame');
             }
         if (upKey.isDown){
                 game.state.start('yesStory');

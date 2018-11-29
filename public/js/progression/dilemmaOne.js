@@ -45,8 +45,8 @@ var DilemmaOneState = (function() {
      swim.animations.play('walk', 1.5, true);
 
      //add the nameing the fish box,hide it
-     rename = game.add.sprite(35, 0, 'rename');
-     rename.alpha = 0;
+     //rename = game.add.sprite(35, 0, 'rename');
+     //rename.alpha = 0;
 
      game.add.plugin(PhaserInput.Plugin);
 
@@ -55,9 +55,8 @@ var DilemmaOneState = (function() {
      "This is a chance to learn more\nabout deep sea creatures\nand to help this anglerfish!",//2
      "Maybe we should give this anglerfish\na name?",//3
      name + " is a great name!",//4
-     "We can use a machine called\nCRISPEE to bioengineer "+name+"'s\ngenes.",
-     "Maybe we can change her\ngenes so that she can light up.",//5
-     "Let’s go over to our CRISPEE\nmachine and see what we can do."//6
+     "We can use a tool to help Angie by\nchanging her genes to let her lure\nlight up.",
+     "Let’s go over to our lab and see what\nwe can do."
      ];
 
      index = 0;
@@ -71,30 +70,15 @@ var DilemmaOneState = (function() {
 
      //tween for the text
      game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
-     text.setText(content[index]);
-     music0 = game.add.audio('dilemmajs0');
-     music0.play();
      index++;
-     
+
      //callback for next button
      function actionOnClick(){
             switch(index){
                 //fish box appears
-                case 1:
-                    music0.destroy();
-                    text.setText(content[index]);
-                    music1 = game.add.audio('dilemmajs1');
-                    music1.play();
-                    index++;
-                    break;
-                case 2:
-                    music1.destroy();
-                    text.setText(content[index]);
-                    music2 = game.add.audio('dilemmajs2');
-                    music2.play();
-                    index++;
-                    break;
                 case 3:
+                    //name not working right now
+                    /*
                     rename.alpha = 1;
                     rename.scale.setTo(0.3, 0.3);
                     nameEntryBox = game.add.inputField(412, 112, {
@@ -107,32 +91,8 @@ var DilemmaOneState = (function() {
                     nameEntryBox.startFocus();
                     //name = nameEntryBox.text.text;
                     nameButton = Text.createNameButton(200, 75, 0.2, nameHandle,1); 
+                    */
                     text.setText(content[index]);
-                    music2.destroy();
-                    text.setText(content[index]);
-                    music3 = game.add.audio('dilemmajs3');
-                    music3.play();
-                    index++;
-                    break;
-                case 4:
-                    music3.destroy();
-                    text.setText(content[index]);
-                    music4 = game.add.audio('dilemmajs4');
-                    music4.play();
-                    index++;
-                    break;
-                case 5:
-                    music4.destroy();
-                    text.setText(content[index]);
-                    music5 = game.add.audio('dilemmajs5');
-                    music5.play();
-                    index++;
-                    break;
-                case 7:
-                    music5.destroy();
-                    text.setText(content[index]);
-                    music6 = game.add.audio('dilemmajs6');
-                    music6.play();
                     index++;
                     break;
                 case (content.length):

@@ -10,6 +10,7 @@ var BlocksToCrispee = (function() {
     var load = function() {
         game.load.image('crispee', 'images/crispee/crispee.png');
         game.load.image('crispeeW','images/crispee/crispeeWhite.png');
+        game.load.image('crispeeToxins','images/crispee/crispeeToxins.png');
 
         // Loads images of blocks outside CRISPEE -ON
         game.load.image('blueBlockOut', 'images/blocks/blueBlockOut.png');
@@ -40,8 +41,6 @@ var BlocksToCrispee = (function() {
         game.load.image('angieRed', 'images/anglerfish/angieRed.png');
         game.load.image('angieBlue', 'images/anglerfish/angieBlue.png');
         game.load.image('angieGreen', 'images/anglerfish/angieGreen.png');
-
-
 
     };
 
@@ -76,9 +75,15 @@ var BlocksToCrispee = (function() {
 
     };
 
-    var createCrispeeW = function(alpha) {
- 
-        crispw = addSprite(0, 0, false, 'crispeeW', game.width, game.height);
+    var createCrispeeW = function(toxinsBool) {
+        //if toxinsBool is true, then make that the background
+        if(toxinsBool){
+            crispw = addSprite(0, 0, false, 'crispeeToxins', game.width, game.height);
+        }
+        //else make the background crispee white
+        else{
+            crispw = addSprite(0, 0, false, 'crispeeW', game.width, game.height);
+        }
 
         blockInRedOnS = addScaledSprite(321, 313, false,'redBlockIn', 0.225)
         blockInRedOnS.alpha =0;
