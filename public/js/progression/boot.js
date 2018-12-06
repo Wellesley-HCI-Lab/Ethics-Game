@@ -92,13 +92,6 @@ var BootState = (function() {
         game.load.image('pollution', 'images/toxins/pollution.png');
         game.load.image('yesScreen', 'images/toxins/dilemmaScreen_yes.png');
         game.load.image('noScreen', 'images/toxins/dilemmaScreen_no.png');
-        
-        //loading test audio
-        game.load.audio('01','audio/01.wav');
-        game.load.audio('02','audio/02.wav');
-        game.load.audio('03','audio/03.wav');
-        game.load.audio('04','audio/04.wav');
-        game.load.audio('bubAudio', 'images/background/cuteBubbling.mp3');
 
         //sound image files
         game.load.image('soundOff','images/background/soundoff.png');
