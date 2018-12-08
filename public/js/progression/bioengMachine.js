@@ -30,13 +30,20 @@ var CrispeePlay = (function() {
         "Many genes together make a\nprogram to build our bodies. ", //4
         "Angie glows because she has\na gene that tells her body to glow. ", //5
         "Can you think of any other\nanimals that have genes for glowing\nlike Angie? ",//6
-        "Click on the button to fix Angie's\n light.",//7
+        "Click on the color you would\nlike Angie’s light to be.",//7
         ] 
 
+        //add color machine
         crispee = addSprite(0, 0, false, 'colorMachine', game.width, game.height);
 
-        white = game.add.button(200, 300, 'whiteButton', showAngieLight);
-        white.inputEnabled = false;
+        //add buttons
+        redBttn = game.add.button(270, 500, 'redButton',);
+        yellowBttn = game.add.button(270, 500, 'yellowButton',);
+        blueBttn = game.add.button(270, 500, 'blueButton',);
+        whiteBttn = game.add.button(270, 500, 'whiteButton',);
+        cyanBttn = game.add.button(270, 500, 'cyanButton',);
+        magentaBttn = game.add.button(270, 500, 'magentaButton',);
+        greenBttn = game.add.button(270, 500, 'greenButton',);
 
         index = 0;
 
@@ -64,7 +71,6 @@ var CrispeePlay = (function() {
             //when the user is prompted to put in the green block
             case 7:
                 text.setText(content[index]);
-                white.inputEnabled = true;
                 index++;
                 break;   
             //change to angie being lit up after block is placed at the end of the dialogue
@@ -84,7 +90,7 @@ var CrispeePlay = (function() {
         bubble = Text.create(80, 315, 'speechLong', 0.12);
 
         //add the text
-        text = game.add.text(105, 420, "We fixed Angie’s light!\nLet’s keep exploring!", 
+        text = game.add.text(105, 420, "You changed Angie’s genes!\nTry again?", 
             {font: "22px Arial",
             fill: "#000000",
             align: "left"});
@@ -93,15 +99,15 @@ var CrispeePlay = (function() {
         //add animation for the text
         game.add.tween(text).to( {alpha: 1 }, 1500, Phaser.Easing.Linear.In, true);
 
-        next = game.add.button(350, 500, 'nextButton', continueGame);
-        next.scale.setTo(0.2, 0.2);
+        no = game.add.button(270, 500, 'noButton', continueGame);
+        no.scale.setTo(0.2, 0.2);
+        
+        yes = game.add.button(390, 500, 'yesButton', replayCrispee);
+        yes.scale.setTo(0.2, 0.2);
     }
 
     function continueGame(){
-        addSprite(0, 0, false, 'stop2', game.width, game.height);
-        next = Text.createNextButton(350, 400, 0.2, function(){
-             game.state.start('socialBiosensor');
-         }, 1);
+        game.state.start('socialBiosensor');
     }
 
     return {      

@@ -78,6 +78,25 @@ var BootState = (function() {
         game.load.image('retrieveButton','images/background/retrieveButton.png');
         game.load.image('retrieveButtonZoom','images/background/retrieveButton_zoom.png');
 
+        //bioenginerrings color machine buttons
+        game.load.image('colorMachine','images/bioengMachine/crispeeNoButtons.png');
+        game.load.image('redButton','images/bioengMachine/redButtonTxt.png');
+        game.load.image('yellowButton','images/bioengMachine/yellowButtonTxt.png');
+        game.load.image('blueButton','images/bioengMachine/blueButtonTxt.png');
+        game.load.image('whiteButton','images/bioengMachine/whiteButtonTxt.png');
+        game.load.image('cyanButton','images/bioengMachine/cyanButtonTxt.png');
+        game.load.image('magentaButton','images/bioengMachine/magentaButtonTxt.png');
+        game.load.image('greenButton','images/bioengMachine/greenButtonTxt.png');
+
+        //images for different angie colors
+        game.load.image('angiemagenta', 'images/anglerfish/angieMagenta.png');
+        game.load.image('angiewhite', 'images/anglerfish/angieWhite.png');
+        game.load.image('angieyellow', 'images/anglerfish/angieYellow.png');
+        game.load.image('angiecyan', 'images/anglerfish/angieCyan.png');
+        game.load.image('angiered', 'images/anglerfish/angieRed.png');
+        game.load.image('angieblue', 'images/anglerfish/angieBlue.png');
+        game.load.image('angiegreen', 'images/anglerfish/angieGreen.png');
+
         //firstConsequence images
         game.load.image('subFish', 'images/consequence/subFish.png');
         game.load.spritesheet('fishSpritesImg','images/consequence/fishDecrease.png',864,625,5);
@@ -96,6 +115,12 @@ var BootState = (function() {
         //sound image files
         game.load.image('soundOff','images/background/soundoff.png');
         game.load.image('soundOn','images/background/soundon.png');
+
+        //stopping points question image files
+        game.load.image('stop1','images/stops/stop1.png');
+        game.load.image('stop2','images/stops/stop2.jpg');
+        game.load.image('stop3','images/stops/stop3.jpg');
+        game.load.image('stop4','images/stops/stop4.jpg');
 
         // For crispeePlay state
         game.load.image('noButton','images/text/noButton.png');

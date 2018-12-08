@@ -25,7 +25,7 @@ var yesChoice = (function() {
     var create = function(){
         //script content variable
         content = ["How can we program Angie so that\nwe can also know when she senses\ntoxic water?", //0
-        "Click on the blocks to program Angie\nfor toxins.",//1
+        "Click on the button to program Angie\nfor toxins, then click next.",//1
         "Let's move angie to the water now\nto find pollutants.",//2
         "Angie is out in the open water now,\nlet’s see what she finds.", //3
         "We fully explored all of the toxic\nenvironment! ", //4
@@ -35,8 +35,10 @@ var yesChoice = (function() {
         "We were able to use Angie to find all\nof the toxins but angie got sick.",//8
         "Do you think we made the right\ndecision?"//9
         ];
+        crispee = addSprite(0, 0, false, 'colorMachine', game.width, game.height);
 
-        background = BlocksToCrispee.createCrispeeW(true);
+        white = game.add.button(200, 300, 'whiteButton');
+        white.inputEnabled = false;
 
         //crispToxins = addSprite(0, 0, false, 'crispeeW', game.width, game.height);
 
@@ -47,9 +49,6 @@ var yesChoice = (function() {
         next = Text.createNextButton(305, 95, 0.2, function(){
             actionOnClick();
         }, 1);
-
-        addScaledSprite(138, 317, false, 'redBlockIn', 0.226); 
-        addScaledSprite(232, 313, false, 'blueBlockIn', 0.226);
 
         //format and hide text
         text = game.add.text(55, 30, content[index], 
@@ -69,9 +68,7 @@ var yesChoice = (function() {
         switch(index){
             case 1:
                 text.setText(content[index]);
-
-                block = BlocksToCrispee.createBlock('greenBlockOut', 620, 400, 0.225,'greenBlockIn', 319, 313, 0.225);
-
+                white.inputEnabled = true;
                 index++;
                 break;
             case 3:

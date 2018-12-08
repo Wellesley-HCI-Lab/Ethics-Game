@@ -96,7 +96,10 @@ var DilemmaOneState = (function() {
                     index++;
                     break;
                 case (content.length):
-                    game.state.start('crispeePlay');
+                    addSprite(0, 0, false, 'stop1', game.width, game.height);
+                    next = Text.createNextButton(350, 400, 0.2, function(){
+                        game.state.start('crispeePlay');
+                     }, 1);
                     break;
                 default:
                     text.setText(content[index]);

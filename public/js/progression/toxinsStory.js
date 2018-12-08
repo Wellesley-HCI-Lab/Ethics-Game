@@ -34,8 +34,8 @@ var toxinsStart = (function() {
         content = ["We’re in a new part of the ocean,\nand the water seems unusually\npolluted here.", //0
         "We have to avoid the pollution\nbecause the pollution could break\nour submarine.", //1
         "But it’s so dark we can’t see where\nthe pollution is!", //2
-        "Can we use CRISPEE to change\nAngie’s light to help us navigate the\nwater?",//3
-        "We can give Angie a new biosensor\nusing the CRISPEE. ",//4
+        "Can we use bioengineering to change\nAngie’s light to help us navigate the\nwater?",//3
+        "We can give Angie a new biosensor\nusing the bioengineering. ",//4
         "This biosensor lets Angie know when\nshe is near toxic water or air.",//5
         "That means it is unsafe to live in\nand could hurt the animals in this\nenvironment.",//6
         "Let’s use our toxin biosensor and\nprogram Angie to alert us when she\nfinds polluted water!",//7
